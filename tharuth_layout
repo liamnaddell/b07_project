@@ -1,0 +1,29 @@
+Secure log-in
+    me thinks Username and Pass is best option
+    avoid verifying email for simplicity
+Venues tab
+    should see have a list all venues
+    for each venue, list of activities available
+    have a schedule button (players, start, end, venue)
+    "Request New Venue" button    
+        filter by newest added venues or alpha (ascending or descending)
+    Admin: have an additional "Add Venue" button
+        also, additionally "Delete Venue"
+    "Venue Requests" option to validate new venues
+Events tab
+    should see all events available
+    have a join button
+    Admin: filter (but I think this option should be
+        open to regular users as well)
+        -same filter options as below
+    
+My Schedule tab
+    shows all joined/scheduled events 
+    if Username matches whoever scheduled/created an event
+        "Cancel Event" button
+    also, "Leave Event" button
+    three filter options(by add date, event date, venue)
+    also, ascending or descending
+User tab
+        "Change Password"
+        "Log Out"
