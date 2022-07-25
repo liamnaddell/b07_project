@@ -1,0 +1,4 @@
+Liam:
+	setup github repo, initial commit, readme, gave access
+Tharuth:
+	created login layout
