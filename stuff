@@ -1,0 +1,20 @@
+Customers
+- register for events (optionally with others)
+- schedule events
+
+Venues
+- where events happen
+- managed by admins
+- have multiple activities
+
+Activity
+- Tennis (limit: 4)
+- Basketball (limit: 12)
+
+Admins
+- Manage activies at venues
+- Manage venues
+
+graded on:
+	user story implementation
+	ease of use (user experience)
