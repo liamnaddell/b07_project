@@ -6,13 +6,16 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 public class MockDB implements Database {
+    //somebody could probably make this better
+    //users[0] has salt salts[0], password passwords[0]
     ArrayList<String> users;
-    ArrayList<Integer>  salts;
-    ArrayList<String> passwords;
+    ArrayList<Integer> salts;
+    //password=sha256(password+salt)
+    ArrayList<String> hashes;
     public MockDB() {
         users = new ArrayList<String>();
         salts = new ArrayList<Integer>();
-        passwords = new ArrayList<String>();
+        hashes = new ArrayList<String>();
     }
     public String hash(String s) {
         MessageDigest md = null;
@@ -35,7 +38,7 @@ public class MockDB implements Database {
             int index = users.indexOf(user);
             Integer salt = salts.get(index);
             String hashed = hash_pw(password,salt);
-            if (hashed.equals(passwords.get(index))) {
+            if (hashed.equals(hashes.get(index))) {
                 return true;
             }
         }
@@ -45,7 +48,7 @@ public class MockDB implements Database {
         int salt = (int) Math.random()*100000;
         String hashed = hash_pw(password,salt);
         this.users.add(user);
-        this.passwords.add(hashed);
+        this.hashes.add(hashed);
         this.salts.add(salt);
         return;
 
