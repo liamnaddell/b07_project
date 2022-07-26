@@ -18,7 +18,12 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:parentActivityName=".LoginPage"
             android:exported="true">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginPage" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
