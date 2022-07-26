@@ -3,10 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/b07_project/app/src/main/res/drawable/pass.xml" value="0.1" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/b07_project/app/src/main/res/drawable/user.xml" value="0.1" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_login_page.xml" value="0.18" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_user.xml" value="0.2" />
       </map>
     </option>
   </component>
