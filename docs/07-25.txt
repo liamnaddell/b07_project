@@ -1,6 +1,8 @@
 Liam:
-	setup github repo, initial commit, readme, gave access
+	setup github repo, initial commit, readme, gave access, added MockDB
 Tharuth:
 	created login layout
+Minh Tran:
+	create github account, clone github repo
 Matthew:
 	made sign-in button login page take you to main page
