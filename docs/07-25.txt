@@ -2,3 +2,5 @@ Liam:
 	setup github repo, initial commit, readme, gave access
 Tharuth:
 	created login layout
+Minh Tran:
+	create github account, clone github repo
