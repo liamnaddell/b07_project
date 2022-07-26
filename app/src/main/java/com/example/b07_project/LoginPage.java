@@ -2,8 +2,10 @@ package com.example.b07_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,9 +27,16 @@ public class LoginPage extends AppCompatActivity {
             if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
                 // correct password and then send them to main app interface
                 Toast.makeText(LoginPage.this, "SUCCESSFUL LOGIN", Toast.LENGTH_SHORT).show();
+                goToMainPage(v);
             } else
                 //failed
                 Toast.makeText(LoginPage.this, "FAILED LOGIN", Toast.LENGTH_SHORT).show();
         });
     }
+    /** Called when the user clicks the Sign In button */
+    public void goToMainPage(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
 }
