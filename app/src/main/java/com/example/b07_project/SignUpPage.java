@@ -4,49 +4,48 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
-public class LoginPage extends AppCompatActivity {
+public class SignUpPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_page);
+        setContentView(R.layout.activity_sign_up_page);
         TextView username = (TextView) findViewById(R.id.username);
         TextView password = (TextView) findViewById(R.id.password);
-        MaterialButton signing = (MaterialButton) findViewById(R.id.signing);
-        MaterialButton new_user = (MaterialButton) findViewById(R.id.new_user);
+        MaterialButton register = (MaterialButton) findViewById(R.id.register);
+        MaterialButton login_link = (MaterialButton) findViewById(R.id.login_link);
 
         // using just admin for now; but need to incorporate Firebase DB
         MockDB db = new MockDB();
         db.add_user("admin","admin");
-        signing.setOnClickListener(v -> {
+        register.setOnClickListener(v -> {
             if (db.check_pw(username.getText().toString(),password.getText().toString())) {
                 // correct password and then send them to main app interface
-                Toast.makeText(LoginPage.this, "SUCCESSFUL LOGIN", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUpPage.this, "SUCCESSFUL REGISTER", Toast.LENGTH_SHORT).show();
                 goToMainPage(v);
             } else
                 //failed
-                Toast.makeText(LoginPage.this, "FAILED LOGIN", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUpPage.this, "FAILED REGISTER", Toast.LENGTH_SHORT).show();
         });
-        new_user.setOnClickListener(v -> {
-            Toast.makeText(LoginPage.this, "LOGIN PAGE", Toast.LENGTH_SHORT).show();
-            goToSignUpPage(v);
+        login_link.setOnClickListener(v -> {
+            Toast.makeText(SignUpPage.this, "LOGIN PAGE", Toast.LENGTH_SHORT).show();
+            goToLoginPage(v);
         });
+
     }
     /** Called when the user clicks the Sign In button */
     public void goToMainPage(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-    public void goToSignUpPage(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+    public void goToLoginPage(View view) {
+        Intent intent = new Intent(this, LoginPage.class);
         startActivity(intent);
     }
-
 }

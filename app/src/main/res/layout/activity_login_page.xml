@@ -86,7 +86,26 @@
         android:gravity="center"
         android:text="Forgot Password?"
         android:textColor="@color/white"
-        android:textSize="25dp"/>
+        android:textSize="20dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/new_user"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/forgot"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:onClick="goToSignUpPage"
+        android:text="New User?"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/host"
