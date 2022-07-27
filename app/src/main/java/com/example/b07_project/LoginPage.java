@@ -23,7 +23,7 @@ public class LoginPage extends AppCompatActivity {
         MaterialButton new_user = (MaterialButton) findViewById(R.id.new_user);
 
         // using just admin for now; but need to incorporate Firebase DB
-        MockDB db = new MockDB();
+        Database db = DatabaseInstance.get_instance();
         db.add_user("admin","admin",true);
         signing.setOnClickListener(v -> {
             if (db.check_pw(username.getText().toString(),password.getText().toString()) != null) {

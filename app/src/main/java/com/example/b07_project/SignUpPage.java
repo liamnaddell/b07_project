@@ -21,8 +21,7 @@ public class SignUpPage extends AppCompatActivity {
         MaterialButton register = (MaterialButton) findViewById(R.id.register);
         MaterialButton login_link = (MaterialButton) findViewById(R.id.login_link);
 
-        // using just admin for now; but need to incorporate Firebase DB
-        MockDB db = new MockDB();
+        Database db = DatabaseInstance.get_instance();
         db.add_user("admin","admin", true);
         register.setOnClickListener(v -> {
             if (db.check_pw(username.getText().toString(),password.getText().toString()) != null) {
