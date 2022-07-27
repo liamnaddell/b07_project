@@ -27,11 +27,8 @@ public class LoginPage extends AppCompatActivity {
         TextView password = (TextView) findViewById(R.id.password);
         MaterialButton signing = (MaterialButton) findViewById(R.id.signing);
         MaterialButton new_user = (MaterialButton) findViewById(R.id.new_user);
-        FirebaseAuth mAuth;
-
-        mAuth = FirebaseAuth.getInstance();
-
-        if(mAuth.getCurrentUser() != null) {
+        Database db = DatabaseInstance.get_instance();
+        if(db.logged_in() != null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
@@ -42,25 +39,21 @@ public class LoginPage extends AppCompatActivity {
             public void onClick(View v) {
                 String user = username.getText().toString().trim();
                 String pass = password.getText().toString().trim();
-                if(TextUtils.isEmpty(user)) {
+                if (TextUtils.isEmpty(user)) {
                     username.setError("Email field cannot be empty.");
                     return;
                 }
-                if(TextUtils.isEmpty(pass)) {
+                if (TextUtils.isEmpty(pass)) {
                     password.setError("Password field cannot be empty.");
                     return;
                 }
-                mAuth.signInWithEmailAndPassword(user,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
-                            Toast.makeText(LoginPage.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                            goToMainPage(v);
-                        } else {
-                            Toast.makeText(LoginPage.this, "Login Failed", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                User logged_in_user = db.login(user, pass);
+                if (logged_in_user != null) {
+                    Toast.makeText(LoginPage.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    goToMainPage(v);
+                } else {
+                    Toast.makeText(LoginPage.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         new_user.setOnClickListener(v -> {
