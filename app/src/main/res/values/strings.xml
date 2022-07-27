@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">b07_project</string>
+    <string name="back_to_last_page">X</string>
 </resources>
