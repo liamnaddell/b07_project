@@ -8,6 +8,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +24,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void event_handler(View view) {
         System.out.println("event handler");
+        Intent gotoEventPage = new Intent(this, EventPage.class);
+        startActivity(gotoEventPage);
     }
+
     public void user_handler(View view) {
         System.out.println("user handler");
     }
