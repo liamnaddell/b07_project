@@ -9,6 +9,9 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Database db = DatabaseInstance.get_instance();
+        db.add_user("admin","admin",true);
+        db.add_user("user","user",false);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }

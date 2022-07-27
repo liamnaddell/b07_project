@@ -24,10 +24,13 @@ public class MockDB implements Database {
         }
         return null;
     }
-    public void add_user(String username, String password, boolean is_admin) {
-        User user = new User(username,password,is_admin);
-        this.users.add(user);
-        return;
+    public boolean add_user(String username, String password, boolean is_admin) {
+        if (!users.contains(username)) {
+            User user = new User(username, password, is_admin);
+            this.users.add(user);
+            return true;
+        }
+        return false;
 
     }
 

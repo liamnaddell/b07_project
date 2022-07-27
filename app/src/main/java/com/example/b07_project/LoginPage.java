@@ -24,7 +24,6 @@ public class LoginPage extends AppCompatActivity {
 
         // using just admin for now; but need to incorporate Firebase DB
         Database db = DatabaseInstance.get_instance();
-        db.add_user("admin","admin",true);
         signing.setOnClickListener(v -> {
             if (db.check_pw(username.getText().toString(),password.getText().toString()) != null) {
                 // correct password and then send them to main app interface

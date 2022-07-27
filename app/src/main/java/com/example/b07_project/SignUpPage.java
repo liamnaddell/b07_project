@@ -22,10 +22,11 @@ public class SignUpPage extends AppCompatActivity {
         MaterialButton login_link = (MaterialButton) findViewById(R.id.login_link);
 
         Database db = DatabaseInstance.get_instance();
-        db.add_user("admin","admin", true);
+        String password_s=password.getText().toString();
+        String username_s=username.getText().toString();
         register.setOnClickListener(v -> {
-            if (db.check_pw(username.getText().toString(),password.getText().toString()) != null) {
-                // correct password and then send them to main app interface
+            if (db.add_user(username_s,password_s,false)) {
+
                 Toast.makeText(SignUpPage.this, "SUCCESSFUL REGISTER", Toast.LENGTH_SHORT).show();
                 goToMainPage(v);
             } else
