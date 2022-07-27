@@ -1,0 +1,10 @@
+1. As a customer, I want to sign up and log in to my account, so that I can securely access my data.
+2. As a customer, I want to see the list of venues and the sports activities available at each venue,
+so that I can schedule an event.
+3. As a customer, I want to see a list of upcoming events, so that I can join an event I like.
+4. As a customer, I should be able to see all events I scheduled or joined, so that I can keep track of
+my activities.
+5. As an admin, I want to log in to my account, so that I can securely manage venues.
+6. As an admin, I should be able to add a new venue, so that customers can schedule events at it.
+7. As an admin, I should be able to filter upcoming events by venue, so that I can make the
+necessary arrangements at that venue.
