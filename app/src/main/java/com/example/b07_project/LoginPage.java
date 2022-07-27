@@ -23,10 +23,10 @@ public class LoginPage extends AppCompatActivity {
         MaterialButton new_user = (MaterialButton) findViewById(R.id.new_user);
 
         // using just admin for now; but need to incorporate Firebase DB
-        MockDB db = new MockDB();
-        db.add_user("admin","admin");
+        Database db = DatabaseInstance.get_instance();
+        db.add_user("admin","admin",true);
         signing.setOnClickListener(v -> {
-            if (db.check_pw(username.getText().toString(),password.getText().toString())) {
+            if (db.check_pw(username.getText().toString(),password.getText().toString()) != null) {
                 // correct password and then send them to main app interface
                 Toast.makeText(LoginPage.this, "SUCCESSFUL LOGIN", Toast.LENGTH_SHORT).show();
                 goToMainPage(v);
