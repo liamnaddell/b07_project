@@ -26,14 +26,16 @@ public class Venue_page extends AppCompatActivity {
         VenueType Basketball = VenueType.BASKETBALL_COURT;
         VenueType Tennis = VenueType.TENNIS_COURT;
         VenueType Football = VenueType.FOOTBALL_FIELD;
-        Venue v1 = new Venue(Basketball,"UTSC yard"
-                ,"Behind the Alley",1);
-        Venue v2 = new Venue(Tennis,"London","Between Big Ben and Thames",
-                2);
-        Venue v3 = new Venue(Football,"Ha Noi","In Minh's yard", 3);
-        venuesList.add(v1);
-        venuesList.add(v2);
-        venuesList.add(v3);
+
+        Database db = DatabaseInstance.get_instance();
+        int v1 = db.add_venue(Basketball,"UTSC yard"
+                ,"Behind the Alley");
+        int v2 = db.add_venue(Tennis,"London","Between Big Ben and Thames");
+        int v3 = db.add_venue(Football,"Ha Noi","In Minh's yard");
+
+        venuesList.add(db.get_venue(v1));
+        venuesList.add(db.get_venue(v2));
+        venuesList.add(db.get_venue(v3));
 
         ArrayAdapter venueAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,
                 venuesList);
