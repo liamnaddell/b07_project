@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-//import com.example.b07_project.databinding.ActivityEventPageBinding;
+import com.example.b07_project.databinding.ActivityEventPageBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class EventPage extends AppCompatActivity {
     ArrayList<Event> events = new ArrayList<Event>();
     EventAdapter adapter;
 
-    //ActivityEventPageBinding binding;
+    ActivityEventPageBinding binding;
 
 
     @Override
@@ -32,8 +32,8 @@ public class EventPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_page);
 
-       // binding = ActivityEventPageBinding.inflate(getLayoutInflater());
-        //setContentView(binding.getRoot());
+        binding = ActivityEventPageBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
 
         eventView = (ListView) findViewById(R.id.event_view);
@@ -69,16 +69,16 @@ public class EventPage extends AppCompatActivity {
 
         adapter = new EventAdapter(EventPage.this, events);
 
-        //binding.eventView.setAdapter(adapter);
+        binding.eventView.setAdapter(adapter);
 
         // implement below for more clickable events
-//        binding.eventView.setClickable(true);
-//        binding.eventView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//            }
-//        };
+        binding.eventView.setClickable(true);
+        binding.eventView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                System.out.println("hi");
+            }
+        });
 
     }
 
