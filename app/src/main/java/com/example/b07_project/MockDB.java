@@ -45,8 +45,8 @@ public class MockDB implements Database {
     public int add_event(Venue v, String event_name, String event_description, int num_people) {
         int eventid = events.size();
         //fix later
-        Event e = new Event(v,num_people,event_name,event_description,eventid,0,0);
-        events.add(e);
+        //Event e = new Event(v,num_people,event_name,event_description,eventid,0,0);
+        //events.add(e);
         return eventid;
     }
     public Event get_event(int eventid) {
