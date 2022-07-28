@@ -42,11 +42,15 @@ public class MockDB implements Database {
         }
         return false;
     }
-    public int add_event(Venue v, String event_name, String event_description, int num_people) {
+
+    // For the time, convert it into string of format "yyyy-mm-dd hh-mm-ss"
+    // for example: 2021 july 27 11pm 32 min 51 second would be: "2021-07-27 23-32-51"
+    public int add_event(Venue v, String event_name, String event_description, int num_people,
+                         String event_start_time, String event_end_time) {
         int eventid = events.size();
-        //fix later
-        //Event e = new Event(v,num_people,event_name,event_description,eventid,0,0);
-        //events.add(e);
+        Event e = new Event(v,num_people,event_name,event_description,eventid,event_start_time,
+                event_end_time);
+        events.add(e);
         return eventid;
     }
     public Event get_event(int eventid) {

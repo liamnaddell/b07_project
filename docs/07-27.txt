@@ -1,0 +1,5 @@
+Matthew:
+  Created User Page with Change Password, Sign Out, and My Events
+Minh Tran
+  Create a page that contains a list of venues, containing three venues
+  Planning on building the venues page that contain all the even at that venue
