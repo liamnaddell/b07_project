@@ -3,4 +3,8 @@
     <string name="back_to_last_page">X</string>
     <string name="Venues">VENUES</string>
     <string name="X">X</string>
+    <string name="title_activity_user_page">UserPage</string>
+    <string name="tab_text_1">Change Password</string>
+    <string name="tab_text_2">My Events</string>
+    <string name="username">Insert Username Here</string>
 </resources>

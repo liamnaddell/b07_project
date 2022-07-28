@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void user_handler(View view) {
         System.out.println("user handler");
+        Intent intent = new Intent(this, UserPage.class);
+        startActivity(intent);
     }
 
 }

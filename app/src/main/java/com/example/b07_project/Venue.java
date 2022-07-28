@@ -23,6 +23,17 @@ public class Venue {
                 return -1;
         }
     }
+    String get_venue_name(){
+        return this.name;
+    }
+
+    String get_venue_description(){
+        return this.venue_description;
+    }
+
+
+
+
 }
 
 
