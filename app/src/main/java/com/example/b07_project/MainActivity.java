@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void venues_handler(View view) {
         System.out.println("venues handler");
+        Intent gotoVenuePage = new Intent(this, Venue_page.class);
+        startActivity(gotoVenuePage);
     }
     public void event_handler(View view) {
         System.out.println("event handler");
