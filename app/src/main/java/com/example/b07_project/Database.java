@@ -6,7 +6,7 @@ public interface Database {
     public boolean is_admin(String username);
     //adds user with username, password into the database, returns true if successful
     public boolean add_user(String username, String password, boolean is_admin);
-    public int add_event(Venue v, String event_name, String event_description, int num_people,
+    public int add_event(int venueid, String event_name, String event_description, int num_people,
                          String event_start_time, String event_end_time);
     public Event get_event(int eventid);
     public int add_venue(VenueType vt, String venue_name, String venue_description);
