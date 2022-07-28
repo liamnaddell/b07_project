@@ -18,7 +18,8 @@ public class Event {
         String endTime;
         String location;
 
-        public Event(String v, int num_people, String event_name, String event_description,
+
+        public Event(Venue v, int num_people, String event_name, String event_description,
                      int eventid, String startTime, String endTime) {
 
             this.id = eventid;
@@ -29,6 +30,6 @@ public class Event {
             this.designedPeople = num_people;
             this.startTime = startTime;
             this.endTime = endTime;
-            this.location = v;
+            this.location = v.get_venue_name();
         }
 }
