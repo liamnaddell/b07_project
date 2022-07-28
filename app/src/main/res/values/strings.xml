@@ -7,4 +7,7 @@
     <string name="tab_text_1">Change Password</string>
     <string name="tab_text_2">My Events</string>
     <string name="username">Insert Username Here</string>
+    <string name="VENUE_TYPE">VENUE TYPE</string>
+    <string name="LOC">LOCATION</string>
+    <string name="DES">DESCRIPTION</string>
 </resources>

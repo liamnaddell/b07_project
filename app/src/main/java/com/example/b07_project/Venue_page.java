@@ -16,17 +16,23 @@ import java.util.List;
 public class Venue_page extends AppCompatActivity {
 
     ListView venueView;
-    ArrayList<Venue> venuesList;
+    ArrayList<Venue> venuesList = new ArrayList<Venue>();
+    VenueAdapter venueAdapter;
+    ActivityVenue_pageBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_page);
 
+        binding = ActivityVenue_pageBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+
         venueView = (ListView) findViewById(R.id.venuelist );
         VenueType Basketball = VenueType.BASKETBALL_COURT;
         VenueType Tennis = VenueType.TENNIS_COURT;
         VenueType Football = VenueType.FOOTBALL_FIELD;
-
+        /*
         Database db = DatabaseInstance.get_instance();
         int v1 = db.add_venue(Basketball,"UTSC yard"
                 ,"Behind the Alley");
@@ -35,19 +41,20 @@ public class Venue_page extends AppCompatActivity {
 
         venuesList.add(db.get_venue(v1));
         venuesList.add(db.get_venue(v2));
-        venuesList.add(db.get_venue(v3));
+        venuesList.add(db.get_venue(v3));*/
 
-        ArrayAdapter venueAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,
-                venuesList);
-        venueView.setAdapter(venueAdapter);
-        /*
-        venueView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        Venue v1 = new Venue(Basketball,"UTSC","Nice",1);
+        venuesList.add(v1);
+
+        venueAdapter = new VenueAdapter(Venue_page.this, venuesList);
+
+        binding.venueView.setClickable(true);
+        binding.venueView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
-                Toast.makeText(MainActivity.this,"Clicked item: "+i+" "
-                                +venuesList.get(i),Toast.LENGTH_LONG).show() ;
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                System.out.println("hi");
             }
-        });*/
+        });
     }
 
 
