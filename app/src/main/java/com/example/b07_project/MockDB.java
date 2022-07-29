@@ -1,8 +1,5 @@
 package com.example.b07_project;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 public class MockDB implements Database {
@@ -45,10 +42,10 @@ public class MockDB implements Database {
 
     // For the time, convert it into string of format "yyyy-mm-dd hh-mm-ss"
     // for example: 2021 july 27 11pm 32 min 51 second would be: "2021-07-27 23-32-51"
-    public int add_event(Venue v, String event_name, String event_description, int num_people,
+    public int add_event(int venueid, String event_name, String event_description, int num_people,
                          String event_start_time, String event_end_time) {
         int eventid = events.size();
-        Event e = new Event(v,num_people,event_name,event_description,eventid,event_start_time,
+        Event e = new Event(get_venue(venueid),num_people,event_name,event_description,eventid,event_start_time,
                 event_end_time);
         events.add(e);
         return eventid;
@@ -57,7 +54,7 @@ public class MockDB implements Database {
     public Event get_event(int eventid) {
         return events.get(eventid);
     }
-    public int add_venue(VenueType vt, String event_name, String event_description) {
+    public int add_venue (VenueType vt, String event_name, String event_description) {
         int venueid=venues.size();
         Venue v = new Venue(vt,event_name,event_description,venueid);
         venues.add(v);
@@ -67,7 +64,7 @@ public class MockDB implements Database {
     public Venue get_venue(int venueid) {
         return venues.get(venueid);
     }
-    public void join_event(int eventid, User user) {
+    public void join_event(int eventid2, User user) {
         return;
     }
 }
