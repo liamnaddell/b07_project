@@ -1,35 +1,43 @@
 package com.example.b07_project;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class VenueAdapter extends ArrayAdapter<Venue> {
-    public VenueAdapter(Context context, ArrayList<Venue> V_list){
-        super(context, R.layout.venue_list, V_list);
+    public VenueAdapter (@NonNull Context context, ArrayList<Venue> VList){
+        super (context, R.layout.venue_list_layout,VList);
     }
+
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView (int position, @NonNull View convertView, @NonNull ViewGroup parent){
         Venue venue = getItem(position);
 
         if (convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_of_venue,parent,
-                    false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.venue_list_layout,
+                    parent, false);
         }
-        TextView V_TYPE = convertView.findViewById(R.id.V_TYPE);
-        TextView Location = convertView.findViewById(R.id.LOC);
-        TextView Des = convertView.findViewById(R.id.Loc_Description);
+        //RelativeLayout event_id = convertView.findViewById(R.id.venueID);
 
-        V_TYPE.setText(venue.type.toString());
-        Location.setText(venue.name);
-        Des.setText(venue.venue_description);
+        TextView venue_type = convertView.findViewById(R.id.VTYPE);
+        TextView venue_loc = convertView.findViewById(R.id.LOC);
+        TextView venue_des = convertView.findViewById(R.id.LDES);
+
+        venue_type.setText(venue.type.toString());
+        venue_loc.setText(venue.name);
+        venue_des.setText(venue.venue_description);
 
         return convertView;
+
     }
 }

@@ -1,34 +1,34 @@
 package com.example.b07_project;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.b07_project.databinding.ActivityVenuePageBinding;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class Venue_page extends AppCompatActivity {
+public class VenuePage extends AppCompatActivity {
 
     ListView venueView;
     ArrayList<Venue> venuesList = new ArrayList<Venue>();
     VenueAdapter venueAdapter;
-    ActivityVenue_pageBinding binding;
+    ActivityVenuePageBinding binding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_page);
+        setContentView(R.layout.activity_venue_page);
 
-        binding = ActivityVenue_pageBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
+        binding = ActivityVenuePageBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        venueView = (ListView) findViewById(R.id.venuelist );
+        venueView = (ListView) findViewById(R.id.venue_list);
+
         VenueType Basketball = VenueType.BASKETBALL_COURT;
         VenueType Tennis = VenueType.TENNIS_COURT;
         VenueType Football = VenueType.FOOTBALL_FIELD;
@@ -44,12 +44,20 @@ public class Venue_page extends AppCompatActivity {
         venuesList.add(db.get_venue(v3));*/
 
         Venue v1 = new Venue(Basketball,"UTSC","Nice",1);
+        Venue v2 = new Venue(Basketball,"Minh's House","Next to" +
+                "the Thamse",1);
+
+
         venuesList.add(v1);
+        venuesList.add(v2);
 
-        venueAdapter = new VenueAdapter(Venue_page.this, venuesList);
+        venueAdapter = new VenueAdapter(VenuePage.this, venuesList);
 
-        binding.venueView.setClickable(true);
-        binding.venueView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        binding.venueList.setAdapter(venueAdapter);
+
+        binding.venueList.setClickable(true);
+        binding.venueList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 System.out.println("hi");
