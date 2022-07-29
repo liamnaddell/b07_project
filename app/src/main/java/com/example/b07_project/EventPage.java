@@ -72,13 +72,25 @@ public class EventPage extends AppCompatActivity {
         binding.eventView.setAdapter(adapter);
 
         // implement below for more clickable events
-//        binding.eventView.setClickable(true);
-//        binding.eventView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//            }
-//        };
+        binding.eventView.setClickable(true);
+        binding.eventView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                Intent intent = new Intent(EventPage.this, EventDetailPage.class);
+
+                intent.putExtra("name", events.get(i).name);
+                intent.putExtra("location", events.get(i).location);
+                intent.putExtra("id", events.get(i).id);
+                intent.putExtra("people-attending", Integer.toString(events.get(i).whos_going.size()));
+                intent.putExtra("desired-people", Integer.toString(events.get(i).designedPeople));
+                intent.putExtra("description", events.get(i).description);
+                intent.putExtra("start-time", events.get(i).startTime);
+                intent.putExtra("end-time", events.get(i).endTime);
+
+
+                startActivity(intent);
+            }
+        });
 
     }
 
