@@ -13,6 +13,10 @@ public class MainActivity extends AppCompatActivity {
         Database db = DatabaseInstance.get_instance();
         db.add_user("admin","admin",true);
         db.add_user("user","user",false);
+        VenueType Basketball = VenueType.BASKETBALL_COURT;
+        db.add_venue(Basketball,"UTSC","Nice");
+        db.add_venue(Basketball,"Minh's House","Next to the Thamse");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }

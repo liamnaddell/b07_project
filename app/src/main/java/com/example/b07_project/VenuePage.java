@@ -29,11 +29,9 @@ public class VenuePage extends AppCompatActivity {
 
         venueView = (ListView) findViewById(R.id.venue_list);
 
-        VenueType Basketball = VenueType.BASKETBALL_COURT;
-        VenueType Tennis = VenueType.TENNIS_COURT;
-        VenueType Football = VenueType.FOOTBALL_FIELD;
-        /*
+
         Database db = DatabaseInstance.get_instance();
+        /*
         int v1 = db.add_venue(Basketball,"UTSC yard"
                 ,"Behind the Alley");
         int v2 = db.add_venue(Tennis,"London","Between Big Ben and Thames");
@@ -41,15 +39,11 @@ public class VenuePage extends AppCompatActivity {
 
         venuesList.add(db.get_venue(v1));
         venuesList.add(db.get_venue(v2));
-        venuesList.add(db.get_venue(v3));*/
+        venuesList.add(db.get_venue(v3));
+        */
 
-        Venue v1 = new Venue(Basketball,"UTSC","Nice",1);
-        Venue v2 = new Venue(Basketball,"Minh's House","Next to" +
-                "the Thamse",1);
-
-
-        venuesList.add(v1);
-        venuesList.add(v2);
+        venuesList.add(db.get_venue(0));
+        venuesList.add(db.get_venue(1));
 
         venueAdapter = new VenueAdapter(VenuePage.this, venuesList);
 
