@@ -3,18 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_change_pass.xml" value="0.4466666666666667" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_event_page.xml" value="0.43002780352177944" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_main.xml" value="0.396078431372549" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_venue_page.xml" value="0.4079382579933848" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/event_list_layout.xml" value="0.4298688193743693" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/list_of_venue.xml" value="0.536" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/venue_list.xml" value="0.26163522012578616" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/venue_list_layout.xml" value="0.26280623608017817" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_login_page.xml" value="0.11775362318840579" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_sign_up_page.xml" value="0.2015625" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_login_page.xml" value="0.1" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_user_page.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_user_page_myevents.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_users_page.xml" value="0.22" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/fragment_collection_object.xml" value="0.17447916666666666" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/fragment_user_page.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/fragment_users_page.xml" value="0.4466666666666667" />
+        <entry key="app/src/main/res/layout/activity_event_page.xml" value="0.38245219347581555" />
+        <entry key="app/src/main/res/layout/activity_events_page.xml" value="0.4550848501699942" />
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.28168945312499993" />
+        <entry key="app/src/main/res/layout/activity_sign_up_page.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_user.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/event_list_layout.xml" value="0.32894287109375" />
+        <entry key="app/src/main/res/layout/event_list_view.xml" value="0.6976684570312499" />
+        <entry key="app/src/main/res/layout/event_tab.xml" value="0.41283620198567705" />
       </map>
     </option>
   </component>
@@ -23,5 +31,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.3795654296875002" />
+      </ProjectState>
+    </option>
   </component>
 </project>
