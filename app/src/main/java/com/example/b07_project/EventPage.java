@@ -63,10 +63,6 @@ public class EventPage extends AppCompatActivity {
         events.add(e4);
         events.add(e5);
 
-//        // use default layout, simple_list_item_1, for each item, customize it later
-//        adapter = new ArrayAdapter(EventPage.this, android.R.layout.simple_list_item_1, events);
-//        eventView.setAdapter(adapter);
-
         adapter = new EventAdapter(EventPage.this, events);
 
         binding.eventView.setAdapter(adapter);
@@ -89,6 +85,7 @@ public class EventPage extends AppCompatActivity {
 
 
                 startActivity(intent);
+
             }
         });
 
