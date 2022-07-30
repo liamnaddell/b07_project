@@ -64,4 +64,9 @@ public class FirebaseDB implements Database {
     public void join_event(int eventid, User user) {
         return;
     }
+
+    @Override
+    public int add_event(int venueid, String event_name, String event_description, int num_people, String event_start_time, String event_end_time) {
+        return 0;
+    }
 }

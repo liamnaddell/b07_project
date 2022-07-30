@@ -30,20 +30,20 @@
             android:name=".SignUpPage"
             android:exported="false" />
         <activity
-            android:name=".LoginPage"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".ForgotPassword"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginPage"
             android:exported="true"
-            android:parentActivityName=".LoginPage">
+            android:parentActivityName=".SignUpPage">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LoginPage" />
+                android:value=".SignUpPage" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
