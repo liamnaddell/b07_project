@@ -50,6 +50,7 @@ public class MockDB implements Database {
         events.add(e);
         return eventid;
     }
+
     public Event get_event(int eventid) {
         return events.get(eventid);
     }

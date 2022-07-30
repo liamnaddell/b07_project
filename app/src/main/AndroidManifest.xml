@@ -25,6 +25,9 @@
             android:name=".EventPage"
             android:exported="false" />
         <activity
+            android:name=".EventDetailPage"
+            android:exported="false" />
+        <activity
             android:name=".SignUpPage"
             android:exported="false" />
         <activity
