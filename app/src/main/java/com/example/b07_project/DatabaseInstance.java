@@ -5,6 +5,11 @@ public class DatabaseInstance {
     private DatabaseInstance() {
 
     }
+    public static void set_instance(Database x) {
+        if (db == null) {
+            db=x;
+        }
+    }
     public static Database get_instance() {
         if (db == null) {
             db = new MockDB();
