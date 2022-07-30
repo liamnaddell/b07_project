@@ -6,9 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FirebaseDB fdb = new FirebaseDB();
+        DatabaseInstance.set_instance(fdb);
         Database db = DatabaseInstance.get_instance();
         VenueType Basketball = VenueType.BASKETBALL_COURT;
         db.add_venue(Basketball,"UTSC","Nice");
@@ -37,8 +41,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void login_handler(View view) {
         System.out.println("login handler");
+        FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(this, LoginPage.class);
         startActivity(intent);
+        finish();
     }
     public void venues_handler(View view) {
         System.out.println("venues handler");

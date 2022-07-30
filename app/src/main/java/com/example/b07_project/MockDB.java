@@ -13,12 +13,21 @@ public class MockDB implements Database {
         events = new ArrayList<Event>();
         venues = new ArrayList<Venue>();
     }
-    public User check_pw(String username,String password) {
+    public User login(String username,String password) {
         for (User user: users) {
             if (user.username.equals( username) && user.password.equals(password)) {
                 return user;
             }
         }
+        return null;
+    }
+
+    @Override
+    public User logged_in() {
+        return null;
+    }
+
+    public User get_current_user() {
         return null;
     }
     public boolean add_user(String username, String password, boolean is_admin) {
