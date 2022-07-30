@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">b07_project</string>
-    <string name="back_to_last_page">X</string>
     <string name="title_activity_user_page">UserPage</string>
     <string name="tab_text_1">Change Password</string>
     <string name="tab_text_2">My Events</string>
     <string name="username">Insert Username Here</string>
+    <string name="X">X</string>
+    <string name="Venue">Venue</string>
+    <string name="V_TYPE">VENUE TYPE</string>
+    <string name="LOC">LOCATION</string>
+    <string name="LOC_DES">LOCATION DESCRIPTION</string>
+
 </resources>

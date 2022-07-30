@@ -1,0 +1,7 @@
+liam:
+	approved PR's, worked on MockDB
+Minh Tran:
+	Finish designing the Venue layout, bind activity_Venue_Layout to Layout_list
+	Test adding and displaying venues on venue layout
+Matthew:
+	updated change password layout on users page, started working on coding methods for user's my events

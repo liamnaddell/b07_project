@@ -10,6 +10,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Database db = DatabaseInstance.get_instance();
+        VenueType Basketball = VenueType.BASKETBALL_COURT;
+        db.add_venue(Basketball,"UTSC","Nice");
+        db.add_venue(Basketball,"Minh's House","Next to the Thamse");
         db.add_user("admin", "admin", true);
         db.add_user("user", "user", false);
         // hard code in list until server is ready
@@ -29,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
                 "swallow kids and try not to choke", 5, "1am Sept 22",
                 "10am Sept 22");
 
-            /*public int add_event(Venue v, String event_name, String event_description, int num_people,
-            String event_start_time, String event_end_time);*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
@@ -41,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void venues_handler(View view) {
         System.out.println("venues handler");
-
+        Intent gotoVenuePage = new Intent(this, VenuePage.class);
+        startActivity(gotoVenuePage);
     }
     public void event_handler(View view) {
         System.out.println("event handler");

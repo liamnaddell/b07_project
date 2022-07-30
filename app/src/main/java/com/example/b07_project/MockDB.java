@@ -1,8 +1,5 @@
 package com.example.b07_project;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 public class MockDB implements Database {
@@ -57,7 +54,7 @@ public class MockDB implements Database {
     public Event get_event(int eventid) {
         return events.get(eventid);
     }
-    public int add_venue(VenueType vt, String event_name, String event_description) {
+    public int add_venue (VenueType vt, String event_name, String event_description) {
         int venueid=venues.size();
         Venue v = new Venue(vt,event_name,event_description,venueid);
         venues.add(v);
@@ -67,7 +64,7 @@ public class MockDB implements Database {
     public Venue get_venue(int venueid) {
         return venues.get(venueid);
     }
-    public void join_event(int eventid, User user) {
+    public void join_event(int eventid2, User user) {
         return;
     }
 }
