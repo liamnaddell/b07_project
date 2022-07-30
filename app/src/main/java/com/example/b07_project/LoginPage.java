@@ -31,6 +31,8 @@ public class LoginPage extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        MaterialButton forgot = (MaterialButton) findViewById(R.id.new_user);
+
         if(mAuth.getCurrentUser() != null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
@@ -67,7 +69,12 @@ public class LoginPage extends AppCompatActivity {
             Toast.makeText(LoginPage.this, "LOGIN PAGE", Toast.LENGTH_SHORT).show();
             goToSignUpPage(v);
         });
+        forgot.setOnClickListener(v -> {
+            Toast.makeText(LoginPage.this, "FORGOT PASSWORD PAGE", Toast.LENGTH_SHORT).show();
+            goToForgotPasswordPage(v);
+        });
     }
+
     /** Called when the user clicks the Sign In button */
     public void goToMainPage(View view) {
         Intent intent = new Intent(this, MainActivity.class);
@@ -77,5 +84,8 @@ public class LoginPage extends AppCompatActivity {
         Intent intent = new Intent(this, SignUpPage.class);
         startActivity(intent);
     }
-
+    public void goToForgotPasswordPage(View view) {
+        Intent intent = new Intent(this, ForgotPassword.class);
+        startActivity(intent);
+    }
 }
