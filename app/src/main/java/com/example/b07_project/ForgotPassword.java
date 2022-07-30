@@ -22,16 +22,15 @@ public class ForgotPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
         TextView email = (TextView) findViewById(R.id.email);
-        MaterialButton log_in = (MaterialButton) findViewById(R.id.new_user);
-        MaterialButton send_confirmation = (MaterialButton) findViewById(R.id.new_user);
+        MaterialButton send = (MaterialButton) findViewById(R.id.send);
+        MaterialButton login = (MaterialButton) findViewById(R.id.login);
         FirebaseAuth f;
-
-        log_in.setOnClickListener(v -> {
+        f = FirebaseAuth.getInstance();
+        login.setOnClickListener(v -> {
             Toast.makeText(ForgotPassword.this, "LOGIN PAGE", Toast.LENGTH_SHORT).show();
             goToLogInPage(v);
         });
-        f = FirebaseAuth.getInstance();
-        send_confirmation.setOnClickListener(new View.OnClickListener() {
+        send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String mail = email.getText().toString().trim();
@@ -44,6 +43,7 @@ public class ForgotPassword extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()) {
                             Toast.makeText(ForgotPassword.this, "Password Reset Email Sent", Toast.LENGTH_SHORT).show();
+                            goToLogInPage(v);
                         }
                         else {
                             Toast.makeText(ForgotPassword.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -55,11 +55,6 @@ public class ForgotPassword extends AppCompatActivity {
     }
     public void goToLogInPage(View view) {
         Intent intent = new Intent(this, LoginPage.class);
-        startActivity(intent);
-    }
-
-    public void stay(View view) {
-        Intent intent = new Intent(this, ForgotPassword.class);
         startActivity(intent);
     }
 }

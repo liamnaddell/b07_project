@@ -26,12 +26,11 @@ public class LoginPage extends AppCompatActivity {
         TextView username = (TextView) findViewById(R.id.username);
         TextView password = (TextView) findViewById(R.id.password);
         MaterialButton signing = (MaterialButton) findViewById(R.id.signing);
+        MaterialButton password_reset = (MaterialButton) findViewById(R.id.password_reset);
         MaterialButton new_user = (MaterialButton) findViewById(R.id.new_user);
         FirebaseAuth mAuth;
 
         mAuth = FirebaseAuth.getInstance();
-
-        MaterialButton forgot = (MaterialButton) findViewById(R.id.new_user);
 
         if(mAuth.getCurrentUser() != null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -65,13 +64,13 @@ public class LoginPage extends AppCompatActivity {
                 });
             }
         });
+        password_reset.setOnClickListener(v -> {
+            Toast.makeText(LoginPage.this, "FORGOT PASSWORD PAGE", Toast.LENGTH_SHORT).show();
+            goToForgotPasswordPage(v);
+        });
         new_user.setOnClickListener(v -> {
             Toast.makeText(LoginPage.this, "LOGIN PAGE", Toast.LENGTH_SHORT).show();
             goToSignUpPage(v);
-        });
-        forgot.setOnClickListener(v -> {
-            Toast.makeText(LoginPage.this, "FORGOT PASSWORD PAGE", Toast.LENGTH_SHORT).show();
-            goToForgotPasswordPage(v);
         });
     }
 
@@ -80,12 +79,12 @@ public class LoginPage extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-    public void goToSignUpPage(View view) {
-        Intent intent = new Intent(this, SignUpPage.class);
-        startActivity(intent);
-    }
     public void goToForgotPasswordPage(View view) {
         Intent intent = new Intent(this, ForgotPassword.class);
+        startActivity(intent);
+    }
+    public void goToSignUpPage(View view) {
+        Intent intent = new Intent(this, SignUpPage.class);
         startActivity(intent);
     }
 }
