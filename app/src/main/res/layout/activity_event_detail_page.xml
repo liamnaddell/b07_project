@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/detail_current_participants2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spots avaliable"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/detail_event_designed_people"
+        app:layout_constraintStart_toStartOf="@+id/detail_event_start_time"
+        app:layout_constraintTop_toBottomOf="@+id/detail_event_start_time"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/detail_event_name"
+        android:layout_width="287dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="28dp"
+        android:text="Event Name"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/detail_event_description"
+        android:layout_width="286dp"
+        android:layout_height="wrap_content"
+        android:text="Event Description"
+        app:layout_constraintEnd_toEndOf="@+id/detail_event_name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/detail_event_location"
+        android:layout_width="286dp"
+        android:layout_height="wrap_content"
+        android:text="location"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/detail_event_description"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/detail_event_start_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="event start time"
+        app:layout_constraintStart_toStartOf="@+id/detail_event_location"
+        app:layout_constraintTop_toBottomOf="@+id/detail_event_location" />
+
+    <TextView
+        android:id="@+id/detail_event_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="event end time"
+        app:layout_constraintBottom_toBottomOf="@+id/line"
+        app:layout_constraintStart_toEndOf="@+id/line"
+        app:layout_constraintTop_toTopOf="@+id/line"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="@+id/detail_event_start_time"
+        app:layout_constraintStart_toEndOf="@+id/detail_event_start_time"
+        app:layout_constraintTop_toTopOf="@+id/detail_event_start_time"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/detail_current_participants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="people registered"
+        app:layout_constraintBottom_toBottomOf="@+id/detail_event_designed_people"
+        app:layout_constraintEnd_toStartOf="@+id/slash"
+        app:layout_constraintTop_toTopOf="@+id/slash"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/slash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        app:layout_constraintBottom_toBottomOf="@+id/detail_event_designed_people"
+        app:layout_constraintEnd_toStartOf="@+id/detail_event_designed_people"
+        app:layout_constraintTop_toTopOf="@+id/detail_event_designed_people" />
+
+    <TextView
+        android:id="@+id/detail_event_designed_people"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="max people"
+        app:layout_constraintEnd_toEndOf="@+id/detail_event_location"
+        app:layout_constraintTop_toBottomOf="@+id/detail_event_end_time" />
+
+    <Button
+        android:id="@+id/detail_register_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="208dp"
+        android:text="register"
+        app:layout_constraintEnd_toEndOf="@+id/detail_event_designed_people"
+        app:layout_constraintStart_toEndOf="@+id/slash"
+        app:layout_constraintTop_toBottomOf="@+id/detail_event_designed_people" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Description"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/detail_event_name"
+        app:layout_constraintTop_toBottomOf="@+id/detail_event_name" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Location and Time"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/detail_event_description"
+        app:layout_constraintTop_toBottomOf="@+id/detail_event_description" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
