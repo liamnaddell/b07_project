@@ -22,7 +22,7 @@ public class SignUpPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page);
-        TextView username = (TextView) findViewById(R.id.username);
+        TextView username = (TextView) findViewById(R.id.my_settings);
         TextView password = (TextView) findViewById(R.id.password);
         MaterialButton register = (MaterialButton) findViewById(R.id.register);
         MaterialButton login_link = (MaterialButton) findViewById(R.id.login_link);

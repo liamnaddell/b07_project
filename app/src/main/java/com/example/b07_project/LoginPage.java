@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +22,7 @@ public class LoginPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
-        TextView username = (TextView) findViewById(R.id.username);
+        TextView username = (TextView) findViewById(R.id.my_settings);
         TextView password = (TextView) findViewById(R.id.password);
         MaterialButton signing = (MaterialButton) findViewById(R.id.signing);
         MaterialButton password_reset = (MaterialButton) findViewById(R.id.password_reset);
