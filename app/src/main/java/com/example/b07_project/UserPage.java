@@ -40,4 +40,10 @@ public class UserPage extends AppCompatActivity {
         Intent intent = new Intent(this, LoginPage.class);
         startActivity(intent);
     }
+
+    public void back_handler(View view) {
+        System.out.println("back handler");
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }
