@@ -5,3 +5,7 @@ Minh Tran
   Planning on building the venues page that contain all the even at that venue
 Liam Naddell:
   Merged PR's and worked on MockDB/Database interface
+Zusheng:
+  Fixed compatibility issue between mockDataBase and eventPage,
+  added specification for time related paramter used to create event
+

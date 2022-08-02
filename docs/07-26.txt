@@ -4,3 +4,5 @@ Minh Tran:
 	Start working on creating Venue layout and Venue Class
 Matthew:
 	Began setting up Users Page Layout with tabbed function.
+Zusheng:
+    finished basic function of EventPage, create Event class, completed eventAdapter, and its layout
