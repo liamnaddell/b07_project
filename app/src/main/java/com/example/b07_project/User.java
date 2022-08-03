@@ -5,6 +5,7 @@ public class User {
     String password;
     boolean is_admin;
 
+
     public User(String username, String password, boolean is_admin) {
         this.username = username;
         this.password = password;
