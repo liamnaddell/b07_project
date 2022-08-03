@@ -8,6 +8,8 @@ public class MockDB implements Database {
     ArrayList<User> users;
     ArrayList<Event> events;
     ArrayList<Venue> venues;
+    ArrayList<Event> userRegisteredEvents;
+
     public MockDB() {
         users = new ArrayList<User>();
         events = new ArrayList<Event>();
@@ -74,7 +76,19 @@ public class MockDB implements Database {
         return venues.get(venueid);
     }
     public void join_event(int eventid2, User user) {
-        return;
+        events.get(eventid2).addUserToEvent(user);
+    }
+
+    // return an ArrayList of events that is registered by the user
+    public ArrayList<Event> getUserRegisteredEvents(User user){
+
+        userRegisteredEvents = new ArrayList<Event>();
+        for (Event event: events){
+            if (event.isUserRegistered(user)) {
+                userRegisteredEvents.add(event);
+            }
+        }
+        return userRegisteredEvents;
     }
 }
 
