@@ -1,3 +1,5 @@
 We conducted a meeting with ALL group members,where we set up jira, what needed to get done, set our sprints up, and assigned tasks.
 Matthew:
   worked on creating UI for My Events page
+Minh Tran
+  planning on creating a new layout connected to the venue so that users can register their events in that venue
