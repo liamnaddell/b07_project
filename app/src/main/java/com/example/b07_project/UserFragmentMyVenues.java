@@ -34,4 +34,5 @@ public class UserFragmentMyVenues extends Fragment {
 
         return view;
     }
+
 }
