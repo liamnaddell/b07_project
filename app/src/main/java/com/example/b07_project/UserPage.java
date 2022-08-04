@@ -61,6 +61,18 @@ public class UserPage extends AppCompatActivity {
 
                                 System.out.println("Spinner item selected: "+xs[(int) item_id]);
 
+                                VenueType []vts = {VenueType.BASKETBALL_COURT,VenueType.TENNIS_COURT};
+                                VenueType vt =  vts[(int) item_id];
+
+                                System.out.println("Adding venue with type: "+vt);
+
+                                String venue_name = venue_name_w.getText().toString();
+                                String venue_description = venue_description_w.getText().toString();
+
+                                System.out.println("With name: "+venue_name);
+                                System.out.println("With description: "+venue_description);
+
+
                             }
                         });
                     }
