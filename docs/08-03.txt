@@ -1,3 +1,6 @@
 Minh Tran
     Continue designing venue based event register layout
     Trouble: Having difficulties in check the availability of the venue at the user's selected time slot
+Matthew
+    Committed UI for My Events page on User Tab
+    In Process: checking whether it displays user's events they registered in 
