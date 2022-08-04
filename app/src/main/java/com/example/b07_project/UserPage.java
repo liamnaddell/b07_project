@@ -1,5 +1,6 @@
 package com.example.b07_project;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,7 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.MultiAutoCompleteTextView;
+import android.widget.Spinner;
 
 import com.example.b07_project.ui.main.SectionsPagerAdapter;
 import com.example.b07_project.databinding.ActivityUserPageBinding;
@@ -42,8 +46,21 @@ public class UserPage extends AppCompatActivity {
                     Button b = (Button) findViewById(R.id.add_venue_submit);
                     if (b != null) {
                         b.setOnClickListener(new View.OnClickListener() {
-                            public void onClick(View v) {
-                                System.out.println("clicky click click clicky clik");
+                            public void onClick(View buttonview) {
+                                System.out.println("Add Venue clicked");
+                                View v = (View) buttonview.getParent();
+                                Spinner spinner_w = (Spinner) v.findViewById(R.id.venue_type_spinner);
+                                AutoCompleteTextView venue_name_w = v.findViewById(R.id.add_venue_name);
+                                MultiAutoCompleteTextView venue_description_w = v.findViewById(R.id.add_venue_description);
+
+                                long item_id = spinner_w.getSelectedItemId();
+
+                                System.out.println("spinner item id: "+item_id);
+
+                                String []xs = tab.parent.getResources().getStringArray(R.array.venue_types);
+
+                                System.out.println("Spinner item selected: "+xs[(int) item_id]);
+
                             }
                         });
                     }
@@ -63,7 +80,8 @@ public class UserPage extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
 
     }
-
+    public void addVenuesOnClick(View v) {
+    }
     public void signout_handler(View view) {
         System.out.println("signout handler");
         Intent intent = new Intent(this, LoginPage.class);
