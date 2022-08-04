@@ -1,13 +1,11 @@
 package com.example.b07_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.example.b07_project.databinding.ActivityVenuePageBinding;
 
 import java.util.ArrayList;
@@ -15,12 +13,12 @@ import java.util.ArrayList;
 public class VenuePage extends AppCompatActivity {
 
     ListView venueView;
-    ArrayList<Venue> venuesList = new ArrayList<Venue>();
+    ArrayList<Venue> venuesList = new ArrayList<>();
     VenueAdapter venueAdapter;
     ActivityVenuePageBinding binding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_venue_page);
 
@@ -31,19 +29,9 @@ public class VenuePage extends AppCompatActivity {
 
 
         Database db = DatabaseInstance.get_instance();
-        /*
-        int v1 = db.add_venue(Basketball,"UTSC yard"
-                ,"Behind the Alley");
-        int v2 = db.add_venue(Tennis,"London","Between Big Ben and Thames");
-        int v3 = db.add_venue(Football,"Ha Noi","In Minh's yard");
-
-        venuesList.add(db.get_venue(v1));
-        venuesList.add(db.get_venue(v2));
-        venuesList.add(db.get_venue(v3));
-        */
 
         venuesList.add(db.get_venue(0));
-        venuesList.add(db.get_venue(1));
+        venuesList.add(db.get_venue(2));
 
         venueAdapter = new VenueAdapter(VenuePage.this, venuesList);
 
@@ -53,8 +41,11 @@ public class VenuePage extends AppCompatActivity {
         binding.venueList.setClickable(true);
         binding.venueList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                System.out.println("hi");
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                //VenueType v = db.get_venue(venuesList.get(position).venueid).type;
+                Intent intent = new Intent(VenuePage.this, VenueSchedule.class);
+                startActivity(intent);
+                
             }
         });
     }

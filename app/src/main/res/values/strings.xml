@@ -9,5 +9,5 @@
     <string name="V_TYPE">VENUE TYPE</string>
     <string name="LOC">LOCATION</string>
     <string name="LOC_DES">LOCATION DESCRIPTION</string>
-
+    <string name = "select">Select Item</string>
 </resources>
