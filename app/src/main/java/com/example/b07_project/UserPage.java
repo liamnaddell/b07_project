@@ -72,7 +72,8 @@ public class UserPage extends AppCompatActivity {
                                 System.out.println("With name: "+venue_name);
                                 System.out.println("With description: "+venue_description);
 
-
+                                Database db = DatabaseInstance.get_instance();
+                                db.add_venue(vt,venue_name,venue_description);
                             }
                         });
                     }
