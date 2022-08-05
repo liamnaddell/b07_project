@@ -6,3 +6,5 @@ Minh Tran:
 	create github account, clone github repo
 Matthew:
 	made sign-in button login page take you to main page
+Zusheng:
+    clone github repo

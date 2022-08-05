@@ -5,3 +5,5 @@ Minh Tran:
 	Test adding and displaying venues on venue layout
 Matthew:
 	updated change password layout on users page, started working on coding methods for user's my events
+Zusheng:
+    Finished detailPage and its corresponding layout

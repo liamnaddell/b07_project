@@ -1,5 +1,6 @@
 Minh Tran
-     Integrating Firebase database into the
- venue page
+     Integrating Firebase database into the venue page
+Zusheng:
+    merged EventDetailPage into master
 Matthew
      no status updates from me

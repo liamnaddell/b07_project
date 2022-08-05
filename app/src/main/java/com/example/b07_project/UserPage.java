@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.b07_project.ui.main.SectionsPagerAdapter;
 import com.example.b07_project.databinding.ActivityUserPageBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class UserPage extends AppCompatActivity {
 
@@ -101,6 +102,10 @@ public class UserPage extends AppCompatActivity {
     }
     public void signout_handler(View view) {
         System.out.println("signout handler");
+        //uses Firebase authentication cuz i can't seem to get it to work without since
+        //current login page relies on Firebase i think
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
         Intent intent = new Intent(this, LoginPage.class);
         startActivity(intent);
     }
