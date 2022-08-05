@@ -12,9 +12,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Database db = DatabaseInstance.get_instance();
-        VenueType Basketball = VenueType.BASKETBALL_COURT;
-        db.add_venue(Basketball,"UTSC","Nice");
-        db.add_venue(Basketball,"Minh's House","Next to the Thamse");
+        //VenueType Basketball = VenueType.BASKETBALL_COURT;
+        //db.add_venue(Basketball,"UTSC","Nice");
+        //db.add_venue(Basketball,"Minh's House","Next to the Thamse");
         db.add_user("admin", "admin", true);
         db.add_user("user", "user", false);
         // hard code in list until server is ready

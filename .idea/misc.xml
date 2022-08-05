@@ -11,6 +11,7 @@
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_user_page.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_user_page_changepass.xml" value="0.22" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_user_page_myevents.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_user_page_myvenues.xml" value="0.2915980230642504" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_users_page.xml" value="0.22" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/fragment_collection_object.xml" value="0.17447916666666666" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/fragment_user_page.xml" value="0.17552083333333332" />
@@ -18,7 +19,6 @@
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_user.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/activity_user_page_myvenues.xml" value="0.5" />
       </map>
     </option>
   </component>
