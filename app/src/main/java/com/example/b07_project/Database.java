@@ -1,14 +1,18 @@
 package com.example.b07_project;
 
+import java.util.ArrayList;
+
 public interface Database {
     //checks that a user with username and password password exists in the database
     public User login(String username, String password);
     public User logged_in();
     public boolean is_admin(String username);
+    public User get_current_user(String username, String password, boolean is_admin);
     //adds user with username, password into the database, returns true if successful
     public boolean add_user(String username, String password, boolean is_admin);
     public int add_event(int venueid, String event_name, String event_description, int num_people,
                          String event_start_time, String event_end_time);
+    public ArrayList<Event> getUserRegisteredEvents(User user);
     public Event get_event(int eventid);
     public int add_venue(VenueType vt, String venue_name, String venue_description);
     public Venue get_venue(int venueid);
