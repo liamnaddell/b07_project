@@ -52,9 +52,9 @@ public class MockDB implements Database {
     }
 
     @Override
-    public User get_current_user(String username, String password, boolean is_admin) {
+    public User find_user_by_name(String username) {
         for(User u : users){
-            if(u.username.equals(username) && u.password.equals((password))&& u.is_admin == is_admin){
+            if(u.username.equals(username)){
                 return u;
             }
         }

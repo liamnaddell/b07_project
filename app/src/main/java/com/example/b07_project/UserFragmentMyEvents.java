@@ -24,7 +24,7 @@ public class UserFragmentMyEvents extends Fragment {
         Database db = DatabaseInstance.get_instance();
         //my_events should contain the events that the user has joined
         //currently hardcoded using data from mockDB waiting for Firebase to get started
-        User temp = db.get_current_user("admin", "admin", true);
+        User temp = db.find_user_by_name("admin");
         db.get_event(0).addUserToEvent(temp);
         db.get_event(1).addUserToEvent(temp);
         //db.get_event(2).addUserToEvent(temp);
