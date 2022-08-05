@@ -9,6 +9,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class FirebaseDB implements Database {
@@ -45,6 +46,12 @@ public class FirebaseDB implements Database {
     public boolean is_admin(String username) {
         return false;
     }
+
+    @Override
+    public User find_user_by_name(String username) {
+        return null;
+    }
+
     //adds user with username, password into the database, returns true if successful
     public boolean add_user(String username, String password, boolean is_admin) {
         return false;
@@ -70,6 +77,11 @@ public class FirebaseDB implements Database {
         return 0;
     }
     public Venue[] all_venues() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Event> getUserRegisteredEvents(User user) {
         return null;
     }
 }
