@@ -16,8 +16,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.b07_project.ui.main.SectionsPagerAdapter;
 import com.example.b07_project.databinding.ActivityUserPageBinding;
@@ -50,8 +52,8 @@ public class UserPage extends AppCompatActivity {
                                 System.out.println("Add Venue clicked");
                                 View v = (View) buttonview.getParent();
                                 Spinner spinner_w = (Spinner) v.findViewById(R.id.venue_type_spinner);
-                                AutoCompleteTextView venue_name_w = v.findViewById(R.id.add_venue_name);
-                                MultiAutoCompleteTextView venue_description_w = v.findViewById(R.id.add_venue_description);
+                                EditText venue_name_w = v.findViewById(R.id.add_venue_name);
+                                EditText venue_description_w = v.findViewById(R.id.add_venue_description);
 
                                 long item_id = spinner_w.getSelectedItemId();
 
@@ -74,6 +76,8 @@ public class UserPage extends AppCompatActivity {
 
                                 Database db = DatabaseInstance.get_instance();
                                 db.add_venue(vt,venue_name,venue_description);
+                                Toast.makeText(UserPage.this, "Venue Added", Toast.LENGTH_SHORT).show();
+                                tabs.getTabAt(0).select();
                             }
                         });
                     }
