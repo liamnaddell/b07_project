@@ -1,0 +1,4 @@
+Everybody: Had a stand-up meeting with Aryan where we demo'd the application
+Liam:
+    Wrote a UI for "Add Venues"
+    Approved Matthew's PR

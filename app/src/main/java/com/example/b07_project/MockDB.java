@@ -8,6 +8,8 @@ public class MockDB implements Database {
     ArrayList<User> users;
     ArrayList<Event> events;
     ArrayList<Venue> venues;
+    ArrayList<Event> userRegisteredEvents;
+
     public MockDB() {
         users = new ArrayList<User>();
         events = new ArrayList<Event>();
@@ -49,6 +51,16 @@ public class MockDB implements Database {
         return false;
     }
 
+    @Override
+    public User find_user_by_name(String username) {
+        for(User u : users){
+            if(u.username.equals(username)){
+                return u;
+            }
+        }
+        return null;
+    }
+
     // For the time, convert it into string of format "yyyy-mm-dd hh-mm-ss"
     // for example: 2021 july 27 11pm 32 min 51 second would be: "2021-07-27 23-32-51"
     public int add_event(int venueid, String event_name, String event_description, int num_people,
@@ -75,7 +87,19 @@ public class MockDB implements Database {
     }
 
     public void join_event(int eventid2, User user) {
-        return;
+        events.get(eventid2).addUserToEvent(user);
+    }
+
+    // return an ArrayList of events that is registered by the user
+    public ArrayList<Event> getUserRegisteredEvents(User user){
+
+        userRegisteredEvents = new ArrayList<Event>();
+        for (Event event: events){
+            if (event.isUserRegistered(user)) {
+                userRegisteredEvents.add(event);
+            }
+        }
+        return userRegisteredEvents;
     }
 }
 
