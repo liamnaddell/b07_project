@@ -1,5 +1,13 @@
 liam:
     Added user "Add Venues" page
-
+    Migrated database to use TimeSlots + durations
+    Approved matthew changes
+    Approved Minh's changes
+    Firestore integration progress
+Minh Tran
+    Fix the venue based event register implementation according to the new time format
+    Fix crash bugs in the venue page due to outdated database 
+Matthew:
+    deleted login button on main page; made/checked that login was landing page
 Zusheng:
     worked on firestore

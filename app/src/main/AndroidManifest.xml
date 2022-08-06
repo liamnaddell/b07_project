@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.b07_project">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.B07_project"
         tools:targetApi="31">
+        <activity
+            android:name=".VenueSchedule"
+            android:exported="false" />
         <activity
             android:name=".VenuePage"
             android:exported="false" />
@@ -47,10 +50,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SignUpPage" />
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

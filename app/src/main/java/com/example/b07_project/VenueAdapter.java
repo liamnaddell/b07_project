@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,18 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
         venue_type.setText(venue.type.toString());
         venue_loc.setText(venue.name);
         venue_des.setText(venue.venue_description);
+
+        int i = 1;
+        Button delete = convertView.findViewById(R.id.Del);
+        //Check to see if user is admin or normal user
+        if ( i == 2) {
+            delete.setVisibility(View.INVISIBLE);
+        }else {
+            delete.setVisibility(View.VISIBLE);
+        }
+
+
+
 
         return convertView;
 

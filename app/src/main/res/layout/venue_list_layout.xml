@@ -10,13 +10,14 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="178dp"
+            android:layout_width="match_parent"
+            android:layout_height="226dp"
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/Event"
                 android:layout_width="match_parent"
-                android:layout_height="174dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
@@ -27,7 +28,8 @@
                     android:layout_marginTop="39dp"
                     android:text="@string/V_TYPE"
                     android:textColor="#000000"
-                    android:textSize="34sp" />
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/LOC"
@@ -45,13 +47,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="-73dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
                     android:text="@string/LOC_DES"
                     android:textColor="#020000"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:textStyle="italic" />
+
+                <Button
+                    android:id="@+id/Del"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/Delete"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
             </LinearLayout>
+
         </LinearLayout>
 
     </RelativeLayout>

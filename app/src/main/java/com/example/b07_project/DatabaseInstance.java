@@ -24,17 +24,17 @@ public class DatabaseInstance {
             int v2 = db.add_venue(VenueType.BASKETBALL_COURT,"1234 Military Trail","toronto basketball court");
 
             db.add_event(v1,"tennis", "play tennis",
-                    2, "5pm July 31", "10pm July 31");
-            db.add_event(v1,"tennis alejandro", "play tennis w/ alejandro", 1, "5pm","6pm");
+                    2, new TimeSlot(34), 10);
+            db.add_event(v1,"tennis alejandro", "play tennis w/ alejandro", 1, new TimeSlot(34),2);
             db.add_event(v1, "random guy concert",
-                    "concert of a random guy", 3, "1am Aug 21",
-                    "10am Aug 21");
+                    "concert of a random guy", 3, new TimeSlot(2),
+                    2);
             db.add_event(v2, "weed smoking contest",
-                    "smoke week and have fun", 4, "1am Dec 22",
-                    "10am Dec 22");
+                    "smoke week and have fun", 4, new TimeSlot(0),
+                    10);
             db.add_event(v2, "swallow kids event",
-                    "swallow kids and try not to choke", 5, "1am Sept 22",
-                    "10am Sept 22");
+                    "swallow kids and try not to choke", 5, new TimeSlot(6),
+                    5);
         }
         return db;
     }

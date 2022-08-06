@@ -10,9 +10,13 @@
     <string name="V_TYPE">VENUE TYPE</string>
     <string name="LOC">LOCATION</string>
     <string name="LOC_DES">LOCATION DESCRIPTION</string>
+    <string name = "select">Select Item</string>
     <string name="add_venue_s">Add a New Venue</string>
     <string-array name="venue_types">
         <item>Basketball Court</item>
         <item>Tennis Court</item>
     </string-array>
+    <string name="Start_time">Choose an Available start time</string>
+    <string name="Delete">Delete</string>
 </resources>
+
