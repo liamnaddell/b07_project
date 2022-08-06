@@ -69,16 +69,20 @@ public class UserPage extends AppCompatActivity {
 
                                 System.out.println("Adding venue with type: "+vt);
 
-                                String venue_name = venue_name_w.getText().toString();
-                                String venue_description = venue_description_w.getText().toString();
+                                String venue_name = venue_name_w.getText().toString().trim();
+                                String venue_description = venue_description_w.getText().toString().trim();
 
-                                System.out.println("With name: "+venue_name);
-                                System.out.println("With description: "+venue_description);
+                                if (venue_name.equals("") || venue_description.equals("")) {
+                                    Toast.makeText(UserPage.this, "Not Added", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    System.out.println("With name: \"" + venue_name+"\"");
+                                    System.out.println("With description: \"" + venue_description+"\"");
 
-                                Database db = DatabaseInstance.get_instance();
-                                db.add_venue(vt,venue_name,venue_description);
-                                Toast.makeText(UserPage.this, "Venue Added", Toast.LENGTH_SHORT).show();
-                                tabs.getTabAt(0).select();
+                                    Database db = DatabaseInstance.get_instance();
+                                    db.add_venue(vt, venue_name, venue_description);
+                                    Toast.makeText(UserPage.this, "Venue Added", Toast.LENGTH_SHORT).show();
+                                    tabs.getTabAt(0).select();
+                                }
                             }
                         });
                     }
