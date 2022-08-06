@@ -13,6 +13,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -166,12 +167,73 @@ public class FirebaseDB implements Database {
     public Event get_event(int eventid) {
         return null;
     }
-    public int add_venue(VenueType vt, String venue_name, String venue_description) {
-        return 0;
+
+    // add venue to database, return 1 if success, 0 otherwise
+    public int add_venue(VenueType vt, String venue_name, String venue_description, int venue_id) {
+
+        final int[] suc = {0};
+        //Venue v = new Venue(username, password, is_admin);
+        Map<String, Object> venue_info = new HashMap<>();
+
+        venue_info.put("name", venue_name);
+        venue_info.put("type", vt);
+        venue_info.put("description", venue_description);
+
+        firestore.collection("venues")
+                .document(Integer.toString(venue_id))
+                .set(venue_info)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()){
+                            suc[0] = 1;
+                        }
+                    }
+                });
+
+        if (suc[0] == 1){
+            return suc[0];
+        }
+        return suc[1];
     }
+
+    // return venue by id
     public Venue get_venue(int venueid) {
+        DocumentReference docRef = firestore.collection("venues").document(Integer.toString(venueid));
+        final String[] name = new String[1];
+        final String[] description = new String[1];
+        final VenueType[] type = new VenueType[1];
+        final Boolean[] suc = new Boolean[1];
+        suc[0] = false;
+
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d("get_venue", "DocumentSnapshot data: " + document.getData());
+                        suc[0] = true;
+                        name[0] = document.get("name").toString();
+                        description[0] = document.get("descriptioon").toString();
+                        type[0] = VenueType.valueOf(document.get("type").toString());
+
+                    } else {
+                        Log.d("get_venue", "No such document");
+                    }
+                } else {
+                    Log.d("get_venue", "get failed with ", task.getException());
+                }
+            }
+        });
+
+        if (suc[0] == true){
+            return new Venue(type[0],name[0],description[0], venueid);
+        }
         return null;
     }
+
+
     public void join_event(int eventid, User user) {
         return;
     }
