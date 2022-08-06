@@ -4,3 +4,6 @@ liam:
     Approved matthew changes
     Approved Minh's changes
     Firestore integration progress
+Minh Tran
+    Fix the venue based event register implementation according to the new time format
+    Fix crash bugs in the venue page due to outdated database 
