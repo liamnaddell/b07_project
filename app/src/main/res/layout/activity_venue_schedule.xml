@@ -8,7 +8,7 @@
     tools:context=".VenueSchedule">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/X1"
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -97,31 +97,6 @@
                 android:hint="Number of Participant"
                 android:inputType="number"
                 android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/start"
-                android:onClick="StartpopTimePicker"
-                android:layout_width="297dp"
-                android:layout_height="72dp"
-                android:layout_gravity="center"
-                android:text="Start Time"
-                android:ems="10"
-                android:textAlignment="center"
-                android:textColor="#FAF7F7"
-                android:background="@color/black"/>
-
-            <Button
-                android:id="@+id/end"
-                android:layout_marginTop="5dp"
-                android:onClick="EndpopTimePicker"
-                android:layout_width="297dp"
-                android:layout_height="72dp"
-                android:layout_gravity="center"
-                android:text="Start Time"
-                android:ems="10"
-                android:textAlignment="center"
-                android:textColor="#FAF7F7"
-                android:background="@color/black"/>
 
             <Button
                 android:id="@+id/submit"
