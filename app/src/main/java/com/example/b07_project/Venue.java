@@ -32,6 +32,10 @@ public class Venue {
     }
 
 
+    @Override
+    public String toString() {
+        return this.name;
+    }
 
 
 }

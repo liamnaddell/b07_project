@@ -9,6 +9,7 @@ public class MockDB implements Database {
     ArrayList<Event> events;
     ArrayList<Venue> venues;
     ArrayList<Event> userRegisteredEvents;
+    User logged_in;
 
     public MockDB() {
         users = new ArrayList<User>();
@@ -18,20 +19,17 @@ public class MockDB implements Database {
     public User login(String username,String password) {
         for (User user: users) {
             if (user.username.equals( username) && user.password.equals(password)) {
+                logged_in=user;
                 return user;
             }
         }
         return null;
     }
 
-    @Override
     public User logged_in() {
-        return null;
+        return logged_in;
     }
 
-    public User get_current_user() {
-        return null;
-    }
     public boolean add_user(String username, String password, boolean is_admin) {
         if (!users.contains(username)) {
             User user = new User(username, password, is_admin);
@@ -40,15 +38,6 @@ public class MockDB implements Database {
         }
         return false;
 
-    }
-
-    public boolean is_admin(String username)  {
-        for (User user: users) {
-            if (user.username.equals(username)) {
-                return user.is_admin;
-            }
-        }
-        return false;
     }
 
     @Override
@@ -64,10 +53,10 @@ public class MockDB implements Database {
     // For the time, convert it into string of format "yyyy-mm-dd hh-mm-ss"
     // for example: 2021 july 27 11pm 32 min 51 second would be: "2021-07-27 23-32-51"
     public int add_event(int venueid, String event_name, String event_description, int num_people,
-                         String event_start_time, String event_end_time) {
+                         TimeSlot ts, int duration) {
         int eventid = events.size();
-        Event e = new Event(get_venue(venueid),num_people,event_name,event_description,eventid,event_start_time,
-                event_end_time);
+        Event e = new Event(get_venue(venueid),num_people,event_name,event_description,eventid,new EventTime(ts,
+                duration));
         events.add(e);
         return eventid;
     }
