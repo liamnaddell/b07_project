@@ -30,10 +30,15 @@ public class VenuePage extends AppCompatActivity {
         venueView = (ListView) findViewById(R.id.venue_list);
 
         /*
-        Database db1 = DatabaseInstance.get_instance();
         venues.add(db1.get_venue(0));
         venues.add(db1.get_venue(1));
         venues.add(db1.get_venue(2));*/
+
+        Database db = DatabaseInstance.get_instance();
+        for (Venue v : db.all_venues()) {
+            venues.add(v);
+        }
+
 
 
         venueAdapter = new VenueAdapter(VenuePage.this, venues);
