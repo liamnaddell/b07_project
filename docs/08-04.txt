@@ -6,3 +6,5 @@ Matthew:
     Finalized UI for "My Events"
     Reviewed Liam's UI for "Add Venues"
     started working on login user flow
+Minh Tran:
+    Continue working on Event registration, focusing on checking the venue availability
