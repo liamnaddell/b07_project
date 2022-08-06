@@ -74,6 +74,7 @@ public class MockDB implements Database {
     public Venue get_venue(int venueid) {
         return venues.get(venueid);
     }
+
     public void join_event(int eventid2, User user) {
         events.get(eventid2).addUserToEvent(user);
     }
