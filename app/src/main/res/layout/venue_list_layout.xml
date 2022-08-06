@@ -16,7 +16,7 @@
 
             <LinearLayout
                 android:id="@+id/Event"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
@@ -55,6 +55,15 @@
                     android:textStyle="italic" />
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/Del"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:text="@string/Delete"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </LinearLayout>
 

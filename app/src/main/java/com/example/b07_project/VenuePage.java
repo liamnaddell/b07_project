@@ -3,6 +3,7 @@ package com.example.b07_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,11 +35,11 @@ public class VenuePage extends AppCompatActivity {
             venues.add(v);
         }
 
-
-
         venueAdapter = new VenueAdapter(VenuePage.this, venues);
 
         Venuebinding.venueList.setAdapter(venueAdapter);
+
+
 
         Venuebinding.venueList.setClickable(true);
         Venuebinding.venueList.setOnItemClickListener((adapterView, view, position, id) -> {
