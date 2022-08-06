@@ -16,5 +16,6 @@
         <item>Basketball Court</item>
         <item>Tennis Court</item>
     </string-array>
+    <string name="Start_time">Choose an Available start time</string>
 </resources>
 
