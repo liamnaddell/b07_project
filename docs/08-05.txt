@@ -1,3 +1,6 @@
 liam:
     Added user "Add Venues" page
     Migrated database to use TimeSlots + durations
+    Approved matthew changes
+    Approved Minh's changes
+    Firestore integration progress
