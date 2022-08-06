@@ -14,13 +14,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+    /**
     public void login_handler(View view) {
         System.out.println("login handler");
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(this, LoginPage.class);
         startActivity(intent);
         finish();
-    }
+    } */
+
     public void venues_handler(View view) {
         System.out.println("venues handler");
         Intent gotoVenuePage = new Intent(this, VenuePage.class);
