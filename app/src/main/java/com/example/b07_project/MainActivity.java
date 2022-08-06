@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseDB db = new FirebaseDB();
+        db.is_admin("admin2");
         setContentView(R.layout.activity_main);
     }
     public void login_handler(View view) {

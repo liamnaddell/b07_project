@@ -8,14 +8,19 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Vector;
 
 public class FirebaseDB implements Database {
     FirebaseAuth mAuth;
+    FirebaseFirestore db;
     public FirebaseDB() {
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
         return;
     }
     //checks that a user with username and password password exists in the database
@@ -44,6 +49,20 @@ public class FirebaseDB implements Database {
         return null;
     }
     public boolean is_admin(String username) {
+        db.collection("users")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                System.out.println(document.getId() + " => " + document.getData());
+                            }
+                        } else {
+                            System.out.println("Error getting documents."+ task.getException());
+                        }
+                    }
+                });
         return false;
     }
 
