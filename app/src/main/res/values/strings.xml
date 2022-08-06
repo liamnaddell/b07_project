@@ -3,6 +3,7 @@
     <string name="title_activity_user_page">UserPage</string>
     <string name="tab_text_1">Change Password</string>
     <string name="tab_text_2">My Events</string>
+    <string name="tab_text_3">My Venues</string>
     <string name="username">Insert Username Here</string>
     <string name="X">X</string>
     <string name="Venue">Venue</string>
@@ -10,4 +11,10 @@
     <string name="LOC">LOCATION</string>
     <string name="LOC_DES">LOCATION DESCRIPTION</string>
     <string name = "select">Select Item</string>
+    <string name="add_venue_s">Add a New Venue</string>
+    <string-array name="venue_types">
+        <item>Basketball Court</item>
+        <item>Tennis Court</item>
+    </string-array>
 </resources>
+

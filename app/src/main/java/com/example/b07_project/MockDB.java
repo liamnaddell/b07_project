@@ -101,5 +101,10 @@ public class MockDB implements Database {
         }
         return userRegisteredEvents;
     }
+    public Venue[] all_venues() {
+        Venue[] vs = new Venue[this.venues.size()];
+        vs=venues.toArray(vs);
+        return vs;
+    }
 }
 

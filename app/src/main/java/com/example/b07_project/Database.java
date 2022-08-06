@@ -17,4 +17,5 @@ public interface Database {
     public int add_venue(VenueType vt, String venue_name, String venue_description);
     public Venue get_venue(int venueid);
     public void join_event(int eventid, User user);
+    public Venue[] all_venues();
 }
