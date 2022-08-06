@@ -16,7 +16,7 @@
 
             <LinearLayout
                 android:id="@+id/Event"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
@@ -33,7 +33,7 @@
 
                 <TextView
                     android:id="@+id/LOC"
-                    android:layout_width="128dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
                     android:layout_marginTop="2dp"
@@ -44,26 +44,27 @@
 
                 <TextView
                     android:id="@+id/LDES"
-                    android:layout_width="241dp"
-                    android:layout_height="86dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
                     android:layout_marginTop="0dp"
-                    android:layout_marginBottom="-73dp"
+                    android:layout_marginBottom="0dp"
                     android:text="@string/LOC_DES"
                     android:textColor="#020000"
                     android:textSize="24sp"
                     android:textStyle="italic" />
 
-            </LinearLayout>
+                <Button
+                    android:id="@+id/Del"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/Delete"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
-            <Button
-                android:id="@+id/Del"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_gravity="end"
-                android:layout_marginEnd="16dp"
-                android:text="@string/Delete"
-                app:layout_constraintEnd_toEndOf="parent" />
+            </LinearLayout>
 
         </LinearLayout>
 
