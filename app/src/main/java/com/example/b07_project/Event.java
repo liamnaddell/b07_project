@@ -8,6 +8,7 @@ public class Event {
         // whos_going should consist of class User, use String for now
 
         int id;
+        static int event_count = 0;
 
         ArrayList<User> whos_going;
         String name;
@@ -18,7 +19,23 @@ public class Event {
         String endTime;
         String location;
 
+        // use this constrctor to load existing event from database
+        public Event(Venue v, int num_people, String event_name, String event_description,
+                     String startTime, String endTime) {
 
+            this.id = Event.event_count;
+            Event.event_count++;
+            this.name = event_name;
+            this.whos_going = new ArrayList<User>();
+            this.description = event_description;
+
+            this.designedPeople = num_people;
+            this.startTime = startTime;
+            this.endTime = endTime;
+            this.location = v.get_venue_name();
+        }
+
+        // use this constructor to create new event only
         public Event(Venue v, int num_people, String event_name, String event_description,
                      int eventid, String startTime, String endTime) {
 
@@ -32,14 +49,6 @@ public class Event {
             this.endTime = endTime;
             this.location = v.get_venue_name();
         }
-
-//         return an array in format of [id, name, describtion, venue, start time, end time, people
-//         attending, max people], all converted into string
-//        public String getEventInfo(){
-//
-//            return [this.getEventId(), this.getEventName(), this.getEventDescription(),this.getEventStartTime(),
-//            this.getEventEndTime(),this.getEventParticipants().size(), this.getEventMaxParticipants()];
-//        }
 
         // check if user is registered for this event, return true if user already registered, false otherwise
         public boolean isUserRegistered(User user) {

@@ -5,6 +5,19 @@ public class Venue {
     String venue_description;
     String name;
     int venueid;
+
+    static Integer venue_count = 0;
+
+    // create venue with standard id; use this constrctor to load existing venue from database
+    public Venue(VenueType v, String name, String venue_description) {
+        this.type=v;
+        this.name=name;
+        this.venue_description=venue_description;
+        this.venueid = venue_count;
+        venue_count++;
+    }
+
+    // create venue with custom id; use this constructor to create new venue only
     public Venue(VenueType v, String name, String venue_description, int venueid) {
         this.type=v;
         this.name=name;

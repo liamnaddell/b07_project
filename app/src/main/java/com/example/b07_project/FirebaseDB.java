@@ -18,6 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,11 +29,19 @@ public class FirebaseDB implements Database {
     FirebaseFirestore firestore;
     FirebaseAuth mAuth;
     FirebaseUser user;
+
+    ArrayList<User> users;
+    HashMap<Integer, Event> events;
+    HashMap<Integer, Venue> venues;
+    ArrayList<Event> userRegisteredEvents;
+
     public FirebaseDB() {
         mAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
-        return;
+        venues = this.setup_venues();
+        events = this.setup_events();
     }
+
     //checks that a user with username and password password exists in the database
     // return user if login successful, else return null
     public User login(String username, String password) {
@@ -161,11 +170,45 @@ public class FirebaseDB implements Database {
 
     }
 
-    public int add_event(Venue v, String event_name, String event_description, int num_people) {
-        return 0;
-    }
+    // get event from database, return null if event dont exist
     public Event get_event(int eventid) {
-        return null;
+        DocumentReference docRef = firestore.collection("events").document(Integer.toString(eventid));
+
+        final Event[] e = new Event[1];
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()){
+                        String name = document.get("name").toString();
+                        String desc = document.get("description").toString();
+                        String startTime = document.get("start_time").toString();
+                        String endTime = document.get("end_time").toString();
+                        Integer maxPP = Integer.parseInt(document.get("max_user").toString());
+                        Venue v = get_venue(Integer.parseInt(document.get("venue_id").toString()));
+                        ArrayList<Integer> registeredUsers = new ArrayList<>();
+
+                        for (String userid: (ArrayList<String>)document.get("registered_user_id")){
+                            registeredUsers.add(Integer.parseInt(userid));
+                        }
+
+                        e[0] = new Event(v,maxPP,name,desc,Integer.parseInt(document.getId().toString()),
+                                startTime,endTime);
+
+                    }
+                    else{
+                        e[0] = null;
+                    }
+                }
+            }
+        });
+        return e[0];
+    }
+
+    @Override
+    public int add_venue(VenueType vt, String venue_name, String venue_description) {
+        return 0;
     }
 
     // add venue to database, return 1 if success, 0 otherwise
@@ -233,17 +276,148 @@ public class FirebaseDB implements Database {
         return null;
     }
 
-
+    @Override
     public void join_event(int eventid, User user) {
-        return;
+
+
     }
 
+    // add event to server, return 1 if successful
     @Override
     public int add_event(int venueid, String event_name, String event_description, int num_people, String event_start_time, String event_end_time) {
+        Map<String, Object> event_info = new HashMap<>();
+        event_info.put("name", event_name);
+        event_info.put("description", event_description);
+        event_info.put("venue_id", venueid);
+        event_info.put("startTime", event_start_time);
+        event_info.put("endTime", event_end_time);
+        event_info.put("registered_user", new String[0]);
+        event_info.put("max_user", num_people);
+
+        int suc[] = new int[1];
+        int eventId = Event.event_count;
+        firestore.collection("events")
+                .document(Integer.toString(eventId))
+                .set(event_info)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()){
+                            Log.d("event creation", " ... successful");
+                            suc[0] = 1;
+                        }
+                        else{
+                            Log.d("event creation", " shit somethings wrong");
+                            suc[0] = 0;
+                        }
+                    }
+                });
+
+        Venue v = this.get_venue(venueid);
+
+        if (suc[0] == 1){
+            Event event = new Event(v,num_people, event_name, event_description,event_start_time, event_end_time);
+            events.put(event.getEventId(),event);
+            return 1;
+        }
         return 0;
     }
-    public Venue[] all_venues() {
-        return null;
+
+    // return an arraylist of venues stored in database, return empty arraylist if none found
+    public ArrayList<Venue> all_venues() {
+
+        ArrayList<Venue> venues = new ArrayList<>();
+
+        firestore.collection("venues")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            String name;
+                            VenueType type;
+                            String description;
+                            Integer vid;
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                name= document.get("name").toString();
+                                type = VenueType.valueOf(document.get("type").toString());
+                                description = document.get("description").toString();
+                                vid = Integer.parseInt(document.getId());
+                                venues.add(new Venue(type, name, description, vid));
+                            }
+                        }
+                    }
+                });
+
+        return venues;
+    }
+
+    // setup venues
+    public HashMap<Integer,Venue> setup_venues() {
+        HashMap<Integer,Venue> venues = new HashMap<>();
+
+        firestore.collection("venues")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            String name;
+                            VenueType type;
+                            String description;
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                name= document.get("name").toString();
+                                type = VenueType.valueOf(document.get("type").toString());
+                                description = document.get("description").toString();
+                                Venue v = new Venue(type, name, description);
+                                Integer vid = Integer.parseInt(document.getId());
+                                venues.put(v.venueid, new Venue(type, name, description, vid));
+                            }
+                        }
+                    }
+                });
+        return venues;
+    }
+
+    // setup events
+    public HashMap<Integer,Event> setup_events() {
+        HashMap<Integer,Event> venues = new HashMap<>();
+
+        firestore.collection("events")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            String name;
+                            String description;
+                            ArrayList<String> registeredUserId = new ArrayList<>();
+                            String startTime;
+                            String endTime;
+                            Integer maxPP;
+                            Integer eventId;
+                            ArrayList<Integer> registered_user;
+
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                registered_user = new ArrayList<>();
+                                name= document.get("name").toString();
+                                description = document.get("description").toString();
+                                startTime = document.get("start_time").toString();
+                                endTime = document.get("end_time").toString();
+                                Venue v = get_venue(Integer.parseInt(document.get("venud_id").toString()));
+                                eventId = Integer.parseInt(document.getId().toString());
+                                maxPP = Integer.parseInt(document.get("max_user").toString());
+
+                                for (String userid: (ArrayList<String>) document.get("registered_user_id")){
+                                    registered_user.add(Integer.parseInt(userid));
+                                }
+                                events.put(eventId, new Event(v,maxPP,name,description,eventId, startTime,endTime));
+                            }
+                        }
+                    }
+                });
+
+        return events;
     }
 
     @Override
