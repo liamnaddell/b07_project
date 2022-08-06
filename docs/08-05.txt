@@ -1,2 +1,3 @@
 liam:
     Added user "Add Venues" page
+    Migrated database to use TimeSlots + durations
