@@ -42,8 +42,12 @@ public class VenuePage extends AppCompatActivity {
         venuesList.add(db.get_venue(v3));
         */
 
-        venuesList.add(db.get_venue(0));
-        venuesList.add(db.get_venue(1));
+        for (Venue v: db.all_venues()) {
+            venuesList.add(v);
+
+        }
+
+
 
         venueAdapter = new VenueAdapter(VenuePage.this, venuesList);
 
