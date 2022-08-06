@@ -49,21 +49,13 @@ public class FirebaseDB implements Database {
         return null;
     }
     public boolean is_admin(String username) {
-        db.collection("users")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                System.out.println(document.getId() + " => " + document.getData());
-                            }
-                        } else {
-                            System.out.println("Error getting documents."+ task.getException());
-                        }
-                    }
-                });
-        return false;
+        Task<QuerySnapshot> b = db.collection("users")
+                .whereEqualTo("username",username)
+                .whereEqualTo("isAdmin",true)
+                .get();
+
+        //finish
+        return b
     }
 
     @Override
