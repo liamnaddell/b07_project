@@ -1,14 +1,23 @@
 package com.example.b07_project;
 
-public class User {
-    String username;
-    String password;
-    boolean is_admin;
+import java.io.Serializable;
 
+public class User implements Serializable {
+    public String username;
+    public String password;
+    public boolean isAdmin;
 
-    public User(String username, String password, boolean is_admin) {
+    public User() {
+        return;
+    }
+
+    public User(String username, String password, boolean isAdmin) {
         this.username = username;
         this.password = password;
-        this.is_admin = is_admin;
+        this.isAdmin = isAdmin;
+    }
+    @Override
+    public String toString() {
+        return "User [username="+username+", password="+password+",isAdmin="+isAdmin+"]";
     }
 }

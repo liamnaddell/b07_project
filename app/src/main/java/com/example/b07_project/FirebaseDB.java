@@ -18,6 +18,7 @@ import java.util.Vector;
 public class FirebaseDB implements Database {
     FirebaseAuth mAuth;
     FirebaseFirestore db;
+    User loggedIn;
     public FirebaseDB() {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -40,26 +41,34 @@ public class FirebaseDB implements Database {
         while (v.size() != 1) {}
         if ((boolean) v.get(0) == true) {
             //how do I get if the user is an admin?
-            return new User(username,password,false);
+            loggedIn = new User(username,password,is_admin(username));
+            return loggedIn;
         }
         return null;
     }
     public User logged_in() {
         //how do I implement this?
-        return null;
+        return loggedIn;
     }
     public boolean is_admin(String username) {
-        Task<QuerySnapshot> b = db.collection("users")
-                .whereEqualTo("username",username)
-                .whereEqualTo("isAdmin",true)
-                .get();
-
-        //finish
-        return b
+        return find_user_by_name(username).isAdmin;
     }
 
     @Override
     public User find_user_by_name(String username) {
+        Task<QuerySnapshot> b = db.collection("users")
+                .whereEqualTo("username",username)
+                .get();
+
+        while (!b.isComplete()) {};
+
+        if (b.isSuccessful()) {
+            System.out.println("done");
+            return b.getResult().toObjects(new User().getClass()).get(0);
+
+        } else {
+            System.out.println("BAD FIREBASE QUERY LMAOOAO");
+        }
         return null;
     }
 

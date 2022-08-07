@@ -45,7 +45,7 @@ public class MockDB implements Database {
     public boolean is_admin(String username)  {
         for (User user: users) {
             if (user.username.equals(username)) {
-                return user.is_admin;
+                return user.isAdmin;
             }
         }
         return false;
