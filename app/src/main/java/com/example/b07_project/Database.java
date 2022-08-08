@@ -12,10 +12,10 @@ public interface Database {
     //adds user with username, password into the database, returns true if successful
     public boolean add_user(String username, String password, boolean is_admin);
     //duration = how many 30-minute TimeSlot's
-    public int add_event(Event e);
+    public String add_event(Event e);
     public ArrayList<Event> getUserRegisteredEvents(User user);
     public Event get_event(int eventid);
-    public int add_venue(Venue v);
+    public String add_venue(Venue v);
     public Venue get_venue(int venueid);
     public void join_event(int eventid, User user);
     public ArrayList<Venue> all_venues();

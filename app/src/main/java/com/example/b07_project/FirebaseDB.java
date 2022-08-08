@@ -102,7 +102,7 @@ public class FirebaseDB implements Database {
 
     }
 
-    // get event from database, return null if event dont exist
+    //this works
     public Event get_event(int eventid) {
         System.out.println("Stariting getevent query");
         Task<DocumentSnapshot> b = db.collection("events").document(String.valueOf(eventid)).get();
@@ -120,18 +120,18 @@ public class FirebaseDB implements Database {
         return null;
     }
 
-    public int add_venue(Venue v) {
-        //fix: return venueid
-        Map<String,Object> kv = new HashMap<String,Object>();
-        kv.put("venueDescription",v.venueDescription);
-        kv.put("name",v.name);
-        kv.put("type",v.type);
-        Task<DocumentReference> t = db.collection("venues").add(kv);
+    public String add_venue(Venue v) {
+        DocumentReference ref = db.collection("venues").document();
+
+        Task<Void> t = ref.set(v);
 
         while (!t.isComplete()) {}
 
-        if (t.isSuccessful()) return 1;
-        return 0;
+        if (t.isSuccessful()) {
+            return ref.getId();
+        } else {
+            return null;
+        }
     }
 
     //this method functions correctly
@@ -158,32 +158,15 @@ public class FirebaseDB implements Database {
     }
 
     // add event to server, return 1 if successful
-    public int add_event(Event e) {
+    public String add_event(Event e) {
 
-        //fix:implement
-        String whos_going[] = new String[e.whosGoing.size()];
+        DocumentReference ref = db.collection("events").document();
 
-        int i = 0;
-        for (String u : e.whosGoing) {
-            whos_going[i]=u;
-            i++;
-        }
-
-        Map<String,Object> kv = new HashMap<String,Object>();
-        kv.put("whosGoing",whos_going);
-        kv.put("description",e.description);
-        //bug: fix this
-        kv.put("eventid",e.eventid);
-        kv.put("eventTime",e.eventTime);
-        kv.put("name",e.name);
-        kv.put("location",e.location);
-
-        Task<DocumentReference> t = db.collection("venues").add(kv);
-
+        Task<Void> t = ref.set(e);
         while (!t.isComplete()) {}
 
-        if (t.isSuccessful()) return 1;
-        return 0;
+        if (t.isSuccessful()) return ref.getId();
+        else return null;
     }
 
     // return an arraylist of venues stored in database, return empty arraylist if none found

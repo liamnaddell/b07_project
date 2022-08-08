@@ -15,7 +15,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Database db = DatabaseInstance.get_instance();
-        System.out.println("event:"+db.get_event(0));
+        Event e = new Event(db.get_venue(0),24,"blobby deth day", "watch blobby die",0,
+                new EventTime(new TimeSlot(10),2,"Today")
+                );
+        System.out.println("added event:"+db.add_event(e));
     }
     /**
     public void login_handler(View view) {
