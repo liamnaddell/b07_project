@@ -91,35 +91,14 @@ public class FirebaseDB implements Database {
     //adds user with username, password into the database, returns true if successful
     //assume user is created in firebase authentication
     public boolean add_user(String username, String password, boolean is_admin) {
+        //to tharuth, put uid instead of username here maybe
+        Task<DocumentReference> t = db.collection("users").add(new User(username,password,is_admin));
 
-        final int[] suc = {0};
-        User u = new User(username, password, is_admin);
-        Map<String, Object> user_info = new HashMap<>();
+        while (!t.isComplete()) {}
 
-        user_info.put("username", u.username);
-        user_info.put("password", u.password);
-        user_info.put("isAdmin", u.is_admin);
+        if (t.isSuccessful()) return true;
+        return false;
 
-        Log.d("user creation", "1");
-
-        firestore.collection("users")
-                .add(user_info)
-                .addOnSuccessListener( new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        suc[0] = 1;
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("user creation", "3");
-                        Log.d("Add_user", "failed create new user database");
-                        suc[0] = 0;
-                    }
-                });
-
-        Log.d("user creation", "4");
-        return Boolean.parseBoolean(Integer.toString(suc[0]));
 
     }
 
@@ -236,6 +215,7 @@ public class FirebaseDB implements Database {
     // add event to server, return 1 if successful
     public void add_event(int venueid, String event_name, String event_description, int num_people,
                  EventTime et) {
+
     }
 
     // return an arraylist of venues stored in database, return empty arraylist if none found
@@ -243,7 +223,7 @@ public class FirebaseDB implements Database {
 
         ArrayList<Venue> venues = new ArrayList<>();
 
-        firestore.collection("venues")
+        db.collection("venues")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
