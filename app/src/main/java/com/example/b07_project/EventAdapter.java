@@ -41,7 +41,7 @@ public class EventAdapter extends ArrayAdapter<Event> {
         event_startTime.setText(event.eventTime.startTime + " - ");
         event_endTime.setText(event.eventTime.endToString());
         event_location.setText(event.location.toString());
-        event_designedPeople.setText(Integer.toString(event.designedPeople) + " People");
+        event_designedPeople.setText(Integer.toString(event.maxPP) + " People");
 
         return convertView;
     }
