@@ -121,7 +121,7 @@ public class FirebaseDB implements Database {
 
     public int add_venue(Venue v) {
         //fix: return venueid
-        Map<String,Object> kv = new Map<String,Object>;
+        Map<String,Object> kv = new HashMap<String,Object>();
         kv.put("venueDescription",v.venueDescription);
         kv.put("name",v.name);
         kv.put("type",v.type);
@@ -168,7 +168,7 @@ public class FirebaseDB implements Database {
             i++;
         }
 
-        Map<String,Object> kv = new Map<String,Object>();
+        Map<String,Object> kv = new HashMap<String,Object>();
         kv.put("whosGoing",whos_going);
         kv.put("description",e.description);
         //bug: fix this

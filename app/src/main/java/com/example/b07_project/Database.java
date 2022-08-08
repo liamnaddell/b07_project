@@ -3,6 +3,7 @@ package com.example.b07_project;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+//use sql solution for event ids, 
 public interface Database {
     //checks that a user with username and password password exists in the database
     public User login(String username, String password);
@@ -20,4 +21,6 @@ public interface Database {
     public void join_event(int eventid, User user);
     public ArrayList<Venue> all_venues();
     public ArrayList<Event> all_events();
+    //delete venue and maybe all events at that venue if we have tiem
+    public void delete_venue();
 }
