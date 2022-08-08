@@ -38,8 +38,8 @@ public class EventAdapter extends ArrayAdapter<Event> {
 
 //        event_id.setId(event.id);
         event_name.setText(event.name);
-        event_startTime.setText(event.et.startTime + " - ");
-        event_endTime.setText(event.et.endToString());
+        event_startTime.setText(event.eventTime.startTime + " - ");
+        event_endTime.setText(event.eventTime.endToString());
         event_location.setText(event.location.toString());
         event_designedPeople.setText(Integer.toString(event.designedPeople) + " People");
 

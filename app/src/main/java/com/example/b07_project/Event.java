@@ -15,12 +15,12 @@ public class Event {
         String description;
 
         int designedPeople;
-        EventTime et;
+        EventTime eventTime;
         Venue location;
 
         // use this constrctor to load existing event from database
         public Event(Venue v, int num_people, String event_name, String event_description,
-                     String startTime, String endTime) {
+                     TimeSlot ts, int duration, int day) {
 
             this.id = Event.event_count;
             Event.event_count++;
@@ -29,9 +29,8 @@ public class Event {
             this.description = event_description;
 
             this.designedPeople = num_people;
-            this.startTime = startTime;
-            this.endTime = endTime;
-            this.location = v.get_venue_name();
+            this.eventTime = new EventTime(ts,duration,day);
+            this.location = v;
         }
 
         // use this constructor to create new event only
@@ -44,7 +43,7 @@ public class Event {
             this.description = event_description;
 
             this.designedPeople = num_people;
-            this.et=et;
+            this.eventTime=et;
             this.location = v;
         }
 

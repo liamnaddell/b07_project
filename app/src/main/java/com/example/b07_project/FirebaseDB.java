@@ -283,14 +283,14 @@ public class FirebaseDB implements Database {
     }
 
     // add event to server, return 1 if successful
-    @Override
-    public int add_event(int venueid, String event_name, String event_description, int num_people, String event_start_time, String event_end_time) {
+    public void add_event(int venueid, String event_name, String event_description, int num_people,
+                 int eventid, EventTime et) {
+        //this method needs to be fixed
         Map<String, Object> event_info = new HashMap<>();
         event_info.put("name", event_name);
         event_info.put("description", event_description);
         event_info.put("venue_id", venueid);
-        event_info.put("startTime", event_start_time);
-        event_info.put("endTime", event_end_time);
+        event_info.put("startTime", et);
         event_info.put("registered_user", new String[0]);
         event_info.put("max_user", num_people);
 
