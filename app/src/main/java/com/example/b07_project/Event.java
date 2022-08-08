@@ -20,7 +20,7 @@ public class Event {
 
         // use this constrctor to load existing event from database
         public Event(Venue v, int num_people, String event_name, String event_description,
-                     TimeSlot ts, int duration, int day) {
+                     TimeSlot ts, int duration, String day) {
 
             this.id = Event.event_count;
             Event.event_count++;

@@ -1,12 +1,11 @@
 package com.example.b07_project;
 
 public class EventTime {
-    int month;
-    int day;
+    String day;
     TimeSlot startTime;
     //30 minute time-slots used
     int duration;
-    public EventTime(TimeSlot startTime, int duration,int day) {
+    public EventTime(TimeSlot startTime, int duration,String day) {
         this.startTime=startTime;
         this.duration=duration;
         this.day=day;
@@ -17,11 +16,7 @@ public class EventTime {
     }
     @Override
     public String toString() {
-        String [] days = {
-                "Today",
-                "Tomorrow",
-        };
-        return days[day]+" at "+startTime+"-"+endToString();
+        return day+" at "+startTime+"-"+endToString();
 
     }
 }
