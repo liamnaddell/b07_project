@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FirebaseDB db = new FirebaseDB();
+        System.out.println("USER IS ADMIN: "+db.find_user_by_name("admin2"));
     }
     /**
     public void login_handler(View view) {
