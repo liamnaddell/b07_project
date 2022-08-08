@@ -2,31 +2,21 @@ package com.example.b07_project;
 
 public class Venue {
     VenueType type;
-    String venue_description;
     String name;
+    String venueDescription;
     int venueid;
-
-    static Integer venue_count = 0;
 
     public Venue() {
         return;
     }
     // create venue with standard id; use this constrctor to load existing venue from database
-    public Venue(VenueType v, String name, String venue_description) {
+    public Venue(VenueType v, String name, String venue_description,int venueid) {
         this.type=v;
         this.name=name;
-        this.venue_description=venue_description;
-        this.venueid = venue_count;
-        venue_count++;
-    }
-
-    // create venue with custom id; use this constructor to create new venue only
-    public Venue(VenueType v, String name, String venue_description, int venueid) {
-        this.type=v;
-        this.name=name;
-        this.venue_description=venue_description;
+        this.venueDescription=venue_description;
         this.venueid = venueid;
     }
+
     int get_capacity() {
         switch (type) {
             case BASKETBALL_COURT:
@@ -39,14 +29,6 @@ public class Venue {
                 return -1;
         }
     }
-    String get_venue_name(){
-        return this.name;
-    }
-
-    String get_venue_description(){
-        return this.venue_description;
-    }
-
 
     @Override
     public String toString() {

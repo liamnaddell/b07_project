@@ -1,7 +1,6 @@
 package com.example.b07_project;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.io.Serializable;
 
 public class Event implements Serializable {
@@ -9,16 +8,16 @@ public class Event implements Serializable {
         // locations should be class Venue, use String for now
         // whos_going should consist of class User, use String for now
 
-        public int eventid;
-        public ArrayList<User> whos_going;
-        public String name;
-        public String description;
+    public int eventid;
+    public String name;
+    public String description;
 
-        public int maxPP;
-        public EventTime eventTime;
-        public Venue location;
+    public int maxPP;
+    public EventTime eventTime;
+    public Venue location;
+    public ArrayList<User> whos_going;
 
-        public Event() {
+    public Event() {
             return;
         }
 

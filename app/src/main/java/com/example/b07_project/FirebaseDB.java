@@ -34,7 +34,6 @@ public class FirebaseDB implements Database {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
     }
-
     //checks that a user with username and password password exists in the database
     // return user if login successful, else return null
     public User login(String username, String password) {
@@ -81,7 +80,6 @@ public class FirebaseDB implements Database {
         if (b.isSuccessful()) {
             System.out.println("done");
             return b.getResult().toObjects(new User().getClass()).get(0);
-
         } else {
             System.out.println("BAD FIREBASE QUERY LMAOOAO");
         }
@@ -122,10 +120,13 @@ public class FirebaseDB implements Database {
     }
 
     @Override
-    public int add_venue(VenueType vt, String venue_name, String venue_description) {
+    public int add_venue(Venue v) {
         //fix: return venueid
-        Task<DocumentReference> t = db.collection("venues")
-                .add(new Venue(vt,venue_name,venue_description));
+        Map<String,Object> kv = new Map<String,Object>();
+        kv.put("venueDescription",v.venueDescription);
+        kv.put("name",v.name);
+        kv.put("type",v.type)
+        Task<DocumentReference> t = db.collection("venues").add(kv);
 
         while (!t.isComplete()) {}
 
@@ -136,7 +137,7 @@ public class FirebaseDB implements Database {
     // return venue by id
     public Venue get_venue(int venueid) {
         //fix:serialzable
-        Task<QuerySnapshot> b = db.collection("events")
+        Task<QuerySnapshot> b = db.collection("venues")
                 .whereEqualTo("venueid",venueid)
                 .get();
 
@@ -157,9 +158,12 @@ public class FirebaseDB implements Database {
     }
 
     // add event to server, return 1 if successful
-    public int add_event(int venueid, String event_name, String event_description, int num_people,
-                         TimeSlot startTime, int duration, int day) {
+    public int add_event(Event e) {
+
         //fix:implement
+        String whos_going[] = new String[];
+
+
         return 0;
     }
 
