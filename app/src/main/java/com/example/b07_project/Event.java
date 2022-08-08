@@ -8,14 +8,14 @@ public class Event implements Serializable {
         // locations should be class Venue, use String for now
         // whos_going should consist of class User, use String for now
 
-    public int eventid;
+    int eventid;
     public String name;
     public String description;
 
     public int maxPP;
     public EventTime eventTime;
-    public Venue location;
-    public ArrayList<User> whos_going;
+    public int location;
+    public ArrayList<String> whosGoing;
 
     public Event() {
             return;
@@ -27,17 +27,17 @@ public class Event implements Serializable {
 
             this.eventid = eventid;
             this.name = event_name;
-            this.whos_going = new ArrayList<User>();
+            this.whosGoing = new ArrayList<String>();
             this.description = event_description;
 
             this.maxPP = num_people;
             this.eventTime=et;
-            this.location = v;
+            this.location = v.venueid;
         }
 
         // check if user is registered for this event, return true if user already registered, false otherwise
         public boolean isUserRegistered(User user) {
-            return this.whos_going.contains(user);
+            return this.whosGoing.contains(user);
         }
 
         // add user to event, return true if succeeded
@@ -47,7 +47,20 @@ public class Event implements Serializable {
             if (this.isUserRegistered(user)){
                 return false;
             }
-            this.whos_going.add(user);
+            this.whosGoing.add(user.username);
             return true;
         }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "eventid=" + eventid +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", maxPP=" + maxPP +
+                ", eventTime=" + eventTime +
+                ", location=" + location +
+                ", whosGoing=" + whosGoing +
+                '}';
+    }
 }

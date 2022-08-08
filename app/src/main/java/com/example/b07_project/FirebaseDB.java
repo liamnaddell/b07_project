@@ -104,16 +104,16 @@ public class FirebaseDB implements Database {
 
     // get event from database, return null if event dont exist
     public Event get_event(int eventid) {
-        //fix:serialzable,array in events
-        Task<QuerySnapshot> b = db.collection("events")
-                .whereEqualTo("eventid",eventid)
-                .get();
+        System.out.println("Stariting getevent query");
+        Task<DocumentSnapshot> b = db.collection("events").document(String.valueOf(eventid)).get();
 
         while (!b.isComplete()) {};
 
         if (b.isSuccessful()) {
-            System.out.println("done");
-            return b.getResult().toObjects(new Event().getClass()).get(0);
+            System.out.println("done w/ getevent query");
+            Event e = b.getResult().toObject(new Event().getClass());
+            e.eventid=Integer.parseInt((b.getResult().getId()));
+            return e;
         } else {
             System.out.println("BAD FIREBASE QUERY LMAOOAO");
         }
@@ -161,11 +161,11 @@ public class FirebaseDB implements Database {
     public int add_event(Event e) {
 
         //fix:implement
-        String whos_going[] = new String[e.whos_going.size()];
+        String whos_going[] = new String[e.whosGoing.size()];
 
         int i = 0;
-        for (User u : e.whos_going) {
-            whos_going[i]=u.username;
+        for (String u : e.whosGoing) {
+            whos_going[i]=u;
             i++;
         }
 
@@ -176,7 +176,7 @@ public class FirebaseDB implements Database {
         kv.put("eventid",e.eventid);
         kv.put("eventTime",e.eventTime);
         kv.put("name",e.name);
-        kv.put("location",e.location.venueid);
+        kv.put("location",e.location);
 
         Task<DocumentReference> t = db.collection("venues").add(kv);
 

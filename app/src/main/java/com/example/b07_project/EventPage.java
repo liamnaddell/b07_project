@@ -58,9 +58,9 @@ public class EventPage extends AppCompatActivity {
                 Intent intent = new Intent(EventPage.this, EventDetailPage.class);
 
                 intent.putExtra("name", events.get(i).name);
-                intent.putExtra("location", events.get(i).location.toString());
+                intent.putExtra("location", String.valueOf(events.get(i).location));
                 intent.putExtra("id", events.get(i).eventid);
-                intent.putExtra("people-attending", Integer.toString(events.get(i).whos_going.size()));
+                intent.putExtra("people-attending", Integer.toString(events.get(i).whosGoing.size()));
                 intent.putExtra("desired-people", Integer.toString(events.get(i).maxPP));
                 intent.putExtra("description", events.get(i).description);
                 intent.putExtra("start-time", events.get(i).eventTime.startTime.toString());

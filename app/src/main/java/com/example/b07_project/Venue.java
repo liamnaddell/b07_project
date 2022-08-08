@@ -34,10 +34,13 @@ public class Venue implements Serializable {
 
     @Override
     public String toString() {
-        return this.name+this.type+this.venueDescription+this.venueid;
+        return "Venue{" +
+                "type=" + type +
+                ", name='" + name + '\'' +
+                ", venueDescription='" + venueDescription + '\'' +
+                ", venueid=" + venueid +
+                '}';
     }
-
-
 }
 
 

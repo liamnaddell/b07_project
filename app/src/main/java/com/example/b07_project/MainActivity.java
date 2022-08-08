@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Database db = DatabaseInstance.get_instance();
-        System.out.println("user add result:"+db.add_user("limabean","beans",false));
+        System.out.println("event:"+db.get_event(0));
     }
     /**
     public void login_handler(View view) {
