@@ -93,7 +93,7 @@ public class FirebaseDB implements Database {
     }
 
     @Override
-    public int add_event(int venueid, String event_name, String event_description, int num_people, String event_start_time, String event_end_time) {
+    public int add_event(int venueid, String event_name, String event_description, int num_people, TimeSlot ts, int duration) {
         return 0;
     }
     public Venue[] all_venues() {

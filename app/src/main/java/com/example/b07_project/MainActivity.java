@@ -16,13 +16,15 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDB db = new FirebaseDB();
         System.out.println("USER IS ADMIN: "+db.find_user_by_name("admin2"));
     }
+    /**
     public void login_handler(View view) {
         System.out.println("login handler");
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(this, LoginPage.class);
         startActivity(intent);
         finish();
-    }
+    } */
+
     public void venues_handler(View view) {
         System.out.println("venues handler");
         Intent gotoVenuePage = new Intent(this, VenuePage.class);
