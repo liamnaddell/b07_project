@@ -13,7 +13,6 @@ public class DatabaseInstance {
     public static Database get_instance() {
         if (db == null) {
             db = new MockDB();
-
             //VenueType Basketball = VenueType.BASKETBALL_COURT;
             //db.add_venue(Basketball,"UTSC","Nice");
             //db.add_venue(Basketball,"Minh's House","Next to the Thamse");
@@ -24,17 +23,18 @@ public class DatabaseInstance {
             int v2 = db.add_venue(VenueType.BASKETBALL_COURT,"1234 Military Trail","toronto basketball court");
 
             db.add_event(v1,"tennis", "play tennis",
-                    2, new TimeSlot(34), 10);
-            db.add_event(v1,"tennis alejandro", "play tennis w/ alejandro", 1, new TimeSlot(34),2);
+                    2, new TimeSlot(34), 10,"Monday");
+            db.add_event(v1,"tennis alejandro", "play tennis w/ alejandro",
+                    1, new TimeSlot(34),2,"Thursday");
             db.add_event(v1, "random guy concert",
                     "concert of a random guy", 3, new TimeSlot(2),
-                    2);
+                    2,"Wednesday");
             db.add_event(v2, "weed smoking contest",
                     "smoke week and have fun", 4, new TimeSlot(0),
-                    10);
+                    10,"Friday");
             db.add_event(v2, "swallow kids event",
                     "swallow kids and try not to choke", 5, new TimeSlot(6),
-                    5);
+                    5,"Monday");
         }
         return db;
     }

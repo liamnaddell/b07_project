@@ -6,6 +6,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,9 +16,9 @@ import android.widget.Toast;
 import java.sql.Time;
 
 
-public class VenueSchedule extends AppCompatActivity {
+public class VenueSchedule extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     VenueType v;
-    String EventName, EventDes;
+    String EventName, EventDes, date;
     int NumPeople, dur, id, StartTime;
     TimeSlot Start;
 
@@ -26,6 +27,8 @@ public class VenueSchedule extends AppCompatActivity {
     EditText NumPPl;
     EditText S_time;
     EditText duration;
+
+    Spinner R_date;
 
     Button submitbutton;
 
@@ -40,6 +43,12 @@ public class VenueSchedule extends AppCompatActivity {
         id = get_id();
         S_time = (EditText) findViewById(R.id.Start_Time);
         duration = (EditText) findViewById(R.id.Duration);
+        R_date = (Spinner) findViewById(R.id.Week_Date);
+
+        ArrayAdapter<String> dateAdapter = new ArrayAdapter<String>(VenueSchedule.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Date));
+        dateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        R_date.setAdapter(dateAdapter);
 
         submitbutton = (Button) findViewById(R.id.submit);
         submitbutton.setOnClickListener(new View.OnClickListener() {
@@ -50,10 +59,12 @@ public class VenueSchedule extends AppCompatActivity {
                 EventDes = desInput.getText().toString() ;
                 NumPeople = Integer.valueOf(NumPPl.getText().toString());
                 StartTime = Integer.valueOf(S_time.getText().toString());
-                TimeSlot Start = new TimeSlot(StartTime);
+                Start = new TimeSlot(StartTime);
+
                 dur = Integer.valueOf(duration.getText().toString())/30;
+
                 Database db = DatabaseInstance.get_instance();
-                db.add_event(id,EventName,EventDes,NumPeople,Start,dur);
+                db.add_event(id,EventName,EventDes,NumPeople,Start,dur,date);
 
                 Toast.makeText(VenueSchedule.this,"Finish registering event",
                         Toast.LENGTH_LONG).show();
@@ -73,5 +84,20 @@ public class VenueSchedule extends AppCompatActivity {
         Intent intent = new Intent(this,VenuePage.class);
         startActivity(intent);
 
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if( parent.getId() == R.id.Week_Date){
+            date = parent.getItemAtPosition(position).toString();
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+        if(adapterView.getId() == R.id.Week_Date){
+            Toast.makeText(VenueSchedule.this,"Please pick a day to register your event",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 }

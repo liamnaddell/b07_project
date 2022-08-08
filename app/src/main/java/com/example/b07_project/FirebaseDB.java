@@ -9,6 +9,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -73,7 +74,9 @@ public class FirebaseDB implements Database {
     }
 
     @Override
-    public int add_event(int venueid, String event_name, String event_description, int num_people, TimeSlot ts, int duration) {
+    public int add_event(int venueid, String event_name, String event_description, int num_people,
+                         TimeSlot ts, int duration, String day) {
+
         return 0;
     }
     public Venue[] all_venues() {

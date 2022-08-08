@@ -53,7 +53,7 @@ public class MockDB implements Database {
     // For the time, convert it into string of format "yyyy-mm-dd hh-mm-ss"
     // for example: 2021 july 27 11pm 32 min 51 second would be: "2021-07-27 23-32-51"
     public int add_event(int venueid, String event_name, String event_description, int num_people,
-                         TimeSlot ts, int duration) {
+                         TimeSlot ts, int duration, String date) {
         int eventid = events.size();
         Event e = new Event(get_venue(venueid),num_people,event_name,event_description,eventid,new EventTime(ts,
                 duration));

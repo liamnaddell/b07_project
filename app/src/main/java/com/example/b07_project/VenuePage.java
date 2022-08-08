@@ -29,7 +29,6 @@ public class VenuePage extends AppCompatActivity {
         setContentView(Venuebinding.getRoot());
 
         venueView = (ListView) findViewById(R.id.venue_list);
-
         Database db = DatabaseInstance.get_instance();
         for (Venue v : db.all_venues()) {
             venues.add(v);
@@ -38,9 +37,6 @@ public class VenuePage extends AppCompatActivity {
         venueAdapter = new VenueAdapter(VenuePage.this, venues);
 
         Venuebinding.venueList.setAdapter(venueAdapter);
-
-
-
         Venuebinding.venueList.setClickable(true);
         Venuebinding.venueList.setOnItemClickListener((adapterView, view, position, id) -> {
             Intent intent = new Intent(VenuePage.this, VenueSchedule.class);

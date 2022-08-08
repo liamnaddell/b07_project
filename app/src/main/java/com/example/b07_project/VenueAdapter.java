@@ -38,6 +38,7 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
         venue_loc.setText(venue.name);
         venue_des.setText(venue.venue_description);
 
+
         int i = 1;
         Button delete = convertView.findViewById(R.id.Del);
         //Check to see if user is admin or normal user
@@ -46,9 +47,6 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
         }else {
             delete.setVisibility(View.VISIBLE);
         }
-
-
-
 
         return convertView;
 
