@@ -8,6 +8,9 @@ public class Venue {
 
     static Integer venue_count = 0;
 
+    public Venue() {
+        return;
+    }
     // create venue with standard id; use this constrctor to load existing venue from database
     public Venue(VenueType v, String name, String venue_description) {
         this.type=v;

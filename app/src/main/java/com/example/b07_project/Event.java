@@ -18,19 +18,8 @@ public class Event {
         EventTime eventTime;
         Venue location;
 
-        // use this constrctor to load existing event from database
-        public Event(Venue v, int num_people, String event_name, String event_description,
-                     TimeSlot ts, int duration, String day) {
-
-            this.id = Event.event_count;
-            Event.event_count++;
-            this.name = event_name;
-            this.whos_going = new ArrayList<User>();
-            this.description = event_description;
-
-            this.designedPeople = num_people;
-            this.eventTime = new EventTime(ts,duration,day);
-            this.location = v;
+        public Event() {
+            return;
         }
 
         // use this constructor to create new event only

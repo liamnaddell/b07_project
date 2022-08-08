@@ -91,6 +91,7 @@ public class FirebaseDB implements Database {
     //adds user with username, password into the database, returns true if successful
     //assume user is created in firebase authentication
     public boolean add_user(String username, String password, boolean is_admin) {
+        //fix:userid
         //to tharuth, put uid instead of username here maybe
         Task<DocumentReference> t = db.collection("users").add(new User(username,password,is_admin));
 
@@ -104,6 +105,7 @@ public class FirebaseDB implements Database {
 
     // get event from database, return null if event dont exist
     public Event get_event(int eventid) {
+        //fix:serialzable,array in events
         Task<QuerySnapshot> b = db.collection("events")
                 .whereEqualTo("eventid",eventid)
                 .get();
@@ -121,97 +123,43 @@ public class FirebaseDB implements Database {
 
     @Override
     public int add_venue(VenueType vt, String venue_name, String venue_description) {
+        //fix: return venueid,serializable
+        Task<DocumentReference> t = db.collection("venues").add(new Venue(vt,venue_name,venue_description));
 
+        while (!t.isComplete()) {}
+
+        if (t.isSuccessful()) return 1;
+        return 0;
+    }
+
+    // return venue by id
+    public Venue get_venue(int venueid) {
+        //fix:serialzable
         Task<QuerySnapshot> b = db.collection("events")
-                .whereEqualTo("eventid",eventid)
+                .whereEqualTo("eventid",venueid)
                 .get();
 
         while (!b.isComplete()) {};
 
         if (b.isSuccessful()) {
             System.out.println("done");
-            return b.getResult().toObjects(new Event().getClass()).get(0);
+            return b.getResult().toObjects(new Venue().getClass()).get(0);
         } else {
             System.out.println("BAD FIREBASE QUERY LMAOOAO");
-        }
-        return null;
-
-        return 0;
-    }
-
-    // add venue to database, return 1 if success, 0 otherwise
-    public int add_venue(VenueType vt, String venue_name, String venue_description, int venue_id) {
-
-        final int[] suc = {0};
-        //Venue v = new Venue(username, password, is_admin);
-        Map<String, Object> venue_info = new HashMap<>();
-
-        venue_info.put("name", venue_name);
-        venue_info.put("type", vt);
-        vdenue_info.put("description", venue_description);
-
-        firestore.collection("venues")
-                .document(Integer.toString(venue_id))
-                .set(venue_info)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()){
-                            suc[0] = 1;
-                        }
-                    }
-                });
-
-        if (suc[0] == 1){
-            return suc[0];
-        }
-        return suc[1];
-    }
-
-    // return venue by id
-    public Venue get_venue(int venueid) {
-        DocumentReference docRef = firestore.collection("venues").document(Integer.toString(venueid));
-        final String[] name = new String[1];
-        final String[] description = new String[1];
-        final VenueType[] type = new VenueType[1];
-        final Boolean[] suc = new Boolean[1];
-        suc[0] = false;
-
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        Log.d("get_venue", "DocumentSnapshot data: " + document.getData());
-                        suc[0] = true;
-                        name[0] = document.get("name").toString();
-                        description[0] = document.get("descriptioon").toString();
-                        type[0] = VenueType.valueOf(document.get("type").toString());
-
-                    } else {
-                        Log.d("get_venue", "No such document");
-                    }
-                } else {
-                    Log.d("get_venue", "get failed with ", task.getException());
-                }
-            }
-        });
-
-        if (suc[0] == true){
-            return new Venue(type[0],name[0],description[0], venueid);
         }
         return null;
     }
 
     @Override
     public void join_event(int eventid, User user) {
+        //implement
     }
 
     // add event to server, return 1 if successful
-    public void add_event(int venueid, String event_name, String event_description, int num_people,
-                 EventTime et) {
-
+    public int add_event(int venueid, String event_name, String event_description, int num_people,
+                         TimeSlot startTime, int duration, int day) {
+        //fix:implement
+        return 0;
     }
 
     // return an arraylist of venues stored in database, return empty arraylist if none found
