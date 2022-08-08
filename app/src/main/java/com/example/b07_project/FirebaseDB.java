@@ -104,42 +104,38 @@ public class FirebaseDB implements Database {
 
     // get event from database, return null if event dont exist
     public Event get_event(int eventid) {
-        DocumentReference docRef = firestore.collection("events").document(Integer.toString(eventid));
+        Task<QuerySnapshot> b = db.collection("events")
+                .whereEqualTo("eventid",eventid)
+                .get();
 
-        final Event[] e = new Event[1];
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()){
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()){
-                        String name = document.get("name").toString();
-                        String desc = document.get("description").toString();
-                        String startTime = document.get("start_time").toString();
-                        String endTime = document.get("end_time").toString();
-                        Integer maxPP = Integer.parseInt(document.get("max_user").toString());
-                        Venue v = get_venue(Integer.parseInt(document.get("venue_id").toString()));
-                        ArrayList<Integer> registeredUsers = new ArrayList<>();
+        while (!b.isComplete()) {};
 
-                        for (String userid: (ArrayList<String>)document.get("registered_user_id")){
-                            registeredUsers.add(Integer.parseInt(userid));
-                        }
-
-                        e[0] = new Event(v,maxPP,name,desc,Integer.parseInt(document.getId().toString()),
-                                startTime,endTime);
-
-                    }
-                    else{
-                        e[0] = null;
-                    }
-                }
-            }
-        });
-        return e[0];
+        if (b.isSuccessful()) {
+            System.out.println("done");
+            return b.getResult().toObjects(new Event().getClass()).get(0);
+        } else {
+            System.out.println("BAD FIREBASE QUERY LMAOOAO");
+        }
+        return null;
     }
 
     @Override
     public int add_venue(VenueType vt, String venue_name, String venue_description) {
+
+        Task<QuerySnapshot> b = db.collection("events")
+                .whereEqualTo("eventid",eventid)
+                .get();
+
+        while (!b.isComplete()) {};
+
+        if (b.isSuccessful()) {
+            System.out.println("done");
+            return b.getResult().toObjects(new Event().getClass()).get(0);
+        } else {
+            System.out.println("BAD FIREBASE QUERY LMAOOAO");
+        }
+        return null;
+
         return 0;
     }
 
