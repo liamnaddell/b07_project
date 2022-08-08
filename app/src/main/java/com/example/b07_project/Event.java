@@ -1,22 +1,22 @@
 package com.example.b07_project;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.io.Serializable;
 
-public class Event {
+public class Event implements Serializable {
 
         // locations should be class Venue, use String for now
         // whos_going should consist of class User, use String for now
 
-        int id;
-        static int event_count = 0;
+        public int eventid;
+        public ArrayList<User> whos_going;
+        public String name;
+        public String description;
 
-        ArrayList<User> whos_going;
-        String name;
-        String description;
-
-        int designedPeople;
-        EventTime eventTime;
-        Venue location;
+        public int numPeople;
+        public EventTime eventTime;
+        public Venue location;
 
         public Event() {
             return;
@@ -26,12 +26,12 @@ public class Event {
         public Event(Venue v, int num_people, String event_name, String event_description,
                      int eventid, EventTime et) {
 
-            this.id = eventid;
+            this.eventid = eventid;
             this.name = event_name;
             this.whos_going = new ArrayList<User>();
             this.description = event_description;
 
-            this.designedPeople = num_people;
+            this.numPeople = num_people;
             this.eventTime=et;
             this.location = v;
         }
@@ -42,6 +42,7 @@ public class Event {
         }
 
         // add user to event, return true if succeeded
+        //NOT A DATABASE METHOD
         public boolean addUserToEvent(User user){
 
             if (this.isUserRegistered(user)){

@@ -1,14 +1,16 @@
 package com.example.b07_project;
 
-public class TimeSlot {
-    int slot_no;
+import java.io.Serializable;
+
+public class TimeSlot implements Serializable {
+    public int slotNo;
     public TimeSlot(int slot_no) {
-        this.slot_no=slot_no;
+        this.slotNo=slot_no;
         return;
     }
     @Override
     public String toString() {
-        int mins = slot_no*30;
+        int mins = slotNo*30;
         String []endings = {
                 "00",
                 "30"
