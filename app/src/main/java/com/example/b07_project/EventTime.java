@@ -18,13 +18,8 @@ public class EventTime {
     @Override
     public String toString() {
         String [] days = {
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Sunday"
+                "Today",
+                "Tomorrow",
         };
         return days[day]+" at "+startTime+"-"+endToString();
 
