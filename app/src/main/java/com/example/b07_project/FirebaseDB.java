@@ -137,7 +137,7 @@ public class FirebaseDB implements Database {
     // return venue by id
     public Venue get_venue(int venueid) {
         //fix:serialzable
-        Task<DocumentSnapshot> b = db.collection("venues").document("5").get();
+        Task<DocumentSnapshot> b = db.collection("venues").document(String.valueOf(venueid)).get();
 
         while (!b.isComplete()) {};
 
