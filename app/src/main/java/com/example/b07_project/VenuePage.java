@@ -30,7 +30,7 @@ public class VenuePage extends AppCompatActivity {
 
         venueView = (ListView) findViewById(R.id.venue_list);
 
-        Database db = DatabaseInstance.get_instance();
+        FirebaseDB db = new FirebaseDB();
         for (Venue v : db.all_venues()) {
             venues.add(v);
         }

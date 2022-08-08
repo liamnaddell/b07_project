@@ -191,27 +191,14 @@ public class FirebaseDB implements Database {
 
         ArrayList<Venue> venues = new ArrayList<>();
 
-        db.collection("venues")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            String name;
-                            VenueType type;
-                            String description;
-                            Integer vid;
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                name= document.get("name").toString();
-                                type = VenueType.valueOf(document.get("type").toString());
-                                description = document.get("description").toString();
-                                vid = Integer.parseInt(document.getId());
-                                venues.add(new Venue(type, name, description, vid));
-                            }
-                        }
-                    }
-                });
+        Task<QuerySnapshot> query = db.collection("venues")
+                .get();
 
+        while(!query.isComplete()){}
+
+        for (QueryDocumentSnapshot document: query.getResult()){
+            venues.add( document.toObject(new Venue().getClass()));
+        }
         return venues;
     }
     // return an arraylist of venues stored in database, return empty arraylist if none found
