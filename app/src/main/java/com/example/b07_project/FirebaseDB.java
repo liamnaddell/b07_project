@@ -211,13 +211,13 @@ public class FirebaseDB implements Database {
                                 type = VenueType.valueOf(document.get("type").toString());
                                 description = document.get("description").toString();
                                 vid = Integer.parseInt(document.getId());
-                                events.add(new Venue(type, name, description, vid));
+                                events.add(null);
                             }
                         }
                     }
                 });
 
-        return venues;
+        return events;
     }
 
     @Override
