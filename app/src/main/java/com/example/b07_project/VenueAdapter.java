@@ -36,7 +36,7 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
 
         venue_type.setText(venue.type.toString());
         venue_loc.setText(venue.name);
-        venue_des.setText(venue.venue_description);
+        venue_des.setText(venue.venueDescription);
 
         int i = 1;
         Button delete = convertView.findViewById(R.id.Del);

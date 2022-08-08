@@ -53,7 +53,8 @@ public class VenueSchedule extends AppCompatActivity {
                 TimeSlot Start = new TimeSlot(StartTime);
                 dur = Integer.valueOf(duration.getText().toString())/30;
                 Database db = DatabaseInstance.get_instance();
-                db.add_event(id,EventName,EventDes,NumPeople,Start,dur,0);
+                //db.add_event(id,EventName,EventDes,NumPeople,Start,dur,0);
+                //fix: Needs to use updated API
 
                 Toast.makeText(VenueSchedule.this,"Finish registering event",
                         Toast.LENGTH_LONG).show();

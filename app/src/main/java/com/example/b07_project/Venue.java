@@ -1,9 +1,11 @@
 package com.example.b07_project;
 
-public class Venue {
-    VenueType type;
-    String name;
-    String venueDescription;
+import java.io.Serializable;
+
+public class Venue implements Serializable {
+    public VenueType type;
+    public String name;
+    public String venueDescription;
     int venueid;
 
     public Venue() {
@@ -32,7 +34,7 @@ public class Venue {
 
     @Override
     public String toString() {
-        return this.name;
+        return this.name+this.type+this.venueDescription+this.venueid;
     }
 
 

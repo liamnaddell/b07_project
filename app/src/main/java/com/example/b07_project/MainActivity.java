@@ -13,6 +13,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Database db = DatabaseInstance.get_instance();
+        System.out.println("getting venus");
+        System.out.println("venue:"+db.get_venue(5));
     }
     /**
     public void login_handler(View view) {

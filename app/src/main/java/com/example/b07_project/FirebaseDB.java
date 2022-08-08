@@ -21,6 +21,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
@@ -136,15 +137,15 @@ public class FirebaseDB implements Database {
     // return venue by id
     public Venue get_venue(int venueid) {
         //fix:serialzable
-        Task<QuerySnapshot> b = db.collection("venues")
-                .whereEqualTo("venueid",venueid)
-                .get();
+        Task<DocumentSnapshot> b = db.collection("venues").document("5").get();
 
         while (!b.isComplete()) {};
 
         if (b.isSuccessful()) {
             System.out.println("done");
-            return b.getResult().toObjects(new Venue().getClass()).get(0);
+            Venue v = (Venue) b.getResult().toObject(new Venue().getClass());
+            v.venueid = Integer.parseInt(b.getResult().getId());
+            return v;
         } else {
             System.out.println("BAD FIREBASE QUERY LMAOOAO");
         }
@@ -227,12 +228,15 @@ public class FirebaseDB implements Database {
                             String name;
                             VenueType type;
                             String description;
-                            Integer vid;
+                            int vid=0;
+                            int eid=0;
+                            long maxPP=0;
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 name= document.get("name").toString();
-                                type = VenueType.valueOf(document.get("type").toString());
                                 description = document.get("description").toString();
-                                vid = Integer.parseInt(document.getId());
+                                maxPP = (Long) document.get("maxPP");
+                                eid = Integer.parseInt(document.getId());
+                                Event e = new Event(get_venue(vid),(int) maxPP,name,description,eid,null);
                                 events.add(null);
                             }
                         }
@@ -246,5 +250,10 @@ public class FirebaseDB implements Database {
     public ArrayList<Event> getUserRegisteredEvents(User user) {
         //implement
         return null;
+    }
+
+    @Override
+    public void delete_venue() {
+        return;
     }
 }
