@@ -69,7 +69,7 @@ public class FirebaseDB implements Database {
         return find_user_by_name(username).isAdmin;
     }
 
-    // return user given username, return null if user not found
+    //this method works
     @Override
     public User find_user_by_name(String username) {
         Task<QuerySnapshot> b = db.collection("users")
@@ -87,12 +87,12 @@ public class FirebaseDB implements Database {
         return null;
     }
 
-    //adds user with username, password into the database, returns true if successful
-    //assume user is created in firebase authentication
+    //fix me tharuth :)
     public boolean add_user(String username, String password, boolean is_admin) {
         //fix:userid
         //to tharuth, put uid instead of username here maybe
-        Task<DocumentReference> t = db.collection("users").add(new User(username,password,is_admin));
+        Task<Void> t = db.collection("users").document(username)
+                .set(new User(username,password,is_admin));
 
         while (!t.isComplete()) {}
 
@@ -134,7 +134,7 @@ public class FirebaseDB implements Database {
         return 0;
     }
 
-    // return venue by id
+    //this method functions correctly
     public Venue get_venue(int venueid) {
         //fix:serialzable
         Task<DocumentSnapshot> b = db.collection("venues").document(String.valueOf(venueid)).get();
