@@ -40,6 +40,10 @@ public class MockDB implements Database {
 
     }
 
+    public boolean is_admin(String username)  {
+        return find_user_by_name(username).isAdmin;
+    }
+
     @Override
     public User find_user_by_name(String username) {
         for(User u : users){

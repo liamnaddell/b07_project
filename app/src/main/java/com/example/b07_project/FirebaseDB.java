@@ -8,14 +8,20 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Vector;
 
 public class FirebaseDB implements Database {
     FirebaseAuth mAuth;
+    FirebaseFirestore db;
+    User loggedIn;
     public FirebaseDB() {
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
         return;
     }
     //checks that a user with username and password password exists in the database
@@ -35,20 +41,34 @@ public class FirebaseDB implements Database {
         while (v.size() != 1) {}
         if ((boolean) v.get(0) == true) {
             //how do I get if the user is an admin?
-            return new User(username,password,false);
+            loggedIn = new User(username,password,is_admin(username));
+            return loggedIn;
         }
         return null;
     }
     public User logged_in() {
         //how do I implement this?
-        return null;
+        return loggedIn;
     }
     public boolean is_admin(String username) {
-        return false;
+        return find_user_by_name(username).isAdmin;
     }
 
     @Override
     public User find_user_by_name(String username) {
+        Task<QuerySnapshot> b = db.collection("users")
+                .whereEqualTo("username",username)
+                .get();
+
+        while (!b.isComplete()) {};
+
+        if (b.isSuccessful()) {
+            System.out.println("done");
+            return b.getResult().toObjects(new User().getClass()).get(0);
+
+        } else {
+            System.out.println("BAD FIREBASE QUERY LMAOOAO");
+        }
         return null;
     }
 
