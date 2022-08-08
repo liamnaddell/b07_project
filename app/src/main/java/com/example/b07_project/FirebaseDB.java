@@ -119,13 +119,12 @@ public class FirebaseDB implements Database {
         return null;
     }
 
-    @Override
     public int add_venue(Venue v) {
         //fix: return venueid
-        Map<String,Object> kv = new Map<String,Object>();
+        Map<String,Object> kv = new Map<String,Object>;
         kv.put("venueDescription",v.venueDescription);
         kv.put("name",v.name);
-        kv.put("type",v.type)
+        kv.put("type",v.type);
         Task<DocumentReference> t = db.collection("venues").add(kv);
 
         while (!t.isComplete()) {}
@@ -161,9 +160,28 @@ public class FirebaseDB implements Database {
     public int add_event(Event e) {
 
         //fix:implement
-        String whos_going[] = new String[];
+        String whos_going[] = new String[e.whos_going.size()];
 
+        int i = 0;
+        for (User u : e.whos_going) {
+            whos_going[i]=u.username;
+            i++;
+        }
 
+        Map<String,Object> kv = new Map<String,Object>();
+        kv.put("whosGoing",whos_going);
+        kv.put("description",e.description);
+        //bug: fix this
+        kv.put("eventid",e.eventid);
+        kv.put("eventTime",e.eventTime);
+        kv.put("name",e.name);
+        kv.put("location",e.location.venueid);
+
+        Task<DocumentReference> t = db.collection("venues").add(kv);
+
+        while (!t.isComplete()) {}
+
+        if (t.isSuccessful()) return 1;
         return 0;
     }
 
