@@ -19,4 +19,5 @@ public interface Database {
     public Venue get_venue(int venueid);
     public void join_event(int eventid, User user);
     public ArrayList<Venue> all_venues();
+    public ArrayList<Event> all_events();
 }

@@ -40,11 +40,7 @@ public class EventPage extends AppCompatActivity {
 
         Database db = DatabaseInstance.get_instance();
 
-        events.add(db.get_event(0));
-        events.add(db.get_event(1));
-        events.add(db.get_event(2));
-        events.add(db.get_event(3));
-        events.add(db.get_event(4));
+        events=db.all_events();
 
 //        // use default layout, simple_list_item_1, for each item, customize it later
 //        adapter = new ArrayAdapter(EventPage.this, android.R.layout.simple_list_item_1, events);
@@ -63,9 +59,9 @@ public class EventPage extends AppCompatActivity {
 
                 intent.putExtra("name", events.get(i).name);
                 intent.putExtra("location", events.get(i).location.toString());
-                intent.putExtra("id", events.get(i).id);
+                intent.putExtra("id", events.get(i).eventid);
                 intent.putExtra("people-attending", Integer.toString(events.get(i).whos_going.size()));
-                intent.putExtra("desired-people", Integer.toString(events.get(i).designedPeople));
+                intent.putExtra("desired-people", Integer.toString(events.get(i).maxPP));
                 intent.putExtra("description", events.get(i).description);
                 intent.putExtra("start-time", events.get(i).eventTime.startTime.toString());
                 intent.putExtra("end-time", events.get(i).eventTime.endToString());

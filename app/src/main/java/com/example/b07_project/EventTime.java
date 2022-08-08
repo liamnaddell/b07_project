@@ -1,6 +1,8 @@
 package com.example.b07_project;
 
-public class EventTime {
+import java.io.Serializable;
+
+public class EventTime implements Serializable {
     public String day;
     public TimeSlot startTime;
     //30 minute time-slots used
@@ -14,7 +16,7 @@ public class EventTime {
     }
 
     public String endToString() {
-        TimeSlot ets = new TimeSlot(startTime.slot_no+duration);
+        TimeSlot ets = new TimeSlot(startTime.slotNo+duration);
         return ets.toString();
     }
     @Override

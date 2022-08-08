@@ -123,8 +123,9 @@ public class FirebaseDB implements Database {
 
     @Override
     public int add_venue(VenueType vt, String venue_name, String venue_description) {
-        //fix: return venueid,serializable
-        Task<DocumentReference> t = db.collection("venues").add(new Venue(vt,venue_name,venue_description));
+        //fix: return venueid
+        Task<DocumentReference> t = db.collection("venues")
+                .add(new Venue(vt,venue_name,venue_description));
 
         while (!t.isComplete()) {}
 
@@ -136,7 +137,7 @@ public class FirebaseDB implements Database {
     public Venue get_venue(int venueid) {
         //fix:serialzable
         Task<QuerySnapshot> b = db.collection("events")
-                .whereEqualTo("eventid",venueid)
+                .whereEqualTo("venueid",venueid)
                 .get();
 
         while (!b.isComplete()) {};
@@ -190,9 +191,38 @@ public class FirebaseDB implements Database {
 
         return venues;
     }
+    // return an arraylist of venues stored in database, return empty arraylist if none found
+    public ArrayList<Event> all_events() {
+        //fix later
+        ArrayList<Event> events = new ArrayList<>();
+
+        db.collection("events")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            String name;
+                            VenueType type;
+                            String description;
+                            Integer vid;
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                name= document.get("name").toString();
+                                type = VenueType.valueOf(document.get("type").toString());
+                                description = document.get("description").toString();
+                                vid = Integer.parseInt(document.getId());
+                                events.add(new Venue(type, name, description, vid));
+                            }
+                        }
+                    }
+                });
+
+        return venues;
+    }
 
     @Override
     public ArrayList<Event> getUserRegisteredEvents(User user) {
+        //implement
         return null;
     }
 }

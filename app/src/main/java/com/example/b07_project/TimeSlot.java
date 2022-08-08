@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 public class TimeSlot implements Serializable {
     public int slotNo;
+    public TimeSlot() {
+        return;
+    }
     public TimeSlot(int slot_no) {
         this.slotNo=slot_no;
         return;

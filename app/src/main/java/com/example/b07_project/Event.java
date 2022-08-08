@@ -14,7 +14,7 @@ public class Event implements Serializable {
         public String name;
         public String description;
 
-        public int numPeople;
+        public int maxPP;
         public EventTime eventTime;
         public Venue location;
 
@@ -31,7 +31,7 @@ public class Event implements Serializable {
             this.whos_going = new ArrayList<User>();
             this.description = event_description;
 
-            this.numPeople = num_people;
+            this.maxPP = num_people;
             this.eventTime=et;
             this.location = v;
         }
