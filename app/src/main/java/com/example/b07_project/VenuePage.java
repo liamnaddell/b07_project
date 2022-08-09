@@ -30,6 +30,12 @@ public class VenuePage extends Fragment {
 
         venueView = (ListView) current_view.findViewById(R.id.venue_list);
 
+<<<<<<< Updated upstream
+=======
+        Venuebinding = ActivityVenuePageBinding.inflate(getLayoutInflater());
+
+        venueView = (ListView) current_view.findViewById(R.id.venue_list);
+>>>>>>> Stashed changes
         Database db = DatabaseInstance.get_instance();
         for (Venue v : db.all_venues()) {
             venues.add(v);
@@ -37,16 +43,27 @@ public class VenuePage extends Fragment {
 
         venueAdapter = new VenueAdapter(getActivity(), venues);
 
+<<<<<<< Updated upstream
         venueView.setAdapter(venueAdapter);
 
         venueView.setClickable(true);
         venueView.setOnItemClickListener((adapterView, view, position, id) -> {
+=======
+        venueAdapter = new VenueAdapter(getActivity(), venues);
+
+        Venuebinding.venueList.setAdapter(venueAdapter);
+        Venuebinding.venueList.setClickable(true);
+        Venuebinding.venueList.setOnItemClickListener((adapterView, view, position, id) -> {
+>>>>>>> Stashed changes
             Intent intent = new Intent(getActivity(), VenueSchedule.class);
             intent.putExtra("eventid",venues.get(position).venueid);
             startActivity(intent);
         });
 
+<<<<<<< Updated upstream
         /*
+=======
+>>>>>>> Stashed changes
         Button edit = (Button) current_view.findViewById(R.id.edit_button);
         Button done = (Button) current_view.findViewById(R.id.done_button);
 
@@ -74,7 +91,11 @@ public class VenuePage extends Fragment {
                 edit.setVisibility(View.VISIBLE);
                 done.setVisibility(View.INVISIBLE);
             }
+<<<<<<< Updated upstream
         });*/
+=======
+        });
+>>>>>>> Stashed changes
 
         return current_view;
     }
