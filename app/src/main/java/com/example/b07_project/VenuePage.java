@@ -31,6 +31,9 @@ public class VenuePage extends Fragment {
 
         venueView = (ListView) current_view.findViewById(R.id.venue_list);
 
+        Venuebinding = ActivityVenuePageBinding.inflate(getLayoutInflater());
+
+        venueView = (ListView) current_view.findViewById(R.id.venue_list);
         Database db = DatabaseInstance.get_instance();
         for (Venue v : db.all_venues()) {
             venues.add(v);
@@ -40,13 +43,12 @@ public class VenuePage extends Fragment {
 
         venueView.setAdapter(venueAdapter);
 
-        venueView.setClickable(true);
-        venueView.setOnItemClickListener((adapterView, view, position, id) -> {
+        Venuebinding.venueList.setClickable(true);
+        Venuebinding.venueList.setOnItemClickListener((adapterView, view, position, id) -> {
             Intent intent = new Intent(getActivity(), VenueSchedule.class);
-            intent.putExtra("eventid",venues.get(position).venueid);
+            intent.putExtra("eventid", venues.get(position).venueid);
             startActivity(intent);
         });
-
 
         return current_view;
     }

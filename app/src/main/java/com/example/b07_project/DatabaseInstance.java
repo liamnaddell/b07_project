@@ -30,6 +30,10 @@ public class DatabaseInstance {
             db.add_event(v2, "weed smoking contest",
                     "smoke week and have fun", 4, new TimeSlot(1),
                     20,"Thursday");
+
+            db.add_event(v2, "swallow kids event",
+                    "swallow kids and try not to choke", 5,
+                    new TimeSlot(1), 20,"Friday");
         }
         return db;
     }
