@@ -10,11 +10,13 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:theme="@style/Theme.B07_project.AppBarOverlay">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            app:tabGravity="center"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/my_settings"
@@ -38,7 +40,9 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            app:tabGravity="center"
+            app:tabMode="fixed"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
