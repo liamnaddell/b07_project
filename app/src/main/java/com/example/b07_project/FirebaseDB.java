@@ -121,11 +121,6 @@ public class FirebaseDB implements Database {
         return null;
     }
 
-//    public String generateId(String collectionName){
-//        String ref = db.collection(collectionName).document().getId();
-//        Log.d("generateId", ref);
-//        return ref;
-//    }
 
     public String add_venue(Venue v) {
         DocumentReference ref = db.collection("venues").document();
@@ -165,7 +160,6 @@ public class FirebaseDB implements Database {
 
 
     }
-
     // add event to server, return 1 if successful
     public String add_event(Event e) {
 
