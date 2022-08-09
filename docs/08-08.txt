@@ -1,2 +1,10 @@
 liam, zusheng:
 	Got code to compile on the firebase-firestore branch
+
+liam:
+    add_user partially done
+    get_event done
+    get_venue done
+    add_event done (stolen from Minh, sorry minh)
+    add_venue done
+    get_venue done
