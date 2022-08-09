@@ -17,18 +17,13 @@ public class EventDetailPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_event_detail_page);
-
         binding = ActivityEventDetailPageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        //setContentView(R.layout.activity_event_detail_page);
 
         Intent intent = this.getIntent();
 
 
         if (intent != null){
-
 
             String name = intent.getStringExtra("name");
             String location = intent.getStringExtra("location");
@@ -38,7 +33,6 @@ public class EventDetailPage extends AppCompatActivity {
             String description = intent.getStringExtra("description");
             String startTime= intent.getStringExtra("start-time");
             String endTime = intent.getStringExtra("end-time");
-
 
             binding.detailEventName.setText(name);
             binding.detailEventLocation.setText(location);
@@ -54,8 +48,8 @@ public class EventDetailPage extends AppCompatActivity {
 
     // send the user to the page if they want to register for this event, use main as default
     // not necessary but nice to have, implement later if theres time
-//    public void goEventRegisterPage(View view) {
-//        Intent intent = new Intent(this, MainActivity.class);
-//        startActivity(intent);
-//    }
+    public void register(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }
