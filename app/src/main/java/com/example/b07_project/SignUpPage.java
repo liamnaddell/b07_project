@@ -22,7 +22,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthMultiFactorException;
 import com.google.firebase.auth.FirebaseUser;
-//import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.ktx.Firebase;
@@ -80,22 +79,32 @@ public class SignUpPage extends AppCompatActivity{
                     return;
                 }
                 User newUser = new User(userString, passString, false);
-                db.collection("users")
-                        .add(newUser)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>(){
+                FirebaseDB database = new FirebaseDB();
+                User testUser = database.find_user_by_name(userString);
+                // if find_user_by_name fails, null is returned
+                if (testUser == null) {
+                    db.collection("users")
+                            .add(newUser)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
 
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                mAuth.createUserWithEmailAndPassword(userString,passString);
-                                Toast.makeText(SignUpPage.this, "User Created", Toast.LENGTH_SHORT).show();
-                                goToMainPage(view);
-                            }
-                        }).addOnFailureListener(new OnFailureListener(){
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(SignUpPage.this, "Signup Failed", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    mAuth.createUserWithEmailAndPassword(userString, passString);
+                                    mAuth.signInWithEmailAndPassword(userString, passString);
+                                    Toast.makeText(SignUpPage.this, "User Created", Toast.LENGTH_SHORT).show();
+                                    goToMainPage(view);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(SignUpPage.this, "Signup Failed", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+                else {
+                    Toast.makeText(SignUpPage.this, "Your email has already used.", Toast.LENGTH_SHORT).show();
+                    goToLoginPage(view);
+                }
             }
         });
 
