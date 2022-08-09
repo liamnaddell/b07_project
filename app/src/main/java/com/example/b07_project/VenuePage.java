@@ -13,7 +13,7 @@ import com.example.b07_project.databinding.ActivityVenuePageBinding;
 
 import java.util.ArrayList;
 
-public class VenuePage extends AppCompatActivity {
+public class VenuePage<Val> extends AppCompatActivity {
 
     ListView venueView;
     ArrayList<Venue> venues = new ArrayList<Venue>();
@@ -43,6 +43,37 @@ public class VenuePage extends AppCompatActivity {
             intent.putExtra("eventid",venues.get(position).venueid);
             startActivity(intent);
         });
+
+        Button edit = (Button) findViewById(R.id.edit_button);
+        Button done = (Button) findViewById(R.id.done_button);
+
+        boolean check = true;
+
+        if(check){
+            done.setVisibility(View.INVISIBLE);
+            edit.setVisibility(View.VISIBLE);
+        }else{
+            edit.setVisibility(View.INVISIBLE);
+            done.setVisibility(View.INVISIBLE);
+        }
+
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                edit.setVisibility(View.INVISIBLE);
+                done.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        done.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                edit.setVisibility(View.VISIBLE);
+                done.setVisibility(View.INVISIBLE);
+                //delete.setVisibility(View.INVISIBLE);
+            }
+        });
+
     }
 
 

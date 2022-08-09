@@ -26,7 +26,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="39dp"
+                    android:layout_marginTop="2dp"
                     android:text="@string/V_TYPE"
                     android:textColor="#000000"
                     android:textSize="25dp"
