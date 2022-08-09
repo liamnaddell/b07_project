@@ -38,9 +38,9 @@ public class EventPage extends AppCompatActivity {
 
         eventView = (ListView) findViewById(R.id.event_view);
 
-        Database db = DatabaseInstance.get_instance();
+        FirebaseDB db = new FirebaseDB();
 
-        events=db.all_events();
+        events = db.all_events();
 
 //        // use default layout, simple_list_item_1, for each item, customize it later
 //        adapter = new ArrayAdapter(EventPage.this, android.R.layout.simple_list_item_1, events);

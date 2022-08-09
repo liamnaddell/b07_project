@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -112,7 +113,7 @@ public class FirebaseDB implements Database {
         if (b.isSuccessful()) {
             System.out.println("done w/ getevent query");
             Event e = b.getResult().toObject(new Event().getClass());
-            e.eventid=Integer.parseInt((b.getResult().getId()));
+            e.eventid=(b.getResult().getId());
             return e;
         } else {
             System.out.println("BAD FIREBASE QUERY LMAOOAO");
@@ -120,11 +121,16 @@ public class FirebaseDB implements Database {
         return null;
     }
 
+//    public String generateId(String collectionName){
+//        String ref = db.collection(collectionName).document().getId();
+//        Log.d("generateId", ref);
+//        return ref;
+//    }
+
     public String add_venue(Venue v) {
         DocumentReference ref = db.collection("venues").document();
 
         Task<Void> t = ref.set(v);
-
         while (!t.isComplete()) {}
 
         if (t.isSuccessful()) {
@@ -144,7 +150,7 @@ public class FirebaseDB implements Database {
         if (b.isSuccessful()) {
             System.out.println("done");
             Venue v = (Venue) b.getResult().toObject(new Venue().getClass());
-            v.venueid = Integer.parseInt(b.getResult().getId());
+            v.venueid = b.getResult().getId().toString();
             return v;
         } else {
             System.out.println("BAD FIREBASE QUERY LMAOOAO");
@@ -155,6 +161,9 @@ public class FirebaseDB implements Database {
     @Override
     public void join_event(int eventid, User user) {
         //implement
+
+
+
     }
 
     // add event to server, return 1 if successful
@@ -180,8 +189,11 @@ public class FirebaseDB implements Database {
         while(!query.isComplete()){}
 
         for (QueryDocumentSnapshot document: query.getResult()){
-            venues.add( document.toObject(new Venue().getClass()));
+            Venue v = document.toObject(new Venue().getClass());
+            v.venueid = document.getId().toString();
+            venues.add(v);
         }
+
         return venues;
     }
     // return an arraylist of venues stored in database, return empty arraylist if none found
@@ -189,29 +201,15 @@ public class FirebaseDB implements Database {
         //fix later
         ArrayList<Event> events = new ArrayList<>();
 
-        db.collection("events")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            String name;
-                            VenueType type;
-                            String description;
-                            int vid=0;
-                            int eid=0;
-                            long maxPP=0;
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                name= document.get("name").toString();
-                                description = document.get("description").toString();
-                                maxPP = (Long) document.get("maxPP");
-                                eid = Integer.parseInt(document.getId());
-                                Event e = new Event(get_venue(vid),(int) maxPP,name,description,eid,null);
-                                events.add(null);
-                            }
-                        }
-                    }
-                });
+        Task<QuerySnapshot> query = db.collection("events").get();
+
+        while (!query.isComplete()){}
+
+        for (QueryDocumentSnapshot document: query.getResult()){
+            Event e = document.toObject(new Event().getClass());
+            e.eventid = document.getId();
+            events.add(e);
+        }
 
         return events;
     }

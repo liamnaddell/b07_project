@@ -6,13 +6,20 @@ public class Venue implements Serializable {
     public VenueType type;
     public String name;
     public String venueDescription;
-    int venueid;
+    String venueid;
 
     public Venue() {
         return;
     }
     // create venue with standard id; use this constrctor to load existing venue from database
-    public Venue(VenueType v, String name, String venue_description,int venueid) {
+    public Venue(VenueType v, String name, String venue_description,String venueid) {
+        this.type=v;
+        this.name=name;
+        this.venueDescription=venue_description;
+        this.venueid = venueid;
+    }
+
+    public Venue(VenueType v, String name, String venue_description) {
         this.type=v;
         this.name=name;
         this.venueDescription=venue_description;

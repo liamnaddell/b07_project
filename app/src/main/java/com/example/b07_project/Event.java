@@ -8,13 +8,13 @@ public class Event implements Serializable {
         // locations should be class Venue, use String for now
         // whos_going should consist of class User, use String for now
 
-    int eventid;
+    String eventid;
     public String name;
     public String description;
 
     public int maxPP;
     public EventTime eventTime;
-    public int location;
+    public String location;
     public ArrayList<String> whosGoing;
 
     public Event() {
@@ -23,7 +23,7 @@ public class Event implements Serializable {
 
         // use this constructor to create new event only
         public Event(Venue v, int num_people, String event_name, String event_description,
-                     int eventid, EventTime et) {
+                     String eventid, EventTime et) {
 
             this.eventid = eventid;
             this.name = event_name;

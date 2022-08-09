@@ -78,8 +78,8 @@ public class UserPage extends AppCompatActivity {
                                     System.out.println("With name: \"" + venue_name+"\"");
                                     System.out.println("With description: \"" + venue_description+"\"");
 
-                                    Database db = DatabaseInstance.get_instance();
-                                    Venue venu = new Venue(vt,venue_name,venue_description,0);
+                                    FirebaseDB db = new FirebaseDB();
+                                    Venue venu = new Venue(vt,venue_name,venue_description);
                                     db.add_venue(venu);
                                     Toast.makeText(UserPage.this, "Venue Added", Toast.LENGTH_SHORT).show();
                                     tabs.getTabAt(0).select();
