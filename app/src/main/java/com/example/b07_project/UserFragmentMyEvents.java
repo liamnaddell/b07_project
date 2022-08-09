@@ -22,6 +22,7 @@ public class UserFragmentMyEvents extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_user_page_myevents, container, false);
         FirebaseDB db = new FirebaseDB();
+
         //my_events should contain the events that the user has joined
         User temp = db.find_user_by_name("admin1");
 

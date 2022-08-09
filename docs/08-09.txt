@@ -1,0 +1,4 @@
+Zusheng:
+    implemented get userbyid and get userreg event
+    fixed compatibility issue on user page, all current functions are using/implementing data on firestore
+    
