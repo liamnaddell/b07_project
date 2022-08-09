@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -11,13 +11,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="226dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/Event"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="213dp"
+                android:layout_marginTop="22dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -25,7 +26,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="39dp"
+                    android:layout_marginTop="2dp"
                     android:text="@string/V_TYPE"
                     android:textColor="#000000"
                     android:textSize="25dp"
@@ -59,8 +60,8 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="45dp"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="5dp"
                     android:text="@string/Delete"
                     app:layout_constraintEnd_toEndOf="parent" />
 

@@ -46,13 +46,42 @@ public class VenuePage extends Fragment {
             startActivity(intent);
         });
 
+        /*
+        Button edit = (Button) current_view.findViewById(R.id.edit_button);
+        Button done = (Button) current_view.findViewById(R.id.done_button);
+
+        boolean check = true;
+
+        if(check){
+            done.setVisibility(View.INVISIBLE);
+            edit.setVisibility(View.VISIBLE);
+        }else{
+            edit.setVisibility(View.INVISIBLE);
+            done.setVisibility(View.INVISIBLE);
+        }
+
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                edit.setVisibility(View.INVISIBLE);
+                done.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        done.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                edit.setVisibility(View.VISIBLE);
+                done.setVisibility(View.INVISIBLE);
+            }
+        });*/
+
         return current_view;
     }
 
-/**
     public void goToMain (View view){
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(getActivity(),MainActivity.class);
         startActivity(intent);
     }
- */
+
 }

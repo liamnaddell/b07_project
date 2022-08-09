@@ -3,31 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.184" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/drawable/event_launcher_foreground.xml" value="0.184" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.184" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/drawable/my_account_launcher_foreground.xml" value="0.1" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/drawable/venue_launcher_foreground.xml" value="0.156" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_sign_up_page.xml" value="0.19067028985507245" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_venue_page.xml" value="0.264" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_venue_schedule.xml" value="0.16" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/event_list_layout.xml" value="0.19067028985507245" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/fragment_user_page.xml" value="0.19067028985507245" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/venue_list_layout.xml" value="0.264" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_change_pass.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_event_page.xml" value="0.11413043478260869" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_login_page.xml" value="0.1" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_sign_up_page.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_user_page.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_user_page_changepass.xml" value="0.22" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_user_page_myevents.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_user_page_myvenues.xml" value="0.2915980230642504" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_users_page.xml" value="0.22" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_venue_page.xml" value="0.16296296296296298" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_venue_schedule.xml" value="0.16296296296296298" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/event_list_layout.xml" value="0.16296296296296298" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/fragment_collection_object.xml" value="0.17447916666666666" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/fragment_user_page.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/fragment_users_page.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/venue_list_layout.xml" value="0.22" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/menu/bottom_nav_menu.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/menu/styles.xml" value="0.1" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/xml/styles.xml" value="0.17447916666666666" />
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_user.xml" value="0.2" />

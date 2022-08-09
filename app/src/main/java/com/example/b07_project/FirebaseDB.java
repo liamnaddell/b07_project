@@ -12,6 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -93,7 +94,9 @@ public class FirebaseDB implements Database {
     }
 
     @Override
-    public int add_event(int venueid, String event_name, String event_description, int num_people, TimeSlot ts, int duration) {
+    public int add_event(int venueid, String event_name, String event_description, int num_people,
+                         TimeSlot ts, int duration, String day) {
+
         return 0;
     }
     public Venue[] all_venues() {
