@@ -14,10 +14,10 @@ public interface Database {
     //duration = how many 30-minute TimeSlot's
     public String add_event(Event e);
     public ArrayList<Event> getUserRegisteredEvents(User user);
-    public Event get_event(int eventid);
+    public Event get_event(String eventid);
     public String add_venue(Venue v);
-    public Venue get_venue(int venueid);
-    public void join_event(int eventid, User user);
+    public Venue get_venue(String venueid);
+    public void join_event(String eventid, User user);
     public ArrayList<Venue> all_venues();
     public ArrayList<Event> all_events();
     //delete venue and maybe all events at that venue if we have tiem

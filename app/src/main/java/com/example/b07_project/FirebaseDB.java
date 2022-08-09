@@ -104,9 +104,9 @@ public class FirebaseDB implements Database {
     }
 
     //this works
-    public Event get_event(int eventid) {
+    public Event get_event(String eventid) {
         System.out.println("Stariting getevent query");
-        Task<DocumentSnapshot> b = db.collection("events").document(String.valueOf(eventid)).get();
+        Task<DocumentSnapshot> b = db.collection("events").document(eventid).get();
 
         while (!b.isComplete()) {};
 
@@ -120,7 +120,6 @@ public class FirebaseDB implements Database {
         }
         return null;
     }
-
 
     public String add_venue(Venue v) {
         DocumentReference ref = db.collection("venues").document();
@@ -136,16 +135,16 @@ public class FirebaseDB implements Database {
     }
 
     //this method functions correctly
-    public Venue get_venue(int venueid) {
+    public Venue get_venue(String venueid) {
         //fix:serialzable
-        Task<DocumentSnapshot> b = db.collection("venues").document(String.valueOf(venueid)).get();
+        Task<DocumentSnapshot> b = db.collection("venues").document(venueid).get();
 
         while (!b.isComplete()) {};
 
         if (b.isSuccessful()) {
             System.out.println("done");
             Venue v = (Venue) b.getResult().toObject(new Venue().getClass());
-            v.venueid = b.getResult().getId().toString();
+            v.venueid = b.getResult().getId();
             return v;
         } else {
             System.out.println("BAD FIREBASE QUERY LMAOOAO");
@@ -154,12 +153,30 @@ public class FirebaseDB implements Database {
     }
 
     @Override
-    public void join_event(int eventid, User user) {
-        //implement
+    public void join_event(String eventid, User user) {
+        String userId;
+        Task<QuerySnapshot> query = db.collection("users").whereEqualTo("username", user.username).get();
 
+        while (!query.isComplete()){}
 
+        if (!query.isSuccessful()){
+            Log.d("idiot", "failed to join event");
+        }
+        userId = query.toString();
+        //Log.d("join_event", "userid = " + userId);
 
+        DocumentReference ref = db.collection("events").document(eventid);
+        ArrayList<String> participants = new ArrayList<>();
+        DocumentSnapshot doc = ref.get().getResult();
+        if (doc.exists()){
+            participants = (ArrayList<String>)doc.get("whosGoing");
+            participants.add(userId);
+        }
+        Map<String,Object> hashMap = new HashMap<>();
+        hashMap.put("whosGoing",hashMap);
+        db.collection("events").document(eventid).update(hashMap);
     }
+
     // add event to server, return 1 if successful
     public String add_event(Event e) {
 
