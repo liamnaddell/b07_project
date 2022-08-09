@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 
 import com.example.b07_project.databinding.ActivityVenuePageBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -48,12 +49,11 @@ public class VenuePage extends Fragment {
             intent.putExtra("eventid", venues.get(position).venueid);
             startActivity(intent);
         });
+
         return current_view;
     }
 
-    public void goToMain (View view){
-        Intent intent = new Intent(getActivity(),MainActivity.class);
-        startActivity(intent);
-    }
+
+
 
 }

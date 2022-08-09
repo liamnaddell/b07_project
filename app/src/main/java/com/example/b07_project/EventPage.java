@@ -42,7 +42,6 @@ public class EventPage extends Fragment {
         events.add(db.get_event(1));
         events.add(db.get_event(2));
         events.add(db.get_event(3));
-        events.add(db.get_event(4));
 
 //        // use default layout, simple_list_item_1, for each item, customize it later
 //        adapter = new ArrayAdapter(EventPage.this, android.R.layout.simple_list_item_1, events);
