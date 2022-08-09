@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import java.util.regex.*;
 
 public class LoginPage extends AppCompatActivity {
 
@@ -46,6 +47,14 @@ public class LoginPage extends AppCompatActivity {
                     username.setError("Email field cannot be empty.");
                     return;
                 }
+                //Email Format Check Using Regex
+                Pattern p = Pattern.compile("^[\\w-.]+@([\\w-]+.)+[\\w]{2,4}$");
+                Matcher m = p.matcher(user);
+                if(!m.matches()) {
+                    username.setError("Invalid Email format. Please try again.");
+                    return;
+                }
+
                 if(TextUtils.isEmpty(pass)) {
                     password.setError("Password field cannot be empty.");
                     return;

@@ -14,6 +14,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
+import java.util.regex.*;
+
 
 public class ForgotPassword extends AppCompatActivity {
 
@@ -38,6 +40,15 @@ public class ForgotPassword extends AppCompatActivity {
                     email.setError("Email field cannot be empty.");
                     return;
                 }
+
+                //Email Format Check Using Regex
+                Pattern p = Pattern.compile("^[\\w-.]+@([\\w-]+.)+[\\w]{2,4}$");
+                Matcher m = p.matcher(mail);
+                if(!m.matches()) {
+                    email.setError("Invalid Email format. Please try again.");
+                    return;
+                }
+
                 f.sendPasswordResetEmail(mail).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
