@@ -19,9 +19,11 @@
 
     <TextView
         android:id="@+id/detail_event_name"
-        android:layout_width="287dp"
-        android:layout_height="116dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="50dp"
         android:text="Event Name"
         android:textAlignment="center"
         android:textSize="34sp"
@@ -110,14 +112,20 @@
 
     <Button
         android:id="@+id/detail_register_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="208dp"
-        android:text="register"
-        app:layout_constraintEnd_toEndOf="@+id/detail_event_designed_people"
-        app:layout_constraintStart_toEndOf="@+id/slash"
-        app:layout_constraintTop_toBottomOf="@+id/detail_event_designed_people" />
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="350dp"
+        android:gravity="center"
+        android:onClick="goToEvent"
+        android:text="join"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView2"
@@ -142,5 +150,16 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/detail_event_description"
         app:layout_constraintTop_toBottomOf="@+id/detail_event_description" />
+
+    <Button
+        android:id="@+id/event_join_go_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="goToEvent"
+        android:text="go back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

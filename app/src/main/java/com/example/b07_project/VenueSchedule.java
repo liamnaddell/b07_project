@@ -1,7 +1,9 @@
 package com.example.b07_project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.app.FragmentManager;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.sql.Time;
 
@@ -80,10 +84,13 @@ public class VenueSchedule extends AppCompatActivity implements AdapterView.OnIt
         return intValue;
     }
 
-    public void goToVenue (View view){
-        Intent intent = new Intent(this,VenuePage.class);
-        startActivity(intent);
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 
+    public void goToVenue (View view){
+        onBackPressed();
     }
 
     @Override
