@@ -15,7 +15,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Database db = DatabaseInstance.get_instance();
-        db.delete_venue("");
+        /*Venue v = db.get_venue("3QFpVvfIH374EWTSnWgU");
+        System.out.println(v);
+        EventTime et = new EventTime(new TimeSlot(2),2,"Today");
+        Event e = new Event(v,22,"blobby dies", "watch blobby die", "idek", et);
+        System.out.println(db.add_event(e));*/
+        //db.join_event( "60tVxf274f1JQf3L8KAI", db.find_user_by_name("admin1")); this code breaks lmao
     }
     /**
     public void login_handler(View view) {

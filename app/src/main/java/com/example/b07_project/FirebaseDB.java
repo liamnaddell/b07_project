@@ -182,6 +182,7 @@ public class FirebaseDB implements Database {
 
         DocumentReference ref = db.collection("events").document(eventid);
         ArrayList<String> participants = new ArrayList<>();
+        //broken code here
         DocumentSnapshot doc = ref.get().getResult();
         if (doc.exists()){
 //            participants = (ArrayList<String>)doc.get("whosGoing");
@@ -198,6 +199,7 @@ public class FirebaseDB implements Database {
     }
 
     // add event to server, return 1 if successful
+    //bug: can add multiple events with overlaping times
     public String add_event(Event e) {
 
         DocumentReference ref = db.collection("events").document();
