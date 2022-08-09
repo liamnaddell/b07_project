@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".VenuePage">
 
-    <Button
-        android:id="@+id/X"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:onClick="goToMain"
-        android:text="@string/X"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="411dp"
