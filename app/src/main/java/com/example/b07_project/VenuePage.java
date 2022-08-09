@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 
@@ -16,7 +16,7 @@ import com.example.b07_project.databinding.ActivityVenuePageBinding;
 
 import java.util.ArrayList;
 
-public class VenuePage extends Fragment{
+public class VenuePage extends Fragment {
 
     ListView venueView;
     ArrayList<Venue> venues = new ArrayList<Venue>();
@@ -26,32 +26,29 @@ public class VenuePage extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_venue_page, container, false);
+        View current_view = inflater.inflate(R.layout.activity_venue_page, container, false);
 
-        venueView = (ListView) view.findViewById(R.id.venue_list);
+        venueView = (ListView) current_view.findViewById(R.id.venue_list);
 
         Database db = DatabaseInstance.get_instance();
         for (Venue v : db.all_venues()) {
             venues.add(v);
         }
 
-
         venueAdapter = new VenueAdapter(getActivity(), venues);
 
         venueView.setAdapter(venueAdapter);
-        venueView.setClickable(true);
-        venueView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getActivity(), VenueSchedule.class);
 
-                intent.putExtra("eventid", venues.get(position).venueid);
-                startActivity(intent);
-            }
+        venueView.setClickable(true);
+        venueView.setOnItemClickListener((adapterView, view, position, id) -> {
+            Intent intent = new Intent(getActivity(), VenueSchedule.class);
+            intent.putExtra("eventid",venues.get(position).venueid);
+            startActivity(intent);
         });
 
-        Button edit = (Button) view.findViewById(R.id.edit_button);
-        Button done = (Button) view.findViewById(R.id.done_button);
+        /*
+        Button edit = (Button) current_view.findViewById(R.id.edit_button);
+        Button done = (Button) current_view.findViewById(R.id.done_button);
 
         boolean check = true;
 
@@ -77,9 +74,9 @@ public class VenuePage extends Fragment{
                 edit.setVisibility(View.VISIBLE);
                 done.setVisibility(View.INVISIBLE);
             }
-        });
+        });*/
 
-        return view;
+        return current_view;
     }
 
     public void goToMain (View view){
