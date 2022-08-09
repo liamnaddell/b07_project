@@ -21,5 +21,5 @@ public interface Database {
     public ArrayList<Venue> all_venues();
     public ArrayList<Event> all_events();
     //delete venue and maybe all events at that venue if we have tiem
-    public void delete_venue();
+    public void delete_venue(String vid);
 }

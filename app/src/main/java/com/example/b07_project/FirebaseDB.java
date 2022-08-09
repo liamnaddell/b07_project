@@ -271,8 +271,20 @@ public class FirebaseDB implements Database {
         return events;
     }
 
-    @Override
-    public void delete_venue() {
-        return;
+    public void delete_venue(String vid) {
+        Task<QuerySnapshot> query = db.collection("events")
+                .whereEqualTo("location",vid)
+                .get();
+
+        while (!query.isComplete()){}
+
+        for (QueryDocumentSnapshot document: query.getResult()){
+            document.getReference().delete();
+        }
+        Task<DocumentSnapshot> ds = db.collection("venues").document("vid").get();
+        while (!ds.isComplete()) {}
+        if (ds.isSuccessful()) {
+            ds.getResult().getReference().delete();
+        }
     }
 }

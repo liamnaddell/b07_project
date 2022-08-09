@@ -14,11 +14,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Database db = DatabaseInstance.get_instance();
-//        Event e = new Event(db.get_venue(0),24,"blobby deth day", "watch blobby die",0,
-//                new EventTime(new TimeSlot(10),2,"Today")
-//                );
-//        System.out.println("added event:"+db.add_event(e));
+        Database db = DatabaseInstance.get_instance();
+        db.delete_venue("");
     }
     /**
     public void login_handler(View view) {
