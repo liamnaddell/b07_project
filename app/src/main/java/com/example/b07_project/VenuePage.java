@@ -2,18 +2,21 @@ package com.example.b07_project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 
 import com.example.b07_project.databinding.ActivityVenuePageBinding;
 
 import java.util.ArrayList;
 
-public class VenuePage extends AppCompatActivity {
+public class VenuePage extends Fragment {
 
     ListView venueView;
     ArrayList<Venue> venues = new ArrayList<Venue>();
@@ -21,37 +24,35 @@ public class VenuePage extends AppCompatActivity {
     ActivityVenuePageBinding Venuebinding;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_venue_page);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View current_view = inflater.inflate(R.layout.activity_venue_page, container, false);
 
-        Venuebinding = ActivityVenuePageBinding.inflate(getLayoutInflater());
-        setContentView(Venuebinding.getRoot());
-
-        venueView = (ListView) findViewById(R.id.venue_list);
+        venueView = (ListView) current_view.findViewById(R.id.venue_list);
 
         Database db = DatabaseInstance.get_instance();
         for (Venue v : db.all_venues()) {
             venues.add(v);
         }
 
-        venueAdapter = new VenueAdapter(VenuePage.this, venues);
+        venueAdapter = new VenueAdapter(getActivity(), venues);
 
-        Venuebinding.venueList.setAdapter(venueAdapter);
+        venueView.setAdapter(venueAdapter);
 
-
-
-        Venuebinding.venueList.setClickable(true);
-        Venuebinding.venueList.setOnItemClickListener((adapterView, view, position, id) -> {
-            Intent intent = new Intent(VenuePage.this, VenueSchedule.class);
+        venueView.setClickable(true);
+        venueView.setOnItemClickListener((adapterView, view, position, id) -> {
+            Intent intent = new Intent(getActivity(), VenueSchedule.class);
             intent.putExtra("eventid",venues.get(position).venueid);
             startActivity(intent);
         });
+
+        return current_view;
     }
 
-
+/**
     public void goToMain (View view){
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
+ */
 }

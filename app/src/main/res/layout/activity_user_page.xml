@@ -12,13 +12,6 @@
         android:layout_height="wrap_content"
         android:theme="@style/Theme.B07_project.AppBarOverlay">
 
-        <Button
-            android:id="@+id/user_back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="back_handler"
-            android:text="go back" />
-
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
