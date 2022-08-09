@@ -17,11 +17,7 @@ public class DatabaseInstance {
             db = new MockDB();
             db.add_user("admin", "admin", true);
             db.add_user("user", "user", false);
-            // hard code in list until server is ready
-<<<<<<< Updated upstream
-            int v1 = db.add_venue(VenueType.TENNIS_COURT, "toronto", "toronto tennis court");
-            int v2 = db.add_venue(VenueType.BASKETBALL_COURT, "1234 Military Trail", "toronto basketball court");
-=======
+
             int v1 = db.add_venue(VenueType.TENNIS_COURT,"toronto","toronto tennis court");
             int v2 = db.add_venue(VenueType.BASKETBALL_COURT,"1234 Military Trail","toronto basketball court");
 
@@ -38,7 +34,6 @@ public class DatabaseInstance {
             db.add_event(v2, "swallow kids event",
                     "swallow kids and try not to choke", 5,
                     new TimeSlot(1), 20,"Friday");
->>>>>>> Stashed changes
         }
         return db;
     }
