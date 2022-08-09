@@ -10,6 +10,6 @@
         android:icon="@drawable/venue_launcher_foreground"/>
     <item
         android:id="@+id/my_account"
-        android:title="My Account"
+        android:title="Profile"
         android:icon="@drawable/my_account_launcher_foreground"/>
 </menu>
