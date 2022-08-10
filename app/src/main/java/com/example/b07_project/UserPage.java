@@ -1,66 +1,44 @@
 package com.example.b07_project;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.MultiAutoCompleteTextView;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.ListView;
 
 import com.example.b07_project.ui.main.SectionsPagerAdapter;
-import com.example.b07_project.databinding.ActivityUserPageBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
+
 public class UserPage extends Fragment {
+    ListView my_events_list;
+    ArrayList<Event> my_events;
+    EventAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.activity_user_page, container, false);
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabs);
-        tabLayout.addTab(tabLayout.newTab().setText("My Events"));
-        tabLayout.addTab(tabLayout.newTab().setText("My Venues"));
-        final ViewPager viewPager = (ViewPager) view.findViewById(R.id.view_pager);
-        viewPager.setAdapter(new SectionsPagerAdapter(getActivity(), getChildFragmentManager()));
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        Database db = DatabaseInstance.get_instance();
+        //my_events should contain the events that the user has joined
+        User temp = db.logged_in();
 
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
+        // this line does not work until getUserRegisteredEvents is implemented in firebasedb
+        // user is not avaliable until that is implemented
+        my_events = db.getUserRegisteredEvents(temp);
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
+        my_events_list = (ListView) view.findViewById(R.id.my_event_view);
+        adapter = new EventAdapter(getActivity(), my_events);
+        my_events_list.setAdapter(adapter);
         signout_handler(view);
         return view;
     }
@@ -85,12 +63,4 @@ public class UserPage extends Fragment {
         });
     }
 
-    /**
-    public void back_handler(View view) {
-        System.out.println("back handler");
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
-     */
 }

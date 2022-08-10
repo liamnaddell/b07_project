@@ -22,7 +22,7 @@ import java.sql.Time;
 
 public class VenueSchedule extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     VenueType v;
-    String EventName, EventDes, date, eventid;
+    String EventName, EventDes, date, venueId;
     int NumPeople, dur, StartTime;
     TimeSlot Start;
 
@@ -34,17 +34,18 @@ public class VenueSchedule extends AppCompatActivity implements AdapterView.OnIt
 
     Spinner R_date;
 
-    Button submitbutton;
+    Button submitbutton, eliminate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_venue_schedule);
 
+        Database db = DatabaseInstance.get_instance();
         nameInput = (EditText) findViewById(R.id.nameInput);
         desInput = (EditText) findViewById(R.id.desInput);
         NumPPl = (EditText) findViewById(R.id.NumPPl);
-        eventid = get_id();
+        venueId = get_id();
         S_time = (EditText) findViewById(R.id.Start_Time);
         duration = (EditText) findViewById(R.id.Duration);
         R_date = (Spinner) findViewById(R.id.Week_Date);
@@ -67,24 +68,42 @@ public class VenueSchedule extends AppCompatActivity implements AdapterView.OnIt
 
                 dur = Integer.valueOf(duration.getText().toString())/30;
 
-                Database db = DatabaseInstance.get_instance();
-                //this code is very broken, need fix later
-                /*Event e = new Event(Venue v, int num_people, String event_name, String event_description,
-                        "", EventTime et);*/
-                //db.add_event(e);
 
-                Toast.makeText(VenueSchedule.this,"Finish registering event",
+                Event e = new Event(db.get_venue(venueId), NumPeople, EventName, EventDes,
+                        "", new EventTime(Start,dur,date));
+                db.add_event(e);
+
+                Toast.makeText(VenueSchedule.this,"Successfully Registered Event",
                         Toast.LENGTH_LONG).show();
                 goToVenue(v);
 
             }
         });
+
+        eliminate = (Button) findViewById(R.id.Del);
+
+        if(db.is_admin(db.logged_in().username)){
+            eliminate.setVisibility(View.VISIBLE);
+        }else{
+            eliminate.setVisibility(View.INVISIBLE);
+        }
+
+        eliminate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                db.delete_venue(venueId);
+            }
+        });
     }
 
     private String get_id() {
-        Intent intent = new Intent();
-        //String intValue = intent.getIntExtra("eventid",0);
-        return "";
+        String result = null;
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            result = bundle.getString("venueId");
+        }
+        return result;
     }
 
     @Override
