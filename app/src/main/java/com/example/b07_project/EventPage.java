@@ -52,7 +52,7 @@ public class EventPage extends Fragment {
 
         eventView.setAdapter(adapter);
 
-        editText = (EditText) getView().findViewById(R.id.searchBar);
+        editText = (EditText) view.findViewById(R.id.searchBar);
 
         // implement below for more clickable events
         eventView.setClickable(true);
