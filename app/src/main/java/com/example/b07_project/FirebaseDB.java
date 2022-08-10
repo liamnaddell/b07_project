@@ -261,6 +261,31 @@ public class FirebaseDB implements Database {
         return events;
     }
 
+    public ArrayList<Event> getUserScheduledEvents(User user){
+        ArrayList<Event> events = new ArrayList<>();
+
+        String userId = user.username;
+        Log.d("get user evenets id", userId);
+        Task<QuerySnapshot> query = db.collection("events").whereEqualTo("scheduler", userId).get();
+
+        while (!query.isComplete()){}
+
+        if (query.isSuccessful()) {
+            for (QueryDocumentSnapshot document : query.getResult()) {
+                Log.d("get user evenets", document.getData().toString());
+                Event e = document.toObject(new Event().getClass());
+                e.eventid = document.getId();
+                events.add(e);
+            }
+        }
+        else{
+            Log.d("get user evenets", "failed");
+        }
+
+        Log.d("get user evenets", "123");
+        return events;
+    }
+
     public void delete_venue(String vid) {
         Task<QuerySnapshot> query = db.collection("events")
                 .whereEqualTo("location",vid)
@@ -277,4 +302,6 @@ public class FirebaseDB implements Database {
             ds.getResult().getReference().delete();
         }
     }
+
+
 }

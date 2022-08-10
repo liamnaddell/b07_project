@@ -16,14 +16,14 @@ public class Event implements Serializable {
     public EventTime eventTime;
     public String location;
     public ArrayList<String> whosGoing;
-    public User scheduler;
+    public String scheduler;
 
     public Event() {
     }
 
         // use this constructor to create new event only
         public Event(Venue v, int num_people, String event_name, String event_description,
-                     String eventid, EventTime et) {
+                     String eventid, EventTime et, String scheduler) {
 
             this.eventid = eventid;
             this.name = event_name;
@@ -33,6 +33,7 @@ public class Event implements Serializable {
             this.maxPP = num_people;
             this.eventTime=et;
             this.location = v.venueid;
+            this.scheduler = scheduler;
         }
 
         // check if user is registered for this event, return true if user already registered, false otherwise
