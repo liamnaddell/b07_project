@@ -3,16 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_event_detail_page.xml" value="0.2" />
         <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_sign_up_page.xml" value="0.19067028985507245" />
         <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_user_page.xml" value="0.22509057971014493" />
         <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_user_page_changepass.xml" value="0.22509057971014493" />
         <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_user_page_myevents.xml" value="0.22509057971014493" />
-        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_venue_page.xml" value="0.264" />
-        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_venue_schedule.xml" value="0.16" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_venue_page.xml" value="0.176" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/activity_venue_schedule.xml" value="0.264" />
         <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/event_list_layout.xml" value="0.19067028985507245" />
         <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/fragment_user_page.xml" value="0.19067028985507245" />
-        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/venue_list_layout.xml" value="0.264" />
+        <entry key="..\:/Hai Minh/Lecture Note/2022_Summer-term/CSCB07/b07_project/app/src/main/res/layout/venue_list_layout.xml" value="0.152" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_change_pass.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_event_detail_page.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_event_page.xml" value="0.11413043478260869" />

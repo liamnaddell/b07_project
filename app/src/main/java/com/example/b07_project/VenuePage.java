@@ -7,12 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-
-import com.example.b07_project.databinding.ActivityVenuePageBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -22,7 +18,7 @@ public class VenuePage extends Fragment {
     ListView venueView;
     ArrayList<Venue> venues = new ArrayList<Venue>();
     VenueAdapter venueAdapter;
-    ActivityVenuePageBinding Venuebinding;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,7 +27,6 @@ public class VenuePage extends Fragment {
 
         venueView = (ListView) current_view.findViewById(R.id.venue_list);
 
-        Venuebinding = ActivityVenuePageBinding.inflate(getLayoutInflater());
 
         Database db = DatabaseInstance.get_instance();
         for (Venue v : db.all_venues()) {
@@ -42,10 +37,10 @@ public class VenuePage extends Fragment {
 
         venueView.setAdapter(venueAdapter);
 
-        Venuebinding.venueList.setClickable(true);
-        Venuebinding.venueList.setOnItemClickListener((adapterView, view, position, id) -> {
+       venueView.setClickable(true);
+       venueView.setOnItemClickListener((adapterView, view, position, id) -> {
             Intent intent = new Intent(getActivity(), VenueSchedule.class);
-            intent.putExtra("eventid", venues.get(position).venueid);
+            intent.putExtra("venueId", venues.get(position).venueid.toString());
             startActivity(intent);
         });
 
