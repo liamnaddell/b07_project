@@ -1,2 +1,4 @@
 Matthew
       edited user page layout
+Minh Tran
+      Testing Login, Sign Out, Create User, Forget password feature
