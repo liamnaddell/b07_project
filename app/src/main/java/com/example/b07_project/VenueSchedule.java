@@ -64,18 +64,35 @@ public class VenueSchedule extends AppCompatActivity implements AdapterView.OnIt
                 EventDes = desInput.getText().toString() ;
                 NumPeople = Integer.valueOf(NumPPl.getText().toString());
                 StartTime = Integer.valueOf(S_time.getText().toString());
-                Start = new TimeSlot(StartTime);
+                System.out.println("StartTIme:"+StartTime);
+                int hour = StartTime / 100;
+                System.out.println("Hour:"+hour);
+                int minutes = StartTime % 100;
+                System.out.println("Minute:"+minutes);
+                if (!(minutes == 30 || minutes == 0) || hour > 24) {
 
-                dur = Integer.valueOf(duration.getText().toString())/30;
+                    Toast.makeText(VenueSchedule.this,"Time must be in format 1030 or 1000, in 30 minute intervals",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    Start = new TimeSlot(hour*2+minutes/30);
+
+                    dur = Integer.valueOf(duration.getText().toString());
+                    if (dur % 30 != 0) {
+                        Toast.makeText(VenueSchedule.this,"Duration must be in 30 minute intervals",
+                                Toast.LENGTH_LONG).show();
+                    } else {
+                        dur = dur / 30;
 
 
-                Event e = new Event(db.get_venue(venueId), NumPeople, EventName, EventDes,
-                        "", new EventTime(Start,dur,date));
-                db.add_event(e);
+                        Event e = new Event(db.get_venue(venueId), NumPeople, EventName, EventDes,
+                                "", new EventTime(Start, dur, date));
+                        db.add_event(e);
 
-                Toast.makeText(VenueSchedule.this,"Successfully Registered Event",
-                        Toast.LENGTH_LONG).show();
-                goToVenue(v);
+                        Toast.makeText(VenueSchedule.this, "Successfully Registered Event",
+                                Toast.LENGTH_LONG).show();
+                        goToVenue(v);
+                    }
+                }
 
             }
         });
