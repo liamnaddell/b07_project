@@ -1,4 +1,4 @@
-Today Tommorow on new event page
+Today Tommorow on new event page -- fixed
 Input validation on new event page
 Event ID on events page -- fixed
 Spots available is innacurate
@@ -7,3 +7,5 @@ Joining events doesn't work
 Venue names are wrong
 Overlaping events?
 Adding Venues doesn't work
+test deleting venues
+Change "Add Venue" to Modify Venues
