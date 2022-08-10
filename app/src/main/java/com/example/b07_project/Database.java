@@ -15,6 +15,7 @@ public interface Database {
     //duration = how many 30-minute TimeSlot's
     public String add_event(Event e);
     public ArrayList<Event> getUserRegisteredEvents(User user);
+    public ArrayList<Event> getUserScheduledEvents(User user);
     public Event get_event(String eventid);
     public String add_venue(Venue v);
     public Venue get_venue(String venueid);

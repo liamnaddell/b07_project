@@ -87,9 +87,9 @@ public class VenueSchedule extends AppCompatActivity implements AdapterView.OnIt
                     } else {
                         dur = dur / 30;
 
-
+                        String scheduler = db.logged_in().username;
                         Event e = new Event(db.get_venue(venueId), NumPeople, EventName, EventDes,
-                                "", new EventTime(Start, dur, date));
+                                "", new EventTime(Start, dur, date),scheduler);
                         db.add_event(e);
 
                         Toast.makeText(VenueSchedule.this, "Successfully Registered Event",

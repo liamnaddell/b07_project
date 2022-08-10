@@ -27,7 +27,12 @@
         <entry key="app/src/main/res/layout/activity_event_page.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_sign_up_page.xml" value="0.2942708333333333" />
         <entry key="app/src/main/res/layout/activity_user.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_user_page.xml" value="0.2942708333333333" />
+        <entry key="app/src/main/res/layout/activity_user_page_myevents.xml" value="0.2942708333333333" />
+        <entry key="app/src/main/res/layout/activity_venue_page.xml" value="0.2942708333333333" />
+        <entry key="app/src/main/res/layout/activity_venue_schedule.xml" value="0.2942708333333333" />
       </map>
     </option>
   </component>

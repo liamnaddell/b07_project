@@ -3,10 +3,7 @@ package com.example.b07_project;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.tabs.TabLayout;
-
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +31,8 @@ public class UserPage extends Fragment {
 
         // this line does not work until getUserRegisteredEvents is implemented in firebasedb
         // user is not avaliable until that is implemented
-        my_events = db.getUserRegisteredEvents(temp);
+        my_events = db.getUserScheduledEvents(temp);
+
 
         my_events_list = (ListView) view.findViewById(R.id.my_event_view);
         adapter = new EventAdapter(getActivity(), my_events);
