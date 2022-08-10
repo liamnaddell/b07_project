@@ -16,4 +16,5 @@ Minh Tran
 Matthew:
     Moved Admin Add Venue tab to Venue Page
     Implemented UI for when user is admin
+    ^^made these commits in Minh_change branch
     Patch UI for app (minor adjustments to buttons on user detail page, user page, venue page, venue schedule page)
