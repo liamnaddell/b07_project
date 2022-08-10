@@ -271,7 +271,7 @@ public class FirebaseDB implements Database {
         for (QueryDocumentSnapshot document: query.getResult()){
             document.getReference().delete();
         }
-        Task<DocumentSnapshot> ds = db.collection("venues").document("vid").get();
+        Task<DocumentSnapshot> ds = db.collection("venues").document(vid).get();
         while (!ds.isComplete()) {}
         if (ds.isSuccessful()) {
             ds.getResult().getReference().delete();
