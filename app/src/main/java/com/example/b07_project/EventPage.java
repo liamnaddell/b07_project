@@ -19,7 +19,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.b07_project.databinding.ActivityEventPageBinding;
+// import com.example.b07_project.databinding.ActivityEventPageBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class EventPage extends Fragment {
     ArrayList<Event> events = new ArrayList<Event>();
     EventAdapter adapter;
 
-    ActivityEventPageBinding binding;
+    // ActivityEventPageBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

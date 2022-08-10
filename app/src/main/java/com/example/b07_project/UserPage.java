@@ -45,7 +45,7 @@ public class UserPage extends Fragment {
     public void addVenuesOnClick(View v) {
     }
     public void venue_submit_handler(View view) {
-        System.out.println("Vebenue SUbmbit handberl");
+        System.out.println("Venue Submit Handler");
         return;
     }
 
