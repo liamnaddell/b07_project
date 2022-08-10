@@ -1,0 +1,4 @@
+Zusheng:
+    implemented get userbyid and get userreg event
+    fixed compatibility issue on user page
+    events and venue pages should be using/modifying data on firestore

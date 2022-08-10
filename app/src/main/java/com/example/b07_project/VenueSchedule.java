@@ -22,8 +22,8 @@ import java.sql.Time;
 
 public class VenueSchedule extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     VenueType v;
-    String EventName, EventDes, date;
-    int NumPeople, dur, id, StartTime;
+    String EventName, EventDes, date, eventid;
+    int NumPeople, dur, StartTime;
     TimeSlot Start;
 
     EditText nameInput;
@@ -44,7 +44,7 @@ public class VenueSchedule extends AppCompatActivity implements AdapterView.OnIt
         nameInput = (EditText) findViewById(R.id.nameInput);
         desInput = (EditText) findViewById(R.id.desInput);
         NumPPl = (EditText) findViewById(R.id.NumPPl);
-        id = get_id();
+        eventid = get_id();
         S_time = (EditText) findViewById(R.id.Start_Time);
         duration = (EditText) findViewById(R.id.Duration);
         R_date = (Spinner) findViewById(R.id.Week_Date);
@@ -68,7 +68,10 @@ public class VenueSchedule extends AppCompatActivity implements AdapterView.OnIt
                 dur = Integer.valueOf(duration.getText().toString())/30;
 
                 Database db = DatabaseInstance.get_instance();
-                db.add_event(id,EventName,EventDes,NumPeople,Start,dur,date);
+                //this code is very broken, need fix later
+                /*Event e = new Event(Venue v, int num_people, String event_name, String event_description,
+                        "", EventTime et);*/
+                //db.add_event(e);
 
                 Toast.makeText(VenueSchedule.this,"Finish registering event",
                         Toast.LENGTH_LONG).show();
@@ -78,10 +81,10 @@ public class VenueSchedule extends AppCompatActivity implements AdapterView.OnIt
         });
     }
 
-    private int get_id() {
+    private String get_id() {
         Intent intent = new Intent();
-        int intValue = intent.getIntExtra("eventid",0);
-        return intValue;
+        //String intValue = intent.getIntExtra("eventid",0);
+        return "";
     }
 
     @Override

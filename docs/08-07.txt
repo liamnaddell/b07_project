@@ -1,0 +1,2 @@
+liam,zusheng,tharuth,matthew,Minh:
+	Held a standup meeting + assigned sprint 2 jira tasks

@@ -1,6 +1,8 @@
 package com.example.b07_project;
 
-public enum VenueType {
+import java.io.Serializable;
+
+public enum VenueType implements Serializable {
     BASKETBALL_COURT, TENNIS_COURT, FOOTBALL_FIELD
 }
 

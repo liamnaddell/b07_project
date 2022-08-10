@@ -4,3 +4,6 @@ Minh Tran
 Matthew
     Committed UI for My Events page on User Tab
     In Process: checking whether it displays user's events they registered in 
+Zusheng
+    implemented getUserRegisteredEvents in mockdb
+    implemented joinEvents in mockdb

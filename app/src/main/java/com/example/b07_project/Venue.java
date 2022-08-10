@@ -1,16 +1,31 @@
 package com.example.b07_project;
 
-public class Venue {
-    VenueType type;
-    String venue_description;
-    String name;
-    int venueid;
-    public Venue(VenueType v, String name, String venue_description, int venueid) {
+import java.io.Serializable;
+
+public class Venue implements Serializable {
+    public VenueType type;
+    public String name;
+    public String venueDescription;
+    String venueid;
+
+    public Venue() {
+        return;
+    }
+    // create venue with standard id; use this constrctor to load existing venue from database
+    public Venue(VenueType v, String name, String venue_description,String venueid) {
         this.type=v;
         this.name=name;
-        this.venue_description=venue_description;
+        this.venueDescription=venue_description;
         this.venueid = venueid;
     }
+
+    public Venue(VenueType v, String name, String venue_description) {
+        this.type=v;
+        this.name=name;
+        this.venueDescription=venue_description;
+        this.venueid = venueid;
+    }
+
     int get_capacity() {
         switch (type) {
             case BASKETBALL_COURT:
@@ -23,21 +38,16 @@ public class Venue {
                 return -1;
         }
     }
-    String get_venue_name(){
-        return this.name;
-    }
-
-    String get_venue_description(){
-        return this.venue_description;
-    }
-
 
     @Override
     public String toString() {
-        return this.name;
+        return "Venue{" +
+                "type=" + type +
+                ", name='" + name + '\'' +
+                ", venueDescription='" + venueDescription + '\'' +
+                ", venueid=" + venueid +
+                '}';
     }
-
-
 }
 
 

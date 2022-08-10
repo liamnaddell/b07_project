@@ -1,0 +1,14 @@
+liam, zusheng:
+	Got code to compile on the firebase-firestore branch
+
+zusheng:
+    make firebasedb compatible with eventpages and venuepages
+    figured out a bug causing userpage to crash
+
+liam:
+    add_user partially done
+    get_event done
+    get_venue done
+    add_event done (stolen from Minh, sorry minh)
+    add_venue done
+    get_venue done

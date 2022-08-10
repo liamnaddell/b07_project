@@ -49,7 +49,8 @@ public class UserFragmentChangePass extends Fragment {
                         System.out.println("With description: \"" + venue_description+"\"");
 
                         Database db = DatabaseInstance.get_instance();
-                        db.add_venue(vt, venue_name, venue_description);
+                        //fix later
+                        //db.add_venue(vt, venue_name, venue_description);
                         Toast.makeText(getActivity(), "Venue Added", Toast.LENGTH_SHORT).show();
                     }
                 }

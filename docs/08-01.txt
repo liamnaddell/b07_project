@@ -2,4 +2,5 @@ Liam:
     Merged Matthew's PR, fixed my copy of Android Studio
 Matthew:
     Added User Page back button, changed User Page UI, attempted to work on My Events layout + functionality
-    
+zusheng:
+    added missing doc for privous days

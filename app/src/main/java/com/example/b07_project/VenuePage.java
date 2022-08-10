@@ -33,7 +33,6 @@ public class VenuePage extends Fragment {
 
         Venuebinding = ActivityVenuePageBinding.inflate(getLayoutInflater());
 
-        venueView = (ListView) current_view.findViewById(R.id.venue_list);
         Database db = DatabaseInstance.get_instance();
         for (Venue v : db.all_venues()) {
             venues.add(v);
