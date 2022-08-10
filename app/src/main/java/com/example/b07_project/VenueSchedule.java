@@ -7,6 +7,7 @@ import android.app.FragmentManager;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,6 +16,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.b07_project.databinding.ActivityUserPageBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.sql.Time;
@@ -109,6 +113,36 @@ public class VenueSchedule extends AppCompatActivity implements AdapterView.OnIt
             @Override
             public void onClick(View view) {
                 db.delete_venue(venueId);
+                Toast.makeText(VenueSchedule.this, "Deleted Venue: Please check the updated events.", Toast.LENGTH_SHORT).show();
+                setContentView(R.layout.activity_main);
+                BottomNavigationView bottomNavView;
+
+                EventPage eventFragment = new EventPage();
+                VenuePage venueFragment = new VenuePage();
+                UserPage userFragment = new UserPage();
+                bottomNavView = findViewById(R.id.bottomNavigationView);
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_activity_container, eventFragment).commit();
+
+                bottomNavView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem item){
+                        switch (item.getItemId()) {
+                            case R.id.events:
+                                getSupportFragmentManager().beginTransaction().replace(R.id.main_activity_container, eventFragment).commit();
+                                return true;
+
+                            case R.id.venues:
+                                getSupportFragmentManager().beginTransaction().replace(R.id.main_activity_container, venueFragment).commit();
+                                return true;
+
+                            case R.id.my_account:
+                                getSupportFragmentManager().beginTransaction().replace(R.id.main_activity_container, userFragment).commit();
+                                return true;
+                        }
+                        return false;
+                    }
+                });
             }
         });
     }
