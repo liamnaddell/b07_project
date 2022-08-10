@@ -2,3 +2,6 @@ liam,zusheng,tharuth,matthew,Minh:
 	Held a standup meeting + assigned sprint 2 jira tasks
 matthew:
 	resolved minh pull request
+Minh Tran
+	Working on finalizing the VenueSchedule layout
+	Fix bugs caused by the Venue delete button

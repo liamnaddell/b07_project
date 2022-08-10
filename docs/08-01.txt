@@ -4,3 +4,5 @@ Matthew:
     Added User Page back button, changed User Page UI, attempted to work on My Events layout + functionality
 zusheng:
     added missing doc for privous days
+Minh Tran
+    Fix bugs on Venue layout

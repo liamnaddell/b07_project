@@ -19,3 +19,5 @@ matthew:
 wooseuk:
 	Figure out how to use firebase-firestore
 	found a bug in login and signup process ->ongoing work
+Minh Tran
+	Working on setting the visbility of delete button based on users' type

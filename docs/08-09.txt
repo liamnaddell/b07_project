@@ -7,3 +7,9 @@ Wooseuk:
     Fix most of the bugs for signup process or login process
     change some hardcoded sample database inputs
     link application input to the database
+Liam:
+    Merged a couple PRs, fixed some code
+Minh Tran
+    Finalizing delete button
+    Finalizing venue layout, VenueSchedule layout
+    Integrating FireStore database into Venue feature: Showing all Venues, register Event at a specific Venue, delete Venue

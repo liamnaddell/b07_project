@@ -1,5 +1,5 @@
 Minh Tran
-     Integrating Firebase database into the venue page
+     Integrating MockDB database into the venue page
 Zusheng:
     merged EventDetailPage into master
 Matthew
