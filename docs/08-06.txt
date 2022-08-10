@@ -1,3 +1,5 @@
 Zusheng:
     finished most of the firebase methods, now we have access to firestore firebase
     still need to finish the rest of the methods and make sure they work well with front end
+Matthew:
+  merged Minh's pull request, did ui edits to his layout

@@ -6,8 +6,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,26 +14,21 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Vector;
 
 public class FirebaseDB implements Database {
     
     FirebaseFirestore db;
     FirebaseAuth mAuth;
-    FirebaseUser user;
+    //FirebaseUser user;
 
     public FirebaseDB() {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        return;
     }
     //checks that a user with username and password password exists in the database
     // return user if login successful, else return null
@@ -61,9 +54,6 @@ public class FirebaseDB implements Database {
 
     public User logged_in() {
         //how do I implement this?
-
-        //what does this method do?
-
         return null;
     }
 

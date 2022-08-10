@@ -11,10 +11,13 @@ public class User implements Serializable {
         return;
     }
 
-
-    public User(String username, String password, boolean is_admin) {
+    public User(String username, String password, boolean isAdmin) {
         this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
+    }
+    @Override
+    public String toString() {
+        return "User [username="+username+", password="+password+",isAdmin="+isAdmin+"]";
     }
 }

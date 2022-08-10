@@ -18,5 +18,12 @@
     </string-array>
     <string name="Start_time">Choose an Available start time</string>
     <string name="Delete">Delete</string>
+    <string-array name="Date">
+        <item> "Monday" </item>
+        <item> "Tuesday" </item>
+        <item> "Wednesday </item>
+        <item> "Thursday" </item>
+        <item> "Friday" </item>
+    </string-array>
 </resources>
 

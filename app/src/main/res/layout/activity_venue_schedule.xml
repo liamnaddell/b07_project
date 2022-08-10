@@ -6,21 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".VenueSchedule">
 
+
     <Button
         android:id="@+id/X1"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:onClick="goToVenue"
-        android:text="@string/X"
+        android:text="go back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar3"
         android:layout_width="411dp"
-        android:layout_height="76dp"
+        android:layout_height="0dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -28,23 +27,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="141dp"
-        android:layout_height="63dp"
-        android:text="@string/Venue"
-        android:textAlignment="center"
-        android:textColor="#FBFBFB"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar3"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar3"
-        app:layout_constraintStart_toStartOf="@+id/toolbar3"
-        app:layout_constraintTop_toTopOf="@+id/toolbar3" />
-
     <RelativeLayout
-        android:layout_width="415dp"
-        android:layout_height="646dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,8 +37,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="3dp"
+            android:layout_height="643dp"
+            android:layout_marginTop="0dp"
             android:orientation="vertical">
 
             <TextView
@@ -96,6 +81,13 @@
                 android:hint="Number of Participant"
                 android:inputType="number"
                 android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/Week_Date"
+                android:layout_width="297dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/Venue" />
 
             <EditText
                 android:id="@+id/Start_Time"

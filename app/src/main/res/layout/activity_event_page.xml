@@ -26,50 +26,29 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="139dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="16dp"
-        android:onClick="@string/app_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="?actionBarSize"
+        android:padding="@dimen/appbar_padding"
         android:text="Events"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textColorLink="#FFFDFD"
-        android:textSize="34sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/event_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/event_view"
-        android:layout_width="409dp"
-        android:layout_height="610dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:listitem="@layout/event_list_layout"
 
-        />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="56dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="31dp"
-        android:text="X"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:onClick="goToMainPage"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.326"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

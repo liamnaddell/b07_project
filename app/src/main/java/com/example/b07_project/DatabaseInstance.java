@@ -1,5 +1,7 @@
 package com.example.b07_project;
 
+import java.sql.Time;
+
 public class DatabaseInstance {
     private static Database db = null;
     private DatabaseInstance() {

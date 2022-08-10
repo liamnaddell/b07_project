@@ -46,6 +46,15 @@ public class EventDetailPage extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    public void goToEvent (View view){
+        onBackPressed();
+    }
+
     // send the user to the page if they want to register for this event, use main as default
     // not necessary but nice to have, implement later if theres time
     public void register(View view) {
