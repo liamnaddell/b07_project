@@ -58,6 +58,7 @@ public class UserPage extends Fragment {
                 FirebaseAuth mAuth = FirebaseAuth.getInstance();
                 mAuth.signOut();
                 Intent intent = new Intent(getActivity(), LoginPage.class);
+                SectionsPagerAdapter.wasset = false;
                 startActivity(intent);
             }
         });
