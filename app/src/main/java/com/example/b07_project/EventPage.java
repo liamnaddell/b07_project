@@ -80,6 +80,7 @@ public class EventPage extends Fragment {
                 Intent intent = new Intent(getActivity(), EventDetailPage.class);
                 Venue loc = db.get_venue(events.get(i).location);
                 System.out.println(loc);
+                System.out.println("In item click handler");
                 intent.putExtra("name", events.get(i).name);
                 intent.putExtra("location", loc.name);
                 intent.putExtra("id", events.get(i).eventid);

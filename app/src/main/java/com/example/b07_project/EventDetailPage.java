@@ -25,6 +25,7 @@ public class EventDetailPage extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         Intent intent = this.getIntent();
+        System.out.println("In eventdetailpage");
 
 
         if (intent != null){
@@ -63,7 +64,7 @@ public class EventDetailPage extends AppCompatActivity {
     // not necessary but nice to have, implement later if theres time
     public void register(View view) {
         User u = db.logged_in();
-        Log.d("joinEvent", u.username);
+        System.out.println("Join eventing="+u.username);
         db.join_event(this.currentEventId,u);
 
         Toast.makeText(EventDetailPage.this, "Joined", Toast.LENGTH_SHORT).show();
