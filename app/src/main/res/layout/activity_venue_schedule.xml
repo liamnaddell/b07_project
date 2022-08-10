@@ -11,10 +11,12 @@
         android:id="@+id/X1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:onClick="goToVenue"
+
         android:text="go back"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
@@ -111,21 +113,23 @@
 
             <Button
                 android:id="@+id/submit"
-                android:layout_width="135dp"
-                android:layout_height="64dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="20dp"
                 android:onClick="goToVenue"
                 android:text="SUBMIT" />
 
             <Button
                 android:id="@+id/Del"
-                android:layout_width="200dp"
-                android:layout_height="70dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:text="Delete Venue !!!"
+                android:backgroundTint="#F30808"
+                android:text="Delete Venue"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 tools:ignore="TextContrastCheck" />
         </LinearLayout>
     </RelativeLayout>
