@@ -25,6 +25,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @StringRes
     private static final int[] TAB_TITLES = new int[]{ R.string.tab_text_2, R.string.tab_text_3};
     private final Context mContext;
+    static boolean wasset = false;
+    static boolean isadmin = false;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
@@ -33,8 +35,12 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+        if (!wasset) {
+            isadmin = db.logged_in().isAdmin;
+            wasset = true;
+        }
         Fragment fragment = null;
-        if(db.is_admin(db.logged_in().username)){
+        if(isadmin){
             switch(position) {
                 case 0:
                     fragment = new AvailableVenues();
@@ -63,7 +69,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 2 total pages.
-        if(db.is_admin(db.logged_in().username)){return 2;}
+        if (!wasset) {
+            isadmin = db.logged_in().isAdmin;
+            wasset = true;
+        }
+        if(isadmin){return 2;}
         return 1;
     }
 }
