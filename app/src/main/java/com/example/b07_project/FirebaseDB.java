@@ -79,7 +79,6 @@ public class FirebaseDB implements Database {
         return null;
     }
 
-    //fix me tharuth :)
     public boolean add_user(String username, String password, boolean is_admin) {
         //fix:userid
         //to tharuth, put uid instead of username here maybe
