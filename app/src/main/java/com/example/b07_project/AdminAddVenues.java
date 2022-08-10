@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
 public class AdminAddVenues extends Fragment {
     @Nullable
     @Override
@@ -54,10 +56,21 @@ public class AdminAddVenues extends Fragment {
                         System.out.println("With description: \"" + venue_description+"\"");
 
                         Database db = DatabaseInstance.get_instance();
-                        //fix later
-                        Venue venu = new Venue(vt,venue_name,venue_description);
-                        db.add_venue(venu);
-                        Toast.makeText(getActivity(), "Venue Added", Toast.LENGTH_SHORT).show();
+
+                        ArrayList<Venue> vs = db.all_venues();
+                        boolean found=false;
+                        for (Venue vse : vs) {
+                            if (vse.name.equals(venue_name)) {
+                                found=true;
+                            }
+                        }
+                        if (found) {
+                            Toast.makeText(getActivity(), "Not Added", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Venue venu = new Venue(vt, venue_name, venue_description);
+                            db.add_venue(venu);
+                            Toast.makeText(getActivity(), "Venue Added", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             });
