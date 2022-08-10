@@ -49,7 +49,12 @@ public class FirebaseDB implements Database {
     }
     public User logged_in() {
         //how do I implement this?
+<<<<<<< Updated upstream
         return loggedIn;
+=======
+        String username = mAuth.getCurrentUser().getEmail();
+        return find_user_by_name(username);
+>>>>>>> Stashed changes
     }
     public boolean is_admin(String username) {
         return find_user_by_name(username).isAdmin;

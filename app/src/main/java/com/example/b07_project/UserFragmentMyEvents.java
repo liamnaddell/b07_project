@@ -23,11 +23,10 @@ public class UserFragmentMyEvents extends Fragment {
         View view = inflater.inflate(R.layout.activity_user_page_myevents, container, false);
         Database db = DatabaseInstance.get_instance();
         //my_events should contain the events that the user has joined
-        //currently hardcoded using data from mockDB waiting for Firebase to get started
-        User temp = db.find_user_by_name("admin");
-        db.get_event(0).addUserToEvent(temp);
-        db.get_event(1).addUserToEvent(temp);
-        //db.get_event(2).addUserToEvent(temp);
+        User temp = db.logged_in();
+
+        // this line does not work until getUserRegisteredEvents is implemented in firebasedb
+        // user is not avaliable until that is implemented
         my_events = db.getUserRegisteredEvents(temp);
         my_events_list = (ListView) view.findViewById(R.id.my_event_view);
         adapter = new EventAdapter(getActivity(), my_events);
