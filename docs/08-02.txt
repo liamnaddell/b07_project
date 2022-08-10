@@ -1,4 +1,4 @@
-We conducted a meeting with ALL group members,where we set up jira, what needed to get done, set our sprints up, and assigned tasks.
+We conducted a standup meeting with ALL group members,where we set up jira, what needed to get done, set our sprints up, and assigned tasks.
 Matthew:
   worked on creating UI for My Events page
 Minh Tran
