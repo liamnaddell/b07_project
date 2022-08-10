@@ -73,7 +73,7 @@ public class VenueSchedule extends AppCompatActivity implements AdapterView.OnIt
                         "", new EventTime(Start,dur,date));
                 db.add_event(e);
 
-                Toast.makeText(VenueSchedule.this,"Finish registering event",
+                Toast.makeText(VenueSchedule.this,"Successfully Registered Event",
                         Toast.LENGTH_LONG).show();
                 goToVenue(v);
 
@@ -82,7 +82,7 @@ public class VenueSchedule extends AppCompatActivity implements AdapterView.OnIt
 
         eliminate = (Button) findViewById(R.id.Del);
 
-        if(true){
+        if(db.is_admin(db.logged_in().username)){
             eliminate.setVisibility(View.VISIBLE);
         }else{
             eliminate.setVisibility(View.INVISIBLE);
