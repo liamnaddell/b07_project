@@ -92,6 +92,7 @@ public class FirebaseDB implements Database {
         return false;
     }
 
+    
     public String getUserId(User user){
         Task<QuerySnapshot> query = db.collection("users").whereEqualTo("username", user.username).get();
 
