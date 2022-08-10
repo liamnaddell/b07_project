@@ -38,7 +38,9 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
         TextView venue_loc = convertView.findViewById(R.id.LOC);
         TextView venue_des = convertView.findViewById(R.id.LDES);
 
-        venue_type.setText(venue.type.toString());
+        String converted_type = venue.type.toString().replace("_"," ");
+
+        venue_type.setText(converted_type);
         venue_loc.setText(venue.name);
         venue_des.setText(venue.venueDescription);
 
