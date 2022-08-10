@@ -2,8 +2,10 @@ package com.example.b07_project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +15,8 @@ public class EventDetailPage extends AppCompatActivity {
 
     ActivityEventDetailPageBinding binding;
     String currentEventId;
+
+    Database db = DatabaseInstance.get_instance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +62,11 @@ public class EventDetailPage extends AppCompatActivity {
     // send the user to the page if they want to register for this event, use main as default
     // not necessary but nice to have, implement later if theres time
     public void register(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        User u = db.logged_in();
+        Log.d("joinEvent", u.username);
+        db.join_event(this.currentEventId,u);
+
+        Toast.makeText(EventDetailPage.this, "Completed", Toast.LENGTH_SHORT).show();
+        onBackPressed();
     }
 }
