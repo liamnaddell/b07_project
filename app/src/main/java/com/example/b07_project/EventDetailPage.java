@@ -66,7 +66,7 @@ public class EventDetailPage extends AppCompatActivity {
         Log.d("joinEvent", u.username);
         db.join_event(this.currentEventId,u);
 
-        Toast.makeText(EventDetailPage.this, "Completed", Toast.LENGTH_SHORT).show();
+        Toast.makeText(EventDetailPage.this, "Joined", Toast.LENGTH_SHORT).show();
         onBackPressed();
     }
 }

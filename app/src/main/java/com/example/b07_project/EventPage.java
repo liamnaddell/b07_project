@@ -83,7 +83,7 @@ public class EventPage extends Fragment {
                 intent.putExtra("name", events.get(i).name);
                 intent.putExtra("location", loc.name);
                 intent.putExtra("id", events.get(i).eventid);
-                intent.putExtra("people-attending", Integer.toString(events.get(i).whosGoing.size()));
+                intent.putExtra("people-attending", Integer.toString(events.get(i).maxPP - events.get(i).whosGoing.size()));
                 intent.putExtra("desired-people", Integer.toString(events.get(i).maxPP));
                 intent.putExtra("description", events.get(i).description);
                 intent.putExtra("start-time", events.get(i).eventTime.startTime.toString());

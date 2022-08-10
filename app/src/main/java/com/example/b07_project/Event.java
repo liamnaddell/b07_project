@@ -16,6 +16,7 @@ public class Event implements Serializable {
     public EventTime eventTime;
     public String location;
     public ArrayList<String> whosGoing;
+    public User scheduler;
 
     public Event() {
     }
