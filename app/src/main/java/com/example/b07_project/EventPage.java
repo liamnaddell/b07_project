@@ -77,6 +77,7 @@ public class EventPage extends Fragment {
         eventView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                events = db.all_events();
                 Intent intent = new Intent(getActivity(), EventDetailPage.class);
                 Venue loc = db.get_venue(events.get(i).location);
                 System.out.println(loc);
