@@ -54,14 +54,7 @@ public class Event implements Serializable {
 
     @Override
     public String toString() {
-        return "Event{" +
-                "eventid=" + eventid +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", maxPP=" + maxPP +
-                ", eventTime=" + eventTime +
-                ", location=" + location +
-                ", whosGoing=" + whosGoing +
-                '}';
+        Database db = DatabaseInstance.get_instance();
+        return db.get_venue(this.location).name;
     }
 }
