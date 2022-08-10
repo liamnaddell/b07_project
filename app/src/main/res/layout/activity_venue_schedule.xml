@@ -118,7 +118,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:onClick="goToVenue"
-                android:text="SUBMIT" />
+                android:text="schedule" />
 
             <Button
                 android:id="@+id/Del"

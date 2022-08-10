@@ -37,7 +37,7 @@
         android:layout_below="@id/toolbar"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:hint="Search Venue"
+        android:hint="> Filter Events by Venue"
         android:textColor="@color/black"
         android:textColorHint="@color/black" />
 
