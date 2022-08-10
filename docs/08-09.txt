@@ -7,3 +7,5 @@ Wooseuk:
     Fix most of the bugs for signup process or login process
     change some hardcoded sample database inputs
     link application input to the database
+Liam:
+    Merged a couple PRs, fixed some code
