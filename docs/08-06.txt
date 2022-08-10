@@ -3,3 +3,5 @@ Zusheng:
     still need to finish the rest of the methods and make sure they work well with front end
 Matthew:
   merged Minh's pull request, did ui edits to his layout
+Minh Tran
+    Start working on delete button for admin to delete the Venue
