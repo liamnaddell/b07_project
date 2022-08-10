@@ -53,8 +53,8 @@ public class FirebaseDB implements Database {
     }
 
     public User logged_in() {
-        //how do I implement this?
-        return null;
+        String username = mAuth.getCurrentUser().getEmail();
+        return find_user_by_name(username);
     }
 
     public boolean is_admin(String username) {
