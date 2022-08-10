@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.b07_project.ui.main.SectionsPagerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
