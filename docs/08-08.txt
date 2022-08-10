@@ -16,3 +16,6 @@ matthew:
 	design overhaul app = rough draft 1
 	- created bottom navigation bar
 	- made pages uniform in format + style
+wooseuk:
+	Figure out how to use firebase-firestore
+	found a bug in login and signup process ->ongoing work
