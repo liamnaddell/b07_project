@@ -13,3 +13,7 @@ Minh Tran
     Finalizing delete button
     Finalizing venue layout, VenueSchedule layout
     Integrating FireStore database into Venue feature: Showing all Venues, register Event at a specific Venue, delete Venue
+Matthew:
+    Moved Admin Add Venue tab to Venue Page
+    Implemented UI for when user is admin
+    Patch UI for app (minor adjustments to buttons on user detail page, user page, venue page, venue schedule page)
