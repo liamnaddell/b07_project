@@ -18,7 +18,7 @@ import java.util.regex.*;
 
 
 public class SignUpPage extends AppCompatActivity{
-    FirebaseFirestore db;
+    Database db;
     MaterialButton registerButton,loginPageButton;
     EditText editUserName, editPassword;
 
@@ -27,7 +27,7 @@ public class SignUpPage extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page);
 
-        db = FirebaseFirestore.getInstance();
+        Database db = DatabaseInstance.get_instance();
         editUserName = findViewById(R.id.username);
         editPassword = findViewById(R.id.password);
         registerButton = findViewById(R.id.register);
@@ -38,13 +38,13 @@ public class SignUpPage extends AppCompatActivity{
             public void onClick(View view) {
                 String userString = editUserName.getText().toString().trim();
                 String passString = editPassword.getText().toString().trim();
-                FirebaseAuth mAuth;
-                mAuth = FirebaseAuth.getInstance();
-                if(mAuth.getCurrentUser() != null) {
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                System.out.println("Adding user start");
+                /*if( db.logged_in() != null) {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();
-                }
+                }*/
                 if(userString.isEmpty()) {
                     editUserName.setError("Email field cannot be empty.");
                     editUserName.requestFocus();
@@ -67,33 +67,18 @@ public class SignUpPage extends AppCompatActivity{
                     editPassword.requestFocus();
                     return;
                 }
-                User newUser = new User(userString, passString, false);
-                FirebaseDB database = new FirebaseDB();
-                User testUser = database.find_user_by_name(userString);
-                // if find_user_by_name fails, null is returned
-                if (testUser == null) {
-                    db.collection("users")
-                            .add(newUser)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-
-                                @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    mAuth.createUserWithEmailAndPassword(userString, passString);
-                                    mAuth.signInWithEmailAndPassword(userString, passString);
-                                    Toast.makeText(SignUpPage.this, "User Created", Toast.LENGTH_SHORT).show();
-                                    goToMainPage(view);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(SignUpPage.this, "Signup Failed", Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                System.out.println("added user to db");
+                boolean res = db.add_user(userString,passString,false);
+                if (res == true) {
+                    mAuth.createUserWithEmailAndPassword(userString, passString);
+                    mAuth.signInWithEmailAndPassword(userString, passString);
+                    Toast.makeText(SignUpPage.this, "User Created", Toast.LENGTH_SHORT).show();
+                    goToMainPage(view);
+                } else {
+                    Toast.makeText(SignUpPage.this, "Signup Failed", Toast.LENGTH_SHORT).show();
                 }
-                else {
-                    Toast.makeText(SignUpPage.this, "Your email has already used.", Toast.LENGTH_SHORT).show();
-                    goToLoginPage(view);
-                }
+                    //Toast.makeText(SignUpPage.this, "Your email has already used.", Toast.LENGTH_SHORT).show();
+                    //goToLoginPage(view);
             }
         });
 
