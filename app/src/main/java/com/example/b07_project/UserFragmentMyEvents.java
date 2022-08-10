@@ -21,10 +21,10 @@ public class UserFragmentMyEvents extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_user_page_myevents, container, false);
-        FirebaseDB db = new FirebaseDB();
+        Database db = DatabaseInstance.get_instance();
 
         //my_events should contain the events that the user has joined
-        User temp = db.find_user_by_name("admin1");
+        User temp = db.logged_in();
 
         // this line does not work until getUserRegisteredEvents is implemented in firebasedb
         // user is not avaliable until that is implemented
