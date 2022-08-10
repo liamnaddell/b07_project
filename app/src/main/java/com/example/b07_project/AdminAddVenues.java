@@ -11,14 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class UserFragmentMyVenues extends Fragment {
+public class AdminAddVenues extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_user_page_myvenues, container, false);
+        View view = inflater.inflate(R.layout.activity_admin_add_venues, container, false);
         // Spinner element
         Spinner spinner = (Spinner) view.findViewById(R.id.venue_type_spinner);
 

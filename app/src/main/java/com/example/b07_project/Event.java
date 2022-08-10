@@ -18,8 +18,7 @@ public class Event implements Serializable {
     public ArrayList<String> whosGoing;
 
     public Event() {
-            return;
-        }
+    }
 
         // use this constructor to create new event only
         public Event(Venue v, int num_people, String event_name, String event_description,

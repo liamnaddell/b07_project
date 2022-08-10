@@ -17,7 +17,7 @@
             <LinearLayout
                 android:id="@+id/Event"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="136dp"
                 android:layout_marginTop="22dp"
                 android:orientation="vertical">
 
@@ -55,36 +55,6 @@
                     android:textSize="24sp"
                     android:textStyle="italic" />
 
-                <Button
-                    android:id="@+id/Del"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="45dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="45dp"
-                    android:text="@string/Delete"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
-                <Button
-                    android:id="@+id/admin_done_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="45dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="45dp"
-                    android:text="done"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/admin_edit_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="45dp"
-                    android:layout_marginTop="-102dp"
-                    android:layout_marginEnd="45dp"
-                    android:text="edit"
-                    app:layout_constraintTop_toTopOf="parent" />
             </LinearLayout>
 
         </LinearLayout>

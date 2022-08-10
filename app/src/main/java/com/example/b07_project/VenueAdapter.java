@@ -42,35 +42,6 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
         venue_loc.setText(venue.name);
         venue_des.setText(venue.venueDescription);
 
-        boolean is_admin = false;
-        delete = convertView.findViewById(R.id.Del);
-        edit = (Button) convertView.findViewById(R.id.admin_edit_button);
-        done = (Button) convertView.findViewById(R.id.admin_done_button);
-
-        if (is_admin) {
-            done.setVisibility(View.INVISIBLE);
-            edit.setVisibility(View.VISIBLE);
-            delete.setVisibility(View.INVISIBLE);
-        } else {
-            edit.setVisibility(View.GONE);
-            delete.setVisibility(View.GONE);
-            done.setVisibility(View.GONE);
-        }
-        edit.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                edit.setVisibility(View.INVISIBLE);
-                delete.setVisibility(View.VISIBLE);
-                done.setVisibility(View.VISIBLE);
-            }
-        });
-        done.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                edit.setVisibility(View.VISIBLE);
-                done.setVisibility(View.INVISIBLE);
-                delete.setVisibility(View.INVISIBLE);
-            }
-        });
-
         return convertView;
     }
 
