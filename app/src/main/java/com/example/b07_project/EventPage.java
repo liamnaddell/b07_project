@@ -78,9 +78,10 @@ public class EventPage extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                 Intent intent = new Intent(getActivity(), EventDetailPage.class);
-
+                Venue loc = db.get_venue(events.get(i).location);
+                System.out.println(loc);
                 intent.putExtra("name", events.get(i).name);
-                intent.putExtra("location", db.get_venue(events.get(i).location).name);
+                intent.putExtra("location", loc.name);
                 intent.putExtra("id", events.get(i).eventid);
                 intent.putExtra("people-attending", Integer.toString(events.get(i).whosGoing.size()));
                 intent.putExtra("desired-people", Integer.toString(events.get(i).maxPP));

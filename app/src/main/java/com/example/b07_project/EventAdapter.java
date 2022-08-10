@@ -35,12 +35,13 @@ public class EventAdapter extends ArrayAdapter<Event> {
         TextView event_endTime = convertView.findViewById(R.id.eventEndTime);
         TextView event_location = convertView.findViewById(R.id.location);
         TextView event_designedPeople = convertView.findViewById(R.id.designedPeople);
+        Database db = DatabaseInstance.get_instance();
 
 //        event_id.setId(event.id);
         event_name.setText(event.name);
         event_startTime.setText(event.eventTime.startTime + " - ");
         event_endTime.setText(event.eventTime.endToString());
-        event_location.setText(String.valueOf(event.location));
+        event_location.setText(db.get_venue(event.location).name);
         event_designedPeople.setText(Integer.toString(event.maxPP) + " People");
 
         return convertView;
