@@ -159,33 +159,32 @@ public class FirebaseDB implements Database {
 
     @Override
     public void join_event(String eventid, User user) {
-        String userId;
-        Task<QuerySnapshot> query = db.collection("users").whereEqualTo("username", user.username).get();
-
-        while (!query.isComplete()){}
-
-        if (!query.isSuccessful()){
-            Log.d("idiot", "failed to join event");
-        }
-        userId = query.toString();
-        //Log.d("join_event", "userid = " + userId);
+        String userId = user.username;
 
         DocumentReference ref = db.collection("events").document(eventid);
-        ArrayList<String> participants = new ArrayList<>();
         //broken code here
-        DocumentSnapshot doc = ref.get().getResult();
-        if (doc.exists()){
-//            participants = (ArrayList<String>)doc.get("whosGoing");
-//            participants.add(userId);
-            ref.update("whosGoing", FieldValue.arrayUnion("userId"));
-            Log.d("join_event","joined");
-        }
-        else{
-            Log.d("idiot","joined");
-        }
-//        Map<String,Object> hashMap = new HashMap<>();
-//        hashMap.put("whosGoing",hashMap);
-//        db.collection("events").document(eventid).update(hashMap);
+
+        System.out.println("join_event userid:   " +userId);
+
+        while(ref == null){}
+
+        ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    DocumentSnapshot doc = task.getResult();
+                    if (doc != null){
+                        ArrayList<String> whosGoing = (ArrayList<String>) doc.get("whosGoing");
+                        if (whosGoing.contains(userId)){
+                            Log.d("join_event","user already joined");
+                        }
+                        else{
+                            ref.update("whosGoing", FieldValue.arrayUnion(userId));
+                        }
+                    }
+                }
+            }
+        });
     }
 
     // add event to server, return 1 if successful
@@ -241,7 +240,7 @@ public class FirebaseDB implements Database {
     public ArrayList<Event> getUserRegisteredEvents(User user) {
         ArrayList<Event> events = new ArrayList<>();
 
-        String userId = getUserId(user);
+        String userId = user.username;
         Log.d("get user evenets id", userId);
         Task<QuerySnapshot> query = db.collection("events").whereArrayContains("whosGoing",userId).get();
 
