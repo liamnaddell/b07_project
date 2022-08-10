@@ -42,7 +42,7 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
         venue_loc.setText(venue.name);
         venue_des.setText(venue.venueDescription);
 
-        boolean is_admin = true;
+        boolean is_admin = false;
         delete = convertView.findViewById(R.id.Del);
         edit = (Button) convertView.findViewById(R.id.admin_edit_button);
         done = (Button) convertView.findViewById(R.id.admin_done_button);
