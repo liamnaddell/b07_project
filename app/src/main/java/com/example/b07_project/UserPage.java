@@ -33,6 +33,9 @@ public class UserPage extends Fragment {
         // user is not avaliable until that is implemented
         my_events = db.getUserScheduledEvents(temp);
 
+        for(Event e: db.getUserRegisteredEvents(temp)){
+            my_events.add(e);
+        }
 
         my_events_list = (ListView) view.findViewById(R.id.my_event_view);
         adapter = new EventAdapter(getActivity(), my_events);
