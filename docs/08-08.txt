@@ -12,3 +12,7 @@ liam:
     add_event done (stolen from Minh, sorry minh)
     add_venue done
     get_venue done
+matthew:
+	design overhaul app = rough draft 1
+	- created bottom navigation bar
+	- made pages uniform in format + style
