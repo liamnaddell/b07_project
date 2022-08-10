@@ -71,7 +71,7 @@ public class FirebaseDB implements Database {
         while (!b.isComplete()) {};
 
         if (b.isSuccessful()) {
-            System.out.println("done");
+            System.out.println("find_user-by_name");
             return b.getResult().toObjects(new User().getClass()).get(0);
         } else {
             System.out.println("BAD FIREBASE QUERY LMAOOAO");
@@ -146,7 +146,7 @@ public class FirebaseDB implements Database {
         while (!b.isComplete()) {};
 
         if (b.isSuccessful()) {
-            System.out.println("done");
+            System.out.println("get_venue");
             Venue v = (Venue) b.getResult().toObject(new Venue().getClass());
             v.venueid = b.getResult().getId();
             return v;

@@ -23,7 +23,6 @@ public class Venue implements Serializable {
         this.type=v;
         this.name=name;
         this.venueDescription=venue_description;
-        this.venueid = venueid;
     }
 
     int get_capacity() {
