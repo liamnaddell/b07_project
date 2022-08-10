@@ -16,11 +16,13 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Vector;
 
 public class FirebaseDB implements Database {
-    
+
     FirebaseFirestore db;
     FirebaseAuth mAuth;
     //FirebaseUser user;
@@ -92,7 +94,6 @@ public class FirebaseDB implements Database {
         return false;
     }
 
-    
     public String getUserId(User user){
         Task<QuerySnapshot> query = db.collection("users").whereEqualTo("username", user.username).get();
 
@@ -100,11 +101,13 @@ public class FirebaseDB implements Database {
 
         if (!query.isSuccessful()){
             Log.d("idiot", "failed search for id");
+            return null;
         }
-        Log.d("gj", "userId found");
-        String id;
+        Log.d("gj", "userId found  ");
+
         for (QueryDocumentSnapshot doc: query.getResult()){
-            return doc.getId();
+            Log.d("gj", "userId found  "+ doc.get("username"));
+            return doc.get("username").toString();
         }
         return null;
     }
@@ -160,33 +163,43 @@ public class FirebaseDB implements Database {
 
     @Override
     public void join_event(String eventid, User user) {
-        String userId;
-        Task<QuerySnapshot> query = db.collection("users").whereEqualTo("username", user.username).get();
-
-        while (!query.isComplete()){}
-
-        if (!query.isSuccessful()){
-            Log.d("idiot", "failed to join event");
-        }
-        userId = query.toString();
-        //Log.d("join_event", "userid = " + userId);
+        String userId = getUserId(user);
 
         DocumentReference ref = db.collection("events").document(eventid);
         ArrayList<String> participants = new ArrayList<>();
         //broken code here
-        DocumentSnapshot doc = ref.get().getResult();
-        if (doc.exists()){
-//            participants = (ArrayList<String>)doc.get("whosGoing");
-//            participants.add(userId);
-            ref.update("whosGoing", FieldValue.arrayUnion("userId"));
-            Log.d("join_event","joined");
-        }
-        else{
-            Log.d("idiot","joined");
-        }
-//        Map<String,Object> hashMap = new HashMap<>();
-//        hashMap.put("whosGoing",hashMap);
-//        db.collection("events").document(eventid).update(hashMap);
+
+        System.out.println("join_event userid:   " +userId);
+
+        while(ref == null){}
+
+        ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    DocumentSnapshot doc = task.getResult();
+                    if (doc != null){
+                        ArrayList<String> whosGoing = (ArrayList<String>) doc.get("whosGoing");
+                        if (whosGoing.contains(userId)){
+                            Log.d("join_event","user already joined");
+                        }
+                        else{
+                            ref.update("whosGoing", FieldValue.arrayUnion(userId));
+                        }
+                    }
+                }
+            }
+        });
+
+//        if (doc.exists()){
+////            participants = (ArrayList<String>)doc.get("whosGoing");
+////            participants.add(userId);
+//            ref.update("whosGoing", FieldValue.arrayUnion(userId));
+//            Log.d("join_event","joined");
+//        }
+//        else{
+//            Log.d("idiot","joined");
+//        }
     }
 
     // add event to server, return 1 if successful

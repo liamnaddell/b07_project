@@ -31,7 +31,8 @@
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/fragment_user_page.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/fragment_users_page.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/venue_list_layout.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_event_detail_page.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/activity_event_detail_page.xml" value="0.5704935709635417" />
+        <entry key="app/src/main/res/layout/activity_event_page.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_user.xml" value="0.2" />
