@@ -3,11 +3,14 @@ package com.example.b07_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.ScriptGroup;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -24,6 +27,7 @@ import java.util.List;
 public class EventPage extends Fragment {
 
     ListView eventView;
+    EditText editText;
     ArrayList<Event> events = new ArrayList<Event>();
     EventAdapter adapter;
 
@@ -48,8 +52,28 @@ public class EventPage extends Fragment {
 
         eventView.setAdapter(adapter);
 
+        editText = (EditText) view.findViewById(R.id.searchBar);
+
         // implement below for more clickable events
         eventView.setClickable(true);
+
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                (EventPage.this).adapter.getFilter().filter(charSequence);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         eventView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
