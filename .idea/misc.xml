@@ -5,9 +5,10 @@
       <map>
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_event_page.xml" value="0.291213768115942" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_user_page.xml" value="0.291213768115942" />
+        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_admin_add_venues.xml" value="0.22" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_change_pass.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_event_detail_page.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_event_page.xml" value="0.17083333333333334" />
+        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_event_page.xml" value="0.1" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_login_page.xml" value="0.1" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_sign_up_page.xml" value="0.16944444444444445" />
@@ -16,6 +17,7 @@
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_user_page_myevents.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_user_page_myvenues.xml" value="0.2915980230642504" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_users_page.xml" value="0.22" />
+        <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/activity_venue_schedule.xml" value="0.12222222222222222" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/event_list_layout.xml" value="0.17135416666666667" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/fragment_collection_object.xml" value="0.17447916666666666" />
         <entry key="..\:/Users/wymat/AndroidStudioProjects/b07_project/app/src/main/res/layout/fragment_user_page.xml" value="0.17552083333333332" />

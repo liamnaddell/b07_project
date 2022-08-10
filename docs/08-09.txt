@@ -1,3 +1,5 @@
+all:
+    Meeting: We merged firebase-firestore into master, Fixed a ton of related bugs
 Zusheng:
     implemented get userbyid and get userreg event
     fixed compatibility issue on user page
