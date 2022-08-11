@@ -65,9 +65,14 @@ public class EventDetailPage extends AppCompatActivity {
     public void register(View view) {
         User u = db.logged_in();
         System.out.println("Join eventing="+u.username);
-        db.join_event(this.currentEventId,u);
+        Event e = db.get_event(this.currentEventId);
+        if (e.maxPP == e.whosGoing.size()) {
+            Toast.makeText(EventDetailPage.this, "NOT Joined", Toast.LENGTH_SHORT).show();
+        } else {
+            db.join_event(this.currentEventId, u);
 
-        Toast.makeText(EventDetailPage.this, "Joined", Toast.LENGTH_SHORT).show();
-        onBackPressed();
+            Toast.makeText(EventDetailPage.this, "Joined", Toast.LENGTH_SHORT).show();
+            onBackPressed();
+        }
     }
 }
