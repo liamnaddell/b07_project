@@ -7,3 +7,6 @@ Matthew
 Zusheng
     implemented getUserRegisteredEvents in mockdb
     implemented joinEvents in mockdb
+Tharuth:
+    Merged 3 PRs
+

@@ -1,0 +1,14 @@
+08-02: 
+    We conducted a standup meeting with ALL group members,where we set up jira, what needed to get done, set our sprints up, and assigned tasks.
+
+08-06 Scrum 2:
+    Held a standup meeting + assigned sprint 2 jira tasks
+
+08-08 Scrum 3:
+    Showed a demonstration on the application to the TA, held a meeting on whether or not we needed to redo firebasedb + assign db tasks
+
+08-09 Scrum 4:
+    Held a standup meeting +  We merged firebase-firestore into master, Fixed a ton of related bugs
+
+08-10 Scrum 5:
+    Fixed final bugs, went over user stories, finalized project.

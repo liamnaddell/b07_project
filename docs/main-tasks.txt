@@ -1,0 +1,16 @@
+liam:
+    Managed database integration between MockDB, FirebaseDB, DatabaseInstance, and Database interface. Approved PRs
+Minh:
+    Design venue layout, using FireStore database into showing all available venues, design event registering page that allowing admin and user to register events in each venue. Make sure that only Admin has the right to delete venues and events held at that venue
+
+Matthew Wu:
+    conducted and oversaw most of the ui changes and userflow to whole app, profile, venue (scheduling and adding venues for admins), and events (joining events) pages; created "my events" and implemented functionality of the profile page
+
+Tharuth:
+    Created Road-Map for features and a tentative guideline to follow, implemented FirebaseAuth and the LogIn, SignUp and ForgotPassword pages; later reimplemented said pages to use Firestore with Auth (with help of Harry); also added the Search Filter for the EventPage (with help of Liam and Matthew). Added backgrounds and improved UI for certain pages such as anything involving Auth, and the three main navigation tabs (which were done by Matthew). Helped with User "Sign Out" implementation.
+
+Zusheng:
+    Design event layout, Implemented and managed data structures and methods in Firestone, created event-page, eventdetailpage, event adapter. Integrate Firebase Firestone into the app and make sure app is compatible with firebase
+
+Wooseuk:
+    Implemented Sign-up-page

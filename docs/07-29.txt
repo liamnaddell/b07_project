@@ -4,3 +4,5 @@ Zusheng:
     merged EventDetailPage into master
 Matthew
      no status updates from me
+Tharuth:
+    Implemented forgot password

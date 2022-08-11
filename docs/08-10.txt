@@ -1,0 +1,4 @@
+Tharuth:
+    Added backgrounds + search filter for events page
+    Merged Minh's PR
+    ui

@@ -5,3 +5,5 @@ matthew:
 Minh Tran
 	Working on finalizing the VenueSchedule layout
 	Fix bugs caused by the Venue delete button
+Tharuth:
+    Merged user-add-venues pr

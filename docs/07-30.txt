@@ -1,2 +1,4 @@
 Minh Tran
     Continue finishing venue layout and add more features to the layout
+Tharuth:
+    Implmented log-in, sign-up pages with firebase
